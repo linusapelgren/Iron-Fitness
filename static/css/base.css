@@ -1,0 +1,114 @@
+html{
+    height: 100%;
+}
+
+body{
+    font-family: 'Roboto', sans-serif; 
+    height: calc(100vh - 184px);
+    color: #333;
+    font-family: Roboto;
+}
+.logo{
+    width: 35%;
+    height: auto;
+}
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Modified to use viewport width */
+    height: 100%;
+    overflow: hidden; /* Hides any video overflow */
+    z-index: -1; /* Ensure it's behind other content */
+}
+
+.background-video video {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensures the video covers the entire container */
+}
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.choose-plan-button {
+    background: black;
+    color: white;
+    min-width: 260px;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 20px;
+}
+
+footer a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 184px;
+    }
+
+}
+@media (max-width: 428px){
+    .background-video{
+        display: none;
+    } 
+}
