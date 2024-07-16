@@ -22,12 +22,12 @@
                 <hr class="w-50 mb-1">
             </div>
         </div>
-        <div class="row">
-            <div class="product-container col-10 offset-1">
+        <div class="row justify-content-center">
+            <div class="product-container col-11">
                 <div class="row mt-1 mb-2"></div>
                 <div class="row">
                     {% for plan in plans %}
-                        <div class="col-sm-6 col-md-4 mb-4">
+                        <div class="col-lg-5 mb-4">
                             <div class="card h-100 border-0">
                                 <img class="card-img-top img-fluid" src="{{ plan.image.url }}" alt="{{ plan.name }}">
                                 <div class="card-body pb-0">
@@ -44,9 +44,6 @@
                                 </div>
                             </div>
                         </div>
-                        {% if forloop.counter|divisibleby:3 %}
-                            <div class="w-100"></div> <!-- Force next cards onto a new line after every 3 cards -->
-                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
