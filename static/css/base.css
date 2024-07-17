@@ -160,3 +160,14 @@ footer a {
 .container-fluid {
     padding: 0;
 }
+
+.zoom-effect {
+    overflow: hidden;
+    position: relative;
+}
+.zoom-effect img {
+    transition: transform 0.3s ease;
+}
+.zoom-effect:hover img {
+    transform: scale(1.1); /* Adjust the scale factor for zoom level */
+}
