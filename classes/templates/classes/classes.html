@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Book a class{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="col-md-6">
+    <h2 class="text-center">Book a class</h2>
+    <p class="text-center">Fill out the form below to book a class.</p>
+    <form action="reservation.php" method="post">
+      <div class="elem-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="visitor_name" placeholder="Your name" pattern="[A-Z\sa-z]{3,20}" required class="form-control" value="{{ user_name }}">
+      </div>
+      <div class="elem-group">
+        <label for="email">Your E-mail</label>
+        <input type="email" id="email" name="visitor_email" placeholder="example.email@email.com" required class="form-control" value="{{ user_email }}">
+      </div>
+      <div class="elem-group">
+        <label for="phone">Your Phone</label>
+        <input type="tel" id="phone" name="visitor_phone" placeholder="070-000 0000" pattern="(\d{3})-?\s?(\d{3})-?\s?(\d{4})" required class="form-control" value="{{ user_phone }}">
+      </div>
+      <hr>
+      <div class="elem-group">
+        <label for="fitness-class-selection" class="form-label">Select Fitness Class</label>
+        <select id="fitness-class-selection" name="fitness_class_preference" required class="form-select">
+          <option value="">Choose a class</option>
+          <option value="yoga">Yoga</option>
+          <option value="pilates">Pilates</option>
+          <option value="spinning">Spinning</option>
+          <option value="zumba">Zumba</option>
+          <option value="crossfit">CrossFit</option>
+          <option value="boxing">Boxing</option>
+          <option value="hiit">HIIT (High-Intensity Interval Training)</option>
+          <option value="strength_training">Strength Training</option>
+          <option value="dance">Dance</option>
+          <option value="circuit_training">Circuit Training</option>
+        </select>
+      </div>
+      <hr>
+      <button type="submit" class="btn btn-primary w-100">Book the class</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

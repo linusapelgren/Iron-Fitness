@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'home',
     'subscription',
     'shop',
+    'classes',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -100,14 +102,17 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = '36c60ee278c84c' 
 EMAIL_HOST_PASSWORD = '692b0256172975'
 
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_FORMS = {'signup': 'users.forms.CustomSignupForm'}
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_EMAIL_SUBJECT_PREFIX = '[Iron Fitness Gym]' 
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
