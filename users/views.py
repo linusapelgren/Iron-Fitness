@@ -36,18 +36,8 @@ def profile_edit(request):
     if request.method == 'POST':
         form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
         if form.is_valid():
-            # Debugging output
-            print("Form is valid")
-            # Check if file is uploaded
-            if 'picture' in request.FILES:
-                print("File uploaded:", request.FILES['picture'])
-            else:
-                print("No file uploaded")
             form.save()
             return redirect('profile_view')
-        else:
-            # Debugging output
-            print("Form errors:", form.errors)
     else:
         form = UserProfileForm(instance=user_profile)
 

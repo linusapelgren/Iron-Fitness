@@ -132,3 +132,4 @@ Happy coding!
 
 credits 
 https://www.pexels.com/sv-se/ stock videos
+<a href="https://www.flaticon.com/free-icons/edit" title="edit icons">Edit icons created by Kiranshastry - Flaticon</a>

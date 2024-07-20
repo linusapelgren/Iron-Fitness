@@ -38,15 +38,14 @@
                             <p><strong>Name:</strong> {{ user_profile.user.first_name }} {{ user_profile.user.last_name }}</p>
                             <p><strong>Email:</strong> {{ user_profile.user.email }}</p>
                             <p><strong>Phone:</strong> {{ user_profile.phone_number }}</p>
-                            <p><strong>Address:</strong> {{ user_profile.address }}</p>
+                            <p><strong>Address:</strong> {{ user_profile.street_address }} {{ user_profile.postal_code }}, {{ user_profile.city }}, {{ user_profile.country }}</p>
                         </div>
                         <div class="membership mb-4 p-3 border rounded">
                             <h3 class="mb-3">Membership</h3>
                             <p>Membership details will be displayed here.</p>
                         </div>
                         <div class="gym-stats mb-4 p-3 border rounded">
-                            <h3 class="mb-3">Gym Statistics</h3>
-                            <!-- Add gym stats content here -->
+                            <h3 class="mb3">Gym Statistics</h3>
                             <p>Stats will be displayed here.</p>
                         </div>
                     </div>

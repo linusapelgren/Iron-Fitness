@@ -230,3 +230,23 @@ footer a {
 .profile-picture input[type="file"] {
     display: none;
 }
+.profile-picture-container {
+    position: relative;
+    display: inline-block;
+}
+
+.edit-icon-overlay {
+    position: absolute;
+    bottom: 40px;  /* Adjust as needed */
+    right: 40px;  /* Adjust as needed */
+    background: rgba(255, 255, 255, 0.7);  /* Light background for better visibility */
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.edit-icon {
+    width: 20px;  /* Adjust size as needed */
+    height: 20px;  /* Adjust size as needed */
+}
+
+

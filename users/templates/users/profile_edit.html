@@ -23,55 +23,63 @@
                     </div>
                 </div>
                 <div class="row">
-                    <!-- Form Container with two columns -->
-                    <div class="col-md-12">
+                    <!-- Ensure this column matches the structure in the Profile page -->
+                    <div class="col-md-4 text-center">
+                        <div class="profile-picture mb-4">
+                            <!-- Hidden file input for picture upload -->
+                            <input id="file" type="file" name="picture" onchange="loadFile(event)" />
+                            <!-- Label as clickable profile picture area -->
+                            <label for="file" class="profile-picture-label">
+                                <div class="profile-picture-container">
+                                    {% if user_profile.picture %}
+                                        <img id="output" src="{{ user_profile.picture.url }}" alt="Profile Picture" class="img-fluid profile-picture" />
+                                    {% else %}
+                                        <img id="output" src="{% static 'profile_pics/blank_profile.png' %}" alt="Profile Picture" class="img-fluid profile-picture" />
+                                    {% endif %}
+                                    <div class="overlay">
+                                        <div class="text">Change Profile Picture</div>
+                                    </div>
+                                    <div class="edit-icon-overlay">
+                                        <img src="{% static 'icons/edit.png' %}" alt="Edit Icon" class="img-fluid edit-icon">
+                                    </div>
+                                </div>
+                            </label>
+                            <div class="profile-actions">
+                                <!-- Buttons container to match the Profile page -->
+                                <button type="submit" class="btn btn-primary btn-block mb-2">Save Changes</button>
+                                <a href="{% url 'profile_view' %}" class="btn btn-secondary btn-block">Back to Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
                         <form method="post" enctype="multipart/form-data">
                             {% csrf_token %}
-                            <div class="row">
-                                <!-- Profile Picture Column -->
-                                <div class="col-md-4 text-center">
-                                    <div class="profile-picture">
-                                        <!-- Hidden file input for picture upload -->
-                                        <input id="file" type="file" name="picture" onchange="loadFile(event)" />
-                                        <!-- Label as clickable profile picture area -->
-                                        <label for="file" class="profile-picture-label">
-                                            <div class="profile-picture-container">
-                                                {% if user_profile.picture %}
-                                                    <img id="output" src="{{ user_profile.picture.url }}" alt="Profile Picture" class="img-fluid profile-picture" />
-                                                {% else %}
-                                                    <img id="output" src="{% static 'profile_pics/blank_profile.png' %}" alt="Profile Picture" class="img-fluid profile-picture" />
-                                                {% endif %}
-                                                <div class="overlay">
-                                                    <div class="text">Change Profile Picture</div>
-                                                </div>
-                                            </div>
-                                        </label>
-                                    </div>
+                            <div class="contact-info mb-4 p-3 border rounded">
+                                <h3 class="mb-3">Contact Information</h3>
+                                <p><strong>Name:</strong> {{ user_profile.user.first_name }} {{ user_profile.user.last_name }}</p>
+                                <p><strong>Email:</strong> {{ user_profile.user.email }}</p>
+                                <div class="mb-3">
+                                    <label for="phone_number" class="form-label">Phone Number</label>
+                                    {{ form.phone_number }}
                                 </div>
-                                <!-- Form Fields Column -->
-                                <div class="col-md-8">
-                                    <div class="contact-info mb-4 p-3 border rounded">
-                                        <h3 class="mb-3">Contact Information</h3>
-                                        <p><strong>Name:</strong> {{ user_profile.user.first_name }} {{ user_profile.user.last_name }}</p>
-                                        <p><strong>Email:</strong> {{ user_profile.user.email }}</p>
-                                        <div class="mb-3">
-                                            <label for="phone_number" class="form-label">Phone Number</label>
-                                            {{ form.phone_number }}
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="address" class="form-label">Address</label>
-                                            {{ form.address }}
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                <div class="mb-3">
+                                    <label for="street_address" class="form-label">Street Address</label>
+                                    {{ form.street_address }}
+                                </div>
+                                <div class="mb-3">
+                                    <label for="city" class="form-label">City</label>
+                                    {{ form.city }}
+                                </div>
+                                <div class="mb-3">
+                                    <label for="postal_code" class="form-label">Postal Code</label>
+                                    {{ form.postal_code }}
+                                </div>
+                                <div class="mb-3">
+                                    <label for="country" class="form-label">Country</label>
+                                    {{ form.country }}
                                 </div>
                             </div>
-                        </form>                        
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col">
-                        <a href="{% url 'profile_view' %}" class="btn btn-secondary">Back to Profile</a>
+                        </form>
                     </div>
                 </div>
             </div>
