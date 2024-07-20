@@ -70,7 +70,7 @@
                         {% if request.user.is_superuser %}
                             <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                         {% endif %}
-                        
+                        <a href="{% url 'profile_view' %}" class="dropdown-item">Profile</a>
                         <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                     {% else %}
                         <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -109,20 +109,27 @@
 
     {% block content %}
     {% endblock %}
-    <footer class="footer bg-white">
-      <ul> 
-        <li>
-          <i class="fa-brands fa-instagram"></i>
-          <a href="www.instagram.com" target="_blank">Follow Us On Instagram!</a>
-        </li>
-        <li>
-          <i class="fa-brands fa-facebook"></i>
-          <a href="www.facebook.com" target="_blank">Follow Us On Facebook!</a>
-        </li>
-      </ul>
+
+    {% block footer %}
+    <footer class="footer bg-white py-3">
+        <div class="container text-center">
+            <ul class="list-unstyled mb-0">
+                <li>
+                    <i class="fa-brands fa-instagram"></i>
+                    <a href="https://www.instagram.com" target="_blank">Follow Us On Instagram!</a>
+                </li>
+                <li>
+                    <i class="fa-brands fa-facebook"></i>
+                    <a href="https://www.facebook.com" target="_blank">Follow Us On Facebook!</a>
+                </li>
+            </ul>
+        </div>
     </footer>
+    {% endblock %}
     {% block postloadjs %}
       <script src="{% static 'js/script.js' %}"></script>
+    {% endblock %}
+    {% block scripts %}
     {% endblock %}
   </body>
 </html>

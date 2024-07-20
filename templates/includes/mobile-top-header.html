@@ -32,11 +32,11 @@
             {% if request.user.is_superuser %}
                 <a href="{% url 'account_logout' %}" class="dropdown-item">Product Management</a>
             {% endif %}
-            
+            <a href="{% url 'profile_view' %}" class="dropdown-item">Profile</a>
             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
         {% else %}
-            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
             <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+            <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
         {% endif %}
     </div>
 </li>

@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
-{% endblock %}
+{% block title %}Profile{% endblock %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -14,13 +12,51 @@
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4">My Profile</h2>
-                <hr>
+<div class="d-flex flex-column min-vh-100">
+    <div class="flex-grow-1">
+        <div class="container-fluid">
+            <div class="container mt-5">
+                <div class="row mb-4">
+                    <div class="col text-center">
+                        <h2 class="display-4 logo-font">My Profile</h2>
+                        <hr class="my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <div class="profile-picture-finished mb-4">
+                            <img src="{{ user_profile.picture.url }}" alt="Profile Picture" class="img-fluid profile-picture">
+                        </div>
+                        <div class="profile-actions">
+                            <a href="{% url 'profile_edit' %}" class="btn btn-primary btn-block mb-2">Edit Profile</a>
+                            <a href="{% url 'account_change_password' %}" class="btn btn-secondary btn-block">Change Password</a>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="contact-info mb-4 p-3 border rounded">
+                            <h3 class="mb-3">Contact Information</h3>
+                            <p><strong>Name:</strong> {{ user_profile.user.first_name }} {{ user_profile.user.last_name }}</p>
+                            <p><strong>Email:</strong> {{ user_profile.user.email }}</p>
+                            <p><strong>Phone:</strong> {{ user_profile.phone_number }}</p>
+                            <p><strong>Address:</strong> {{ user_profile.address }}</p>
+                        </div>
+                        <div class="membership mb-4 p-3 border rounded">
+                            <h3 class="mb-3">Membership</h3>
+                            <p>Membership details will be displayed here.</p>
+                        </div>
+                        <div class="gym-stats mb-4 p-3 border rounded">
+                            <h3 class="mb-3">Gym Statistics</h3>
+                            <!-- Add gym stats content here -->
+                            <p>Stats will be displayed here.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <!-- Include any JavaScript specific to profile.html if needed -->
 {% endblock %}
