@@ -6,7 +6,9 @@
             "name": "Monthly Subscription",
             "price": "50.00",
             "description": "Pay each month.",
-            "image": "plans/monthly.png"
+            "image": "plans/monthly.png",
+            "duration": "Monthly",
+            "benefit": "Regular"
         }
     },
     {
@@ -14,9 +16,11 @@
         "pk": 2,
         "fields": {
             "name": "Monthly Subscription 12 months",
-            "price": "40.00",
+            "price": "35.00",
             "description": "Pay each month 12 month binding time.",
-            "image": "plans/monthly12.png"
+            "image": "plans/monthly12.png",
+            "duration": "Yearly",
+            "benefit": "Regular"
         }
     },
     {
@@ -26,7 +30,9 @@
             "name": "Annual Subscription",
             "price": "500.00",
             "description": "Each month with a binding time of a year.",
-            "image": "plans/annual.png"
+            "image": "plans/annual.png",
+            "duration": "Yearly",
+            "benefit": "Regular"
         }
     },
     {
@@ -34,9 +40,11 @@
         "pk": 4,
         "fields": {
             "name": "Senior Plan",
-            "price": "40.00",
+            "price": "35.00",
             "description": "Senior plan.",
-            "image": "plans/senior.png"
+            "image": "plans/senior.png",
+            "duration": "Monthly",
+            "benefit": "Senior"
         }
     },
     {
@@ -44,9 +52,11 @@
         "pk": 5,
         "fields": {
             "name": "Senior Plan 12 months",
-            "price": "30.00",
+            "price": "25.00",
             "description": "Senior plan 12 months binding time.",
-            "image": "plans/senior12.png"
+            "image": "plans/senior12.png",
+            "duration": "Yearly",
+            "benefit": "Senior"
         }
     },
     {
@@ -54,9 +64,11 @@
         "pk": 6,
         "fields": {
             "name": "Annual Senior Plan",
-            "price": "30.00",
+            "price": "350.00",
             "description": "Annual senior plan.",
-            "image": "plans/annualsenior.png"
+            "image": "plans/annualsenior.png",
+            "duration": "Yearly",
+            "benefit": "Senior"
         }
     },
     {
@@ -64,9 +76,11 @@
         "pk": 7,
         "fields": {
             "name": "10 Session Pass",
-            "price": "200.00",
+            "price": "100.00",
             "description": "Card that you can use 10 times.",
-            "image": "plans/10visit.png"
+            "image": "plans/10visit.png",
+            "duration": "One-time",
+            "benefit": "10-times card"
         }
     },
     {
@@ -74,9 +88,11 @@
         "pk": 8,
         "fields": {
             "name": "1 Session Pass",
-            "price": "25.00",
+            "price": "20.00",
             "description": "Card that you can use 1 time.",
-            "image": "plans/1visit.png"
+            "image": "plans/1visit.png",
+            "duration": "One-time",
+            "benefit": "1-time card"
         }
     }
 ]

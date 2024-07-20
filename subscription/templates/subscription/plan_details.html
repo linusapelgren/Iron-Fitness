@@ -31,7 +31,8 @@
                         <!-- Payment button -->
                         <div class="row mt-4">
                             <div class="col text-left">
-                                <a href="{% url 'create_checkout_session' %}" class="btn btn-primary">Subscribe Now</a>
+                                <!-- Update href to include plan_id -->
+                                <a href="{% url 'checkout' plan_id=plan.id %}" class="btn btn-primary">Subscribe Now</a>
                                 <a href="{% url 'plans' %}" class="btn btn-secondary">Back to Plans</a>
                             </div>
                         </div>
@@ -41,35 +42,7 @@
         </div>
     </section>
 </div>
-
 {% endblock %}
 
 {% block scripts %}
-<script src="https://cdn.jsdelivr.net/npm/@stripe/stripe-js"></script>
-<script>
-    var stripe = Stripe('pk_test_51PehLIRvzCaZ4Xmpa3fAje2VRg7BUCSTIi1eXeCjW6BKOtupBc7NRanFDF8E4IH145jRufJGJgBHnvSPA3tnJeBV00AcetY068'); // Your public key
-
-    document.getElementById('checkout-button').addEventListener('click', function () {
-        fetch('{% url "create_checkout_session" %}', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (sessionId) {
-            return stripe.redirectToCheckout({ sessionId: sessionId.id });
-        })
-        .then(function (result) {
-            if (result.error) {
-                alert(result.error.message);
-            }
-        })
-        .catch(function (error) {
-            console.error('Error:', error);
-        });
-    });
-</script>
 {% endblock %}

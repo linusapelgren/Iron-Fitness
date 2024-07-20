@@ -237,8 +237,8 @@ footer a {
 
 .edit-icon-overlay {
     position: absolute;
-    bottom: 10px;  /* Adjust as needed */
-    right: 10px;  /* Adjust as needed */
+    bottom: 40px;  /* Adjust as needed */
+    right: 40px;  /* Adjust as needed */
     background: rgba(255, 255, 255, 0.7);  /* Light background for better visibility */
     border-radius: 50%;
     padding: 5px;
