@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'shop',
     'classes',
     'users',
+    'checkout',
 ]
 
 MIDDLEWARE = [
@@ -172,3 +173,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+STRIPE_TEST_PUBLIC_KEY = os.getenv('STRIPE_TEST_PUBLIC_KEY', 'pk_test_51PehLIRvzCaZ4Xmpa3fAje2VRg7BUCSTIi1eXeCjW6BKOtupBc7NRanFDF8E4IH145jRufJGJgBHnvSPA3tnJeBV00AcetY068')
+STRIPE_TEST_SECRET_KEY = os.getenv('STRIPE_TEST_SECRET_KEY', 'sk_test_51PehLIRvzCaZ4XmpH3q3p9sbzCEWmJ77aqM8TRMe4dRzABO6QLTgPCIHKhTt83O1P3QQ1eJhTAZLmhNE5jYtByU700DmIAvoHN')
+
+

@@ -1,5 +1,3 @@
-<!-- plans.html -->
-
 {% extends "base.html" %}
 {% load static %}
 
@@ -30,21 +28,23 @@
                 <div class="row">
                     {% for plan in plans %}
                         <div class="col-sm-6 col-md-4 mb-4">
-                            <div class="card h-100 border-0">
-                                <img class="card-img-top img-fluid" src="{{ plan.image.url }}" alt="{{ plan.name }}">
-                                <div class="card-body pb-0">
-                                    <h5 class="card-title">{{ plan.name }}</h5>
-                                    <p class="card-text">{{ plan.description }}</p>
-                                </div>
-                                <div class="card-footer bg-white pt-0 border-0 text-left">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="lead mb-0 font-weight-bold">${{ plan.price }}</p>
-                                            <!-- Add payment button or link here -->
+                            <!-- Wrap each card in an anchor tag -->
+                            <a href="{% url 'plan_details' plan.id %}" class="text-decoration-none text-black">
+                                <div class="card h-100 border-0">
+                                    <img class="card-img-top img-fluid" src="{{ plan.image.url }}" alt="{{ plan.name }}">
+                                    <div class="card-body pb-0">
+                                        <h5 class="card-title">{{ plan.name }}</h5>
+                                        <p class="card-text">{{ plan.description }}</p>
+                                    </div>
+                                    <div class="card-footer bg-white pt-0 border-0 text-left">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="lead mb-0 font-weight-bold">${{ plan.price }}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         {% if forloop.counter|divisibleby:3 %}
                             <div class="w-100"></div> <!-- Force next cards onto a new line after every 3 cards -->
