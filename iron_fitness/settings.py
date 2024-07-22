@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'classes',
     'users',
     'checkout',
+    'contact',
 ]
 
 MIDDLEWARE = [

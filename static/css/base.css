@@ -7,7 +7,7 @@ body{
     height: calc(100vh - 184px);
     color: #333;
     font-family: Roboto;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 .logo{
