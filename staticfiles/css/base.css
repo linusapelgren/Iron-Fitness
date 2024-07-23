@@ -7,7 +7,7 @@ body{
     height: calc(100vh - 184px);
     color: #333;
     font-family: Roboto;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 .logo{
@@ -248,3 +248,34 @@ footer a {
     width: 20px;  /* Adjust size as needed */
     height: 20px;  /* Adjust size as needed */
 }
+
+#carousel-container {
+    overflow: hidden; /* Hide any content that overflows the container */
+    z-index: 1000;
+    width: 100%;
+    height: 46vmin; /* Adjust height to match the image aspect ratio */
+    position: relative; /* Ensure the track is positioned relative to this container */
+}
+
+#image-track {
+    display: flex;
+    gap: 2vmin; /* Space between images */
+    position: absolute;
+    top: 0; /* Align track to the top of the container */
+    left: 0; /* Align track to the left edge of the container */
+    height: 100%; /* Full height of the container */
+    user-select: none; /* Prevent image highlighting */
+    will-change: transform; /* Optimize performance */
+    width: 1995px;
+}
+
+#image-track > .carousel-image {
+    width: 30vmin; /* Adjust width as needed */
+    height: 100%; /* Make sure images fit the height of the track */
+    object-fit: cover;
+    object-position: center; /* Center images within their containers */
+}
+
+
+
+

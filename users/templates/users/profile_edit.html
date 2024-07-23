@@ -23,38 +23,40 @@
                     </div>
                 </div>
                 <div class="row">
-                    <!-- Ensure this column matches the structure in the Profile page -->
-                    <div class="col-md-4 text-center">
-                        <div class="profile-picture mb-4">
-                            <!-- Hidden file input for picture upload -->
-                            <input id="file" type="file" name="picture" onchange="loadFile(event)" />
-                            <!-- Label as clickable profile picture area -->
-                            <label for="file" class="profile-picture-label">
-                                <div class="profile-picture-container">
-                                    {% if user_profile.picture %}
-                                        <img id="output" src="{{ user_profile.picture.url }}" alt="Profile Picture" class="img-fluid profile-picture" />
-                                    {% else %}
-                                        <img id="output" src="{% static 'profile_pics/blank_profile.png' %}" alt="Profile Picture" class="img-fluid profile-picture" />
-                                    {% endif %}
-                                    <div class="overlay">
-                                        <div class="text">Change Profile Picture</div>
-                                    </div>
-                                    <div class="edit-icon-overlay">
-                                        <img src="{% static 'icons/edit.png' %}" alt="Edit Icon" class="img-fluid edit-icon">
-                                    </div>
-                                </div>
-                            </label>
-                            <div class="profile-actions">
-                                <!-- Buttons container to match the Profile page -->
-                                <button type="submit" class="btn btn-primary btn-block mb-2">Save Changes</button>
-                                <a href="{% url 'profile_view' %}" class="btn btn-secondary btn-block">Back to Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <form method="post" enctype="multipart/form-data">
+                    <!-- Form Section -->
+                    <div class="col- form-container">
+                        <form method="post" enctype="multipart/form-data" style="display: flex; flex-direction: row;" class="editform">
                             {% csrf_token %}
-                            <div class="contact-info mb-4 p-3 border rounded">
+                            <!-- Profile Picture Section -->
+                            <div class="col-md-4 text-center edit">
+                                <div class="profile-picture mb-4">
+                                    <!-- Hidden file input for picture upload -->
+                                    <input id="file" type="file" name="picture" onchange="loadFile(event)" />
+                                    <!-- Label as clickable profile picture area -->
+                                    <label for="file" class="profile-picture-label">
+                                        <div class="profile-picture-container">
+                                            {% if user_profile.picture %}
+                                                <img id="output" src="{{ user_profile.picture.url }}" alt="Profile Picture" class="img-fluid profile-picture" />
+                                            {% else %}
+                                                <img id="output" src="{% static 'profile_pics/blank_profile.png' %}" alt="Profile Picture" class="img-fluid profile-picture" />
+                                            {% endif %}
+                                            <div class="overlay">
+                                                <div class="text">Change Profile Picture</div>
+                                            </div>
+                                            <div class="edit-icon-overlay">
+                                                <img src="{% static 'icons/edit.png' %}" alt="Edit Icon" class="img-fluid edit-icon">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <!-- Buttons container inside the form -->
+                                <div class="profile-actions">
+                                    <button type="submit" class="btn btn-primary btn-block mb-2">Save Changes</button>
+                                    <a href="{% url 'profile_view' %}" class="btn btn-secondary btn-block">Back to Profile</a>
+                                </div>
+                            </div>
+                            <!-- Contact Information Section -->
+                            <div class="contact-info contact-edit mb-4 p-3 border rounded">
                                 <h3 class="mb-3">Contact Information</h3>
                                 <p><strong>Name:</strong> {{ user_profile.user.first_name }} {{ user_profile.user.last_name }}</p>
                                 <p><strong>Email:</strong> {{ user_profile.user.email }}</p>

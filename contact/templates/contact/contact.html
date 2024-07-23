@@ -22,7 +22,8 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <h1 class="text-center mb-4" style="margin-top: 25px;">Contact Us</h1>
-            <span class="black-line" style="display: block; width: 100%; height: 2px; background-color: black; margin-bottom: 25px;"></span>
+            <span class="divider-line" style="display: block; width: 100%; height: 2px; background-color: black; margin-bottom: 25px;"></span>
+            
             <!-- Contact Form Section -->
             <div class="row">
                 <!-- Contact Form for Phone -->
@@ -57,25 +58,88 @@
                 </div>
             </div>
             
-        <span class="black-line" style="display: block; width: 100%; height: 2px; background-color: black; margin-bottom: 25px;"></span>
-        <h1 class="text-center mb-4">Find Us</h1>
-        <span class="black-line" style="display: block; width: 100%; height: 2px; background-color: black; margin-bottom: 25px;"></span>
-
+            <span class="divider-line" style="display: block; width: 100%; height: 2px; background-color: black; margin-bottom: 25px;"></span>
+            <h1 class="text-center mb-4">Find Us</h1>
+            <span class="divider-line" style="display: block; width: 100%; height: 2px; background-color: black; margin-bottom: 25px;"></span>
 
             <!-- Google Maps Section -->
-            <div class="google-maps mb-5">
-                <h2 style="text-decoration: underline; padding-bottom: 10px;">Find Us</h2>
+            <div class="google-maps mb-5" style="display: flex; align-items: center; flex-direction: column;">
+                <h3 class="text-center logo-font">Iron Fortress Karlskoga</h3>
                 <div class="map-responsive">
-                    <iframe style="border: 2px black solid ;"
+                    <iframe style="border: 2px black solid;"
                         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAiewWiDi3cGwZLQ-ywKfOqvUm3iBzWEqU&q=hallänningsgatan 5a, 691 35 Karlskoga"
-                        width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        width="800" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 </div>
-            </div>            
+            </div>
+            
+            <span class="divider-line" style="display: block; width: 100%; height: 2px; background-color: black; margin-bottom: 25px;"></span>
+            <h1 class="text-center mb-4">Our Gym</h1>
+            <span class="divider-line" style="display: block; width: 100%; height: 2px; background-color: black; margin-bottom: 25px;"></span>
+
+            <!-- Image Track Section -->
+            <div id="carousel-container">
+                <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+                    <img class="carousel-image" src="{% static 'gympics/1.jpg' %}" draggable="false" />
+                    <img class="carousel-image" src="{% static 'gympics/2.jpg' %}" draggable="false" />
+                    <img class="carousel-image" src="{% static 'gympics/3.jpg' %}" draggable="false" />
+                    <img class="carousel-image" src="{% static 'gympics/4.jpg' %}" draggable="false" />
+                    <img class="carousel-image" src="{% static 'gympics/5.jpg' %}" draggable="false" />
+                    <img class="carousel-image" src="{% static 'gympics/6.jpg' %}" draggable="false" />
+                    <img class="carousel-image" src="{% static 'gympics/7.jpg' %}" draggable="false" />
+                    <img class="carousel-image" src="{% static 'gympics/8.jpg' %}" draggable="false" />
+                </div>
+            </div>           
         </div>
     </div>
 </div>
 {% endblock %}
 
 {% block scripts %}
-<!-- No need for the Google Maps API Script here -->
+<script>
+const carouselTrack = document.getElementById("image-track");
+
+let isDragging = false;
+
+const handleOnDown = e => {
+  isDragging = true;
+  carouselTrack.dataset.mouseDownAt = e.clientX;
+};
+
+const handleOnUp = () => {
+  isDragging = false;
+  carouselTrack.dataset.prevPercentage = carouselTrack.dataset.percentage;
+};
+
+const handleOnMove = e => {
+  if (!isDragging) return;
+
+  // Calculate horizontal movement
+  const mouseDelta = parseFloat(carouselTrack.dataset.mouseDownAt) - e.clientX;
+  const maxDelta = window.innerWidth / 2;
+
+  // Calculate percentage of movement
+  const percentage = (mouseDelta / maxDelta) * -100;
+  const nextPercentageUnconstrained = parseFloat(carouselTrack.dataset.prevPercentage) + percentage;
+  const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+
+  // Set the percentage to the data attribute
+  carouselTrack.dataset.percentage = nextPercentage;
+
+  // Apply transformation only in horizontal direction
+  requestAnimationFrame(() => {
+    carouselTrack.style.transform = `translateX(${nextPercentage}%)`;
+  });
+};
+
+// Mouse and touch event bindings
+window.onmousedown = e => handleOnDown(e);
+window.ontouchstart = e => handleOnDown(e.touches[0]);
+
+window.onmouseup = e => handleOnUp(e);
+window.ontouchend = e => handleOnUp(e.touches[0]);
+
+window.onmousemove = e => handleOnMove(e);
+window.ontouchmove = e => handleOnMove(e.touches[0]);
+
+</script>
 {% endblock %}

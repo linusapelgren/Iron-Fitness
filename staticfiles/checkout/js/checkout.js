@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var cardElement = elements.create('card');
     cardElement.mount('#card-element');
 
-    var planId = "{{ plan_id }}"; // This is used in the background, not displayed
+    var planId = "{{ plan_id }}"; // This should be rendered correctly in the template
+
+    console.log('Plan ID:', planId); // Debugging line
 
     // Fetch order information
     fetch(`/checkout/order/${planId}/overview/`)
