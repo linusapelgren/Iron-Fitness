@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'subscription',
-    'shop',
     'classes',
     'users',
     'checkout',
@@ -182,4 +181,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STRIPE_TEST_PUBLIC_KEY = os.getenv('STRIPE_TEST_PUBLIC_KEY', 'pk_test_51PehLIRvzCaZ4Xmpa3fAje2VRg7BUCSTIi1eXeCjW6BKOtupBc7NRanFDF8E4IH145jRufJGJgBHnvSPA3tnJeBV00AcetY068')
 STRIPE_TEST_SECRET_KEY = os.getenv('STRIPE_TEST_SECRET_KEY', 'sk_test_51PehLIRvzCaZ4XmpH3q3p9sbzCEWmJ77aqM8TRMe4dRzABO6QLTgPCIHKhTt83O1P3QQ1eJhTAZLmhNE5jYtByU700DmIAvoHN')
 
+
+ACCOUNT_FORMS = {
+    'signup': 'users.forms.CustomSignupForm',
+}
 

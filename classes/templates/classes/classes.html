@@ -3,50 +3,71 @@
 
 {% block title %}Book a class{% endblock %}
 
-{% block page_header %}
-{% endblock %}
+{% block page_header %}{% endblock %}
 
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
   <div class="col-md-6">
     <h2 class="text-center">Book a class</h2>
     <p class="text-center">Fill out the form below to book a class.</p>
-    <form action="reservation.php" method="post">
+
+    <form method="post" action="{% url 'book_class' %}" id="booking-form">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
       <div class="elem-group">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="visitor_name" placeholder="Your name" pattern="[A-Z\sa-z]{3,20}" required class="form-control" value="{{ user_name }}">
+        <label for="id_visitor_name" class="form-label">Name</label>
+        {{ form.visitor_name }}
       </div>
       <div class="elem-group">
-        <label for="email">Your E-mail</label>
-        <input type="email" id="email" name="visitor_email" placeholder="example.email@email.com" required class="form-control" value="{{ user_email }}">
+        <label for="id_visitor_email" class="form-label">Email</label>
+        {{ form.visitor_email }}
       </div>
       <div class="elem-group">
-        <label for="phone">Your Phone</label>
-        <input type="tel" id="phone" name="visitor_phone" placeholder="070-000 0000" pattern="(\d{3})-?\s?(\d{3})-?\s?(\d{4})" required class="form-control" value="{{ user_phone }}">
+        <label for="id_visitor_phone" class="form-label">Phone Number</label>
+        {{ form.visitor_phone }}
       </div>
-      <hr>
+
       <div class="elem-group">
-        <label for="fitness-class-selection" class="form-label">Select Fitness Class</label>
-        <select id="fitness-class-selection" name="fitness_class_preference" required class="form-select">
-          <option value="">Choose a class</option>
-          <option value="yoga">Yoga</option>
-          <option value="pilates">Pilates</option>
-          <option value="spinning">Spinning</option>
-          <option value="zumba">Zumba</option>
-          <option value="crossfit">CrossFit</option>
-          <option value="boxing">Boxing</option>
-          <option value="hiit">HIIT (High-Intensity Interval Training)</option>
-          <option value="strength_training">Strength Training</option>
-          <option value="dance">Dance</option>
-          <option value="circuit_training">Circuit Training</option>
-        </select>
+        <label for="id_fitness_class" class="form-label">Select Fitness Class</label>
+        {{ form.fitness_class }}
       </div>
-      <hr>
-      <button type="submit" class="btn btn-primary w-100">Book the class</button>
+      <div class="elem-group">
+        <label for="id_class_day" class="form-label">Select Day</label>
+        {{ form.class_day }}
+      </div>
+
+      <button type="submit" name="search_times" class="btn btn-primary w-100">Search for Time</button>
     </form>
+
+    {% if times %}
+      <div id="available-times" style="margin-top: 20px;">
+        <form method="post" action="{% url 'successful_booking' %}">
+          {% csrf_token %}
+          <input type="hidden" name="fitness_class" value="{{ selected_class }}">
+          <input type="hidden" name="class_day" value="{{ selected_day }}">
+
+          <div class="elem-group">
+            <label for="id_class_time" class="form-label">Select Time</label>
+            <select name="class_time" id="id_class_time" class="form-select">
+              <option value="">Select a time</option>
+              {% for time in times %}
+                <option value="{{ time.time_range }}">{{ time }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <hr>
+          <button type="submit" name="book_now" class="btn btn-primary w-100">Book Now</button>
+        </form>
+      </div>
+    {% else %}
+      {% if selected_class and selected_day %}
+        <div class="alert alert-info" role="alert" style="margin-top: 20px;">
+          No available times for {{ selected_class }} on {{ selected_day }}.
+        </div>
+      {% endif %}
+    {% endif %}
   </div>
 </div>
-{% endblock %}
-
-{% block scripts %}
 {% endblock %}
