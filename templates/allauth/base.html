@@ -64,7 +64,7 @@
                 <div class="dropdown-menu border-0" aria-labelledby="user-options">
                     {% if request.user.is_authenticated %}
                         <a href="{% url 'profile_view' %}" class="dropdown-item">Profile</a>
-                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        <a href="#" onclick="logoutUser(event)" class="dropdown-item">Logout</a>
                     {% else %}
                         <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                         <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
@@ -84,17 +84,17 @@
     </div>  
     </header>
 
-    {% if messages %}
-        <div class="message-container"></div>
-    {% endif %}
+{% if messages %}
+    <div class="message-container"></div>
+{% endif %}
 
-    {% block page_header %}
-    {% endblock %}
+{% block page_header %}
+{% endblock %}
 
-    {% block content %}
-    {% endblock %}
+{% block content %}
+{% endblock %}
 
-    {% block footer %}
+{% block footer %}
     <footer class="footer bg-white py-3">
         <div class="container text-center">
             <ul class="list-unstyled mb-0">
@@ -109,11 +109,36 @@
             </ul>
         </div>
     </footer>
-    {% endblock %}
-    {% block postloadjs %}
+{% endblock %}
+{% block postloadjs %}
       <script src="{% static 'js/script.js' %}"></script>
-    {% endblock %}
-    {% block scripts %}
-    {% endblock %}
+      <script>
+          function logoutUser(event) {
+              event.preventDefault();
+              const csrfToken = '{{ csrf_token }}'; // Ensure you have the CSRF token available
+
+              fetch("{% url 'account_logout' %}", {
+                  method: "POST",
+                  headers: {
+                      "Content-Type": "application/json",
+                      "X-CSRFToken": csrfToken // Include CSRF token in the request headers
+                  },
+                  body: JSON.stringify({}),
+              })
+              .then(response => {
+                  if (response.ok) {
+                      window.location.href = "{% url 'home' %}"; // Redirect to home or any other page after logout
+                  } else {
+                      console.error("Logout failed");
+                  }
+              })
+              .catch(error => {
+                  console.error("Error:", error);
+              });
+          }
+      </script>
+{% endblock %}
+{% block scripts %}
+{% endblock %}
   </body>
 </html>

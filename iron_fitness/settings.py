@@ -14,6 +14,7 @@ from pathlib import Path
 import django
 import os
 import django.core.mail
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -96,12 +97,11 @@ SITE_ID = 1
 
 WSGI_APPLICATION = 'iron_fitness.wsgi.application'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST = 'sandbox.smtp.mailtrap.io' 
-EMAIL_PORT = 2525 
-EMAIL_USE_TLS = True  
-EMAIL_HOST_USER = '36c60ee278c84c' 
-EMAIL_HOST_PASSWORD = '692b0256172975'
+# Email backend configuration
+EMAIL_BACKEND = 'django_mailjet.backends.MailjetBackend'
+MAILJET_API_KEY = 'fcc253431671230b326277b3e85954a4'
+MAILJET_API_SECRET = '38dfedebaf4a79e53a8ff02bcc683988'
+DEFAULT_FROM_EMAIL = 'Iron Fitness Gym <linusapelgren6789@gmail.com>'
 
 ACCOUNT_FORMS = {'signup': 'users.forms.CustomSignupForm'}
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
@@ -111,6 +111,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_EMAIL_SUBJECT_PREFIX = '[Iron Fitness Gym]' 
 ACCOUNT_USERNAME_MIN_LENGTH = 4
+
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -184,5 +185,13 @@ STRIPE_TEST_SECRET_KEY = os.getenv('STRIPE_TEST_SECRET_KEY', 'sk_test_51PehLIRvz
 
 ACCOUNT_FORMS = {
     'signup': 'users.forms.CustomSignupForm',
+}
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'debug',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger',
 }
 

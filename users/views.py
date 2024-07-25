@@ -3,6 +3,10 @@ from django.contrib.auth.decorators import login_required
 from allauth.account.views import SignupView as AllauthSignupView
 from .forms import UserProfileForm, CustomSignupForm
 from .models import UserProfile
+from allauth.account.views import PasswordChangeView
+from django.urls import reverse_lazy
+from django.contrib import messages
+
 
 class CustomSignupView(AllauthSignupView):
     form_class = CustomSignupForm
@@ -26,3 +30,10 @@ def profile_edit(request):
         form = UserProfileForm(instance=user_profile)
 
     return render(request, 'users/profile_edit.html', {'form': form, 'user_profile': user_profile})
+
+class CustomPasswordChangeView(PasswordChangeView):
+    success_url = reverse_lazy('profile_view')  # Update this to your profile view URL
+    
+    def form_valid(self, form):
+        messages.success(self.request, 'Password changed successfully.')
+        return super().form_valid(form)
