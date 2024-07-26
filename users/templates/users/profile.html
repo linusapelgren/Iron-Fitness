@@ -43,8 +43,8 @@
                         <div class="membership mb-4 p-3 border rounded position-relative">
                             <h3 class="mb-3">Membership</h3>
                             {% if user_profile.subscription_plan %}
-                                <p><strong>Plan Name:</strong> {{ user_profile.subscription_plan.name }}</p>
-                                <p><strong>Plan Description:</strong> {{ user_profile.subscription_plan.description }}</p>
+                                <p><strong>Plan:</strong> {{ user_profile.subscription_plan.name }}</p>
+                                <p><strong>Price:</strong> ${{ user_profile.subscription_plan.price }}</p>
                                 <img src="{{ user_profile.subscription_plan.image.url }}" alt="Subscription Plan Image" class="img-fluid" style="max-width: 400px;">
                                 <!-- Manage Button -->
                                 <a href="{% url 'manage_subscription' %}" class="btn btn-danger position-absolute" style="top: 10px; right: 10px;">Manage</a>

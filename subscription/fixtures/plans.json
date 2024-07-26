@@ -8,6 +8,7 @@
             "description": "Pay each month.",
             "image": "plans/monthly.png",
             "duration": "Monthly",
+            "binding_time": "None", 
             "benefit": "Regular"
         }
     },
@@ -17,9 +18,10 @@
         "fields": {
             "name": "Monthly Subscription 12 months",
             "price": "35.00",
-            "description": "Pay each month 12 month binding time.",
+            "description": "Pay each month with a 12-month commitment.",
             "image": "plans/monthly12.png",
             "duration": "Yearly",
+            "binding_time": "12 months",  
             "benefit": "Regular"
         }
     },
@@ -32,6 +34,7 @@
             "description": "Each month with a binding time of a year.",
             "image": "plans/annual.png",
             "duration": "Yearly",
+            "binding_time": "12 months",
             "benefit": "Regular"
         }
     },
@@ -44,6 +47,7 @@
             "description": "Senior plan.",
             "image": "plans/senior.png",
             "duration": "Monthly",
+            "binding_time": "None", 
             "benefit": "Senior"
         }
     },
@@ -56,6 +60,7 @@
             "description": "Senior plan 12 months binding time.",
             "image": "plans/senior12.png",
             "duration": "Yearly",
+            "binding_time": "12 months", 
             "benefit": "Senior"
         }
     },
@@ -68,6 +73,7 @@
             "description": "Annual senior plan.",
             "image": "plans/annualsenior.png",
             "duration": "Yearly",
+            "binding_time": "12 months",
             "benefit": "Senior"
         }
     },
@@ -80,6 +86,7 @@
             "description": "Card that you can use 10 times.",
             "image": "plans/10visit.png",
             "duration": "One-time",
+            "binding_time": "None",  
             "benefit": "10-times card"
         }
     },
@@ -92,6 +99,7 @@
             "description": "Card that you can use 1 time.",
             "image": "plans/1visit.png",
             "duration": "One-time",
+            "binding_time": "None", 
             "benefit": "1-time card"
         }
     }

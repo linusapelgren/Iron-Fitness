@@ -9,6 +9,8 @@ from django.contrib import messages
 from subscription.models import SubscriptionPlan
 import stripe
 from django.conf import settings
+from django.utils import timezone
+from datetime import timedelta
 
 class CustomSignupView(AllauthSignupView):
     form_class = CustomSignupForm
@@ -47,26 +49,52 @@ def manage_subscription(request):
     """ A view to manage subscription """
     user_profile = get_object_or_404(UserProfile, user=request.user)
     subscription_plan = user_profile.subscription_plan
-    
+
     context = {
         'subscription_plan': subscription_plan,
+        'user_profile': user_profile,
     }
+
     return render(request, 'users/managesubscription.html', context)
+
 
 @login_required
 def cancel_subscription(request):
-    """ A view to handle subscription cancellation locally """
+    """ A view to handle subscription cancellation with binding period check """
+    # Fetch the user's profile
     user_profile = get_object_or_404(UserProfile, user=request.user)
     subscription_plan = user_profile.subscription_plan
 
-    if subscription_plan:
-        # If there is an active subscription plan
-        user_profile.subscription_plan = None
-        user_profile.stripe_subscription_id = None  # Optionally clear the Stripe subscription ID
-        user_profile.save()
+    # Initialize a flag to indicate whether the cancel button should be visible
+    can_cancel = True
 
-        messages.success(request, "Subscription cancelled successfully (local update only).")
+    if subscription_plan:
+        # Retrieve binding period and subscription start date
+        binding_period_days = subscription_plan.binding_time  # Ensure this field exists
+        binding_period_days = int(binding_period_days) 
+        subscription_start_date = user_profile.subscription_start_date
+
+        if subscription_start_date:
+            # Calculate the end date of the binding period
+            binding_end_date = subscription_start_date + timedelta(days=binding_period_days)
+            current_date = timezone.now()
+
+            # Check if the current date is within the binding period
+            if current_date < binding_end_date:
+                can_cancel = False
+                messages.warning(request, "You cannot cancel your subscription during the binding period.")
+            else:
+                # Proceed to cancel the subscription
+                if request.method == 'POST':
+                    user_profile.subscription_plan = None
+                    user_profile.subscription_start_date = None
+                    user_profile.save()
+                    messages.success(request, "Subscription cancelled successfully.")
+                    return redirect('manage_subscription')
+        else:
+            messages.warning(request, "Subscription start date not found.")
     else:
         messages.warning(request, "No active subscription found to cancel.")
 
-    return redirect('manage_subscription')
+    # Pass the can_cancel flag to the template
+    return render(request, 'your_template.html', {'can_cancel': can_cancel})

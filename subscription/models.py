@@ -10,6 +10,7 @@ class SubscriptionPlan(models.Model):
     image = models.ImageField(upload_to='plans/')
     duration = models.CharField(max_length=100)  # e.g., 'Monthly', 'Yearly'
     benefit = models.CharField(max_length=255)   # e.g., 'Regular', 'Senior', '10-times card', '1-time card'
+    binding_time = models.CharField(max_length=50, default='None')
 
     def __str__(self):
         return self.name

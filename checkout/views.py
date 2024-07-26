@@ -10,12 +10,13 @@ import json
 from django.views.generic import TemplateView
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
 
 # views.py
 
-@csrf_exempt
+@login_required
 def process_payment(request):
     if request.method == 'POST':
         data = json.loads(request.body)
@@ -34,11 +35,11 @@ def process_payment(request):
                 source=token,
             )
 
-            # Assuming payment is successful, you may want to create a checkout session for webhook
-            # or directly update the user profile here
+            # Assuming payment is successful, update user profile
             user = request.user
             user_profile = UserProfile.objects.get(user=user)
             user_profile.subscription_plan = plan
+            user_profile.subscription_start_date = timezone.now()
             user_profile.save()
 
             return JsonResponse({'success': True})
@@ -47,6 +48,7 @@ def process_payment(request):
             return JsonResponse({'error': str(e)}, status=500)
 
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
 
 @login_required
 def checkout(request, plan_id):
