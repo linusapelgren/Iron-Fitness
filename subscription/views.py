@@ -4,6 +4,8 @@ from .models import SubscriptionPlan
 from django.http import JsonResponse
 import stripe
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from users.models import UserProfile
 
 def plans(request):
     """ A view to show the plans page """
@@ -11,10 +13,23 @@ def plans(request):
     context = {'plans': plans}
     return render(request, 'subscription/plans.html', context)
 
+@login_required
 def plan_details(request, id):
     """ A view to show the details of a single plan """
     plan = get_object_or_404(SubscriptionPlan, id=id)
-    return render(request, 'subscription/plan_details.html', {'plan': plan})
+    
+    # Check if the user has an active subscription to any plan
+    try:
+        user_profile = UserProfile.objects.get(user=request.user)
+        has_active_subscription = user_profile.subscription_plan is not None
+    except UserProfile.DoesNotExist:
+        has_active_subscription = False
+    
+    context = {
+        'plan': plan,
+        'has_active_subscription': has_active_subscription
+    }
+    return render(request, 'subscription/plan_details.html', context)
 
 stripe.api_key = settings.STRIPE_TEST_SECRET_KEY  # or settings.STRIPE_SECRET_KEY if you're using live keys
 

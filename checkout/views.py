@@ -9,8 +9,11 @@ from users.models import UserProfile
 import json
 from django.views.generic import TemplateView
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 
 stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
+
+# views.py
 
 @csrf_exempt
 def process_payment(request):
@@ -23,12 +26,20 @@ def process_payment(request):
             plan = get_object_or_404(SubscriptionPlan, pk=plan_id)
             amount_in_cents = int(plan.price * 100)
 
+            # Create a charge
             charge = stripe.Charge.create(
                 amount=amount_in_cents,
                 currency='usd',
                 description=f'Charge for plan {plan_id}',
                 source=token,
             )
+
+            # Assuming payment is successful, you may want to create a checkout session for webhook
+            # or directly update the user profile here
+            user = request.user
+            user_profile = UserProfile.objects.get(user=user)
+            user_profile.subscription_plan = plan
+            user_profile.save()
 
             return JsonResponse({'success': True})
 
@@ -69,7 +80,12 @@ def order_overview(request, plan_id):
 def success(request):
     return render(request, 'checkout/success.html')
 
-@csrf_exempt
+import logging
+
+logger = logging.getLogger(__name__)
+
+# views.py
+
 def stripe_webhook(request):
     payload = request.body
     sig_header = request.META.get('HTTP_STRIPE_SIGNATURE', '')
@@ -77,20 +93,38 @@ def stripe_webhook(request):
 
     try:
         event = stripe.Webhook.construct_event(payload, sig_header, endpoint_secret)
+        logger.info(f"Received event: {event['type']}")
     except (ValueError, stripe.error.SignatureVerificationError) as e:
+        logger.error(f"Webhook error: {e}")
         return HttpResponse(status=400)
 
     if event['type'] == 'checkout.session.completed':
         session = event['data']['object']
         handle_checkout_session(session)
+
     return HttpResponse(status=200)
 
 def handle_checkout_session(session):
-    plan_id = session['metadata']['plan_id']
-    name = session['metadata']['name']
-    email = session['metadata']['email']
-    phone = session['metadata']['phone']
-    address = session['metadata']['address']
+    # Extract metadata from the session object
+    plan_id = session.get('metadata', {}).get('plan_id')
+    email = session.get('metadata', {}).get('email')
 
-    # Your custom logic to handle the checkout session
-    # Example: create an order, send an email, etc.
+    if not plan_id or not email:
+        logger.error("Missing plan_id or email in session metadata.")
+        return
+
+    try:
+        user = User.objects.get(email=email)
+        plan = SubscriptionPlan.objects.get(id=plan_id)
+
+        # Update or create the user profile
+        user_profile, created = UserProfile.objects.get_or_create(user=user)
+        user_profile.subscription_plan = plan
+        user_profile.save()
+
+        logger.info(f"Successfully updated profile for {user.email} with plan {plan.name}")
+
+    except User.DoesNotExist:
+        logger.error(f"User with email {email} does not exist.")
+    except SubscriptionPlan.DoesNotExist:
+        logger.error(f"Subscription plan with ID {plan_id} does not exist.")

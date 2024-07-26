@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Manage Subscription{% endblock %}
+
+{% block page_header %}
+    <header class="container header-container">
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="display-4">Manage Subscription</h1>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column min-vh-100">
+    <div class="flex-grow-1">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="p-4 border rounded">
+                        <h3 class="mb-4">Your Active Subscription</h3>
+                        {% if subscription_plan %}
+                            <div class="subscription-details">
+                                <p><strong>Plan Name:</strong> {{ subscription_plan.name }}</p>
+                                <p><strong>Description:</strong> {{ subscription_plan.description }}</p>
+                                <p><strong>Price:</strong> ${{ subscription_plan.price }}</p>
+                                <img src="{{ subscription_plan.image.url }}" alt="Subscription Plan Image" class="img-fluid" style="max-width: 400px;">
+                                <form method="post" action="{% url 'cancel_subscription' %}" class="mt-4">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger">Cancel Subscription</button>
+                                </form>                                
+                            </div>
+                        {% else %}
+                            <p>You do not have an active subscription.</p>
+                        {% endif %}
+                        {% if error %}
+                            <div class="alert alert-danger mt-3">{{ error }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <!-- Include any JavaScript specific to managesubscription.html if needed -->
+{% endblock %}

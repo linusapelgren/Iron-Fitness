@@ -31,8 +31,12 @@
                         <!-- Payment button -->
                         <div class="row mt-4">
                             <div class="col text-left">
-                                <!-- Update href to include plan_id -->
-                                <a href="{% url 'checkout' plan_id=plan.id %}" class="btn btn-primary">Subscribe Now</a>
+                                {% if not has_active_subscription %}
+                                    <!-- Update href to include plan_id -->
+                                    <a href="{% url 'checkout' plan_id=plan.id %}" class="btn btn-primary">Subscribe Now</a>
+                                {% else %}
+                                    <p class="text-success">You are already subscribed to a plan.</p>
+                                {% endif %}
                                 <a href="{% url 'plans' %}" class="btn btn-secondary">Back to Plans</a>
                             </div>
                         </div>

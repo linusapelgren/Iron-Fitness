@@ -40,13 +40,17 @@
                             <p><strong>Phone:</strong> {{ user_profile.phone_number }}</p>
                             <p><strong>Address:</strong> {{ user_profile.street_address }} {{ user_profile.postal_code }}, {{ user_profile.city }}, {{ user_profile.country }}</p>
                         </div>
-                        <div class="membership mb-4 p-3 border rounded">
+                        <div class="membership mb-4 p-3 border rounded position-relative">
                             <h3 class="mb-3">Membership</h3>
-                            <p>Membership details will be displayed here.</p>
-                        </div>
-                        <div class="gym-stats mb-4 p-3 border rounded">
-                            <h3 class="mb3">Gym Statistics</h3>
-                            <p>Stats will be displayed here.</p>
+                            {% if user_profile.subscription_plan %}
+                                <p><strong>Plan Name:</strong> {{ user_profile.subscription_plan.name }}</p>
+                                <p><strong>Plan Description:</strong> {{ user_profile.subscription_plan.description }}</p>
+                                <img src="{{ user_profile.subscription_plan.image.url }}" alt="Subscription Plan Image" class="img-fluid" style="max-width: 400px;">
+                                <!-- Manage Button -->
+                                <a href="{% url 'manage_subscription' %}" class="btn btn-danger position-absolute" style="top: 10px; right: 10px;">Manage</a>
+                            {% else %}
+                                <p>No active subscription plan.</p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -54,8 +58,6 @@
         </div>
     </div>
 </div>
-<p>Profile picture URL: {{ user_profile.picture.url }}</p>
-
 {% endblock %}
 
 {% block scripts %}
