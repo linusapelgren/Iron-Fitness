@@ -31,7 +31,7 @@
                                 {% if can_cancel %}
                                     <form method="post" action="{% url 'cancel_subscription' %}">
                                         {% csrf_token %}
-                                        <button type="submit">Cancel Subscription</button>
+                                        <button type="submit" class="btn btn-danger" style="margin-top: 20px;">Cancel Subscription</button>
                                     </form>
                                 {% else %}
                                     <p class="text-danger" style="margin-top: 20px;">Your subscription cannot be cancelled.</p>
