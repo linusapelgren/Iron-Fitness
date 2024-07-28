@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-fv2x!v6)!!x_q7x80b#=3$f-h^y!8e%2$fue%nd3%&kupx&a&=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['df18-83-248-204-22.ngrok-free.app', 'localhost']
+ALLOWED_HOSTS = ['df18-83-248-204-22.ngrok-free.app', 'localhost', 'ironfitness-f9450545dca2.herokuapp.com']
 
 
 # Application definition
