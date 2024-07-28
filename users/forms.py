@@ -3,6 +3,7 @@ from allauth.account.forms import SignupForm
 from .models import UserProfile
 
 class CustomSignupForm(SignupForm):
+    """Form for custom user signup"""
     first_name = forms.CharField(max_length=30, required=True)
     last_name = forms.CharField(max_length=30, required=True)
 
@@ -14,6 +15,7 @@ class CustomSignupForm(SignupForm):
         return user
 
 class UserProfileForm(forms.ModelForm):
+    """Form for user profile"""
     class Meta:
         model = UserProfile
         fields = ['phone_number', 'picture', 'street_address', 'city', 'postal_code', 'country']

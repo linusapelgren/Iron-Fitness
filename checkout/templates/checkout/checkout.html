@@ -1,17 +1,17 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %}  <!-- Extends the base template -->
+{% load static %}  <!-- Load static files -->
 
-{% block title %}Checkout{% endblock %}
+{% block title %}Checkout{% endblock %}  <!-- Set the title of the page -->
 
 {% block extracss %}
-<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">  <!-- Include custom CSS for checkout -->
 {% endblock %}
 
 {% block page_header %}
 <header class="container header-container">
     <div class="row">
         <div class="col text-center">
-            <h1 class="display-4">Checkout</h1>
+            <h1 class="display-4">Checkout</h1>  <!-- Page header -->
         </div>
     </div>
 </header>
@@ -25,7 +25,7 @@
                 <div class="box p-3 mb-4">
                     <h2>Order Overview</h2>
                     <div id="order-overview">
-                        <p>Loading...</p>
+                        <p>Loading...</p>  <!-- Placeholder for order overview -->
                     </div>
                 </div>
             </div>
@@ -38,24 +38,24 @@
                                 <div class="form-group">
                                     <label for="name">Name</label>
                                     <input type="text" id="name" name="name" class="form-control"
-                                        value="{{ user_profile.user.first_name }} {{ user_profile.user.last_name }}" required>
+                                        value="{{ user_profile.user.first_name }} {{ user_profile.user.last_name }}" required>  <!-- Pre-filled user name -->
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
                                     <input type="email" id="email" name="email" class="form-control"
-                                        value="{{ user_profile.user.email }}" required>
+                                        value="{{ user_profile.user.email }}" required>  <!-- Pre-filled user email -->
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
                                     <input type="text" id="phone" name="phone" class="form-control"
-                                        value="{{ user_profile.phone_number }}" required>
+                                        value="{{ user_profile.phone_number }}" required>  <!-- Pre-filled user phone -->
                                 </div>
                                 <div class="form-group">
                                     <label for="address">Address</label>
                                     <input type="text" id="address" name="address" class="form-control"
-                                        value="{{ user_profile.street_address }} {{ user_profile.city }} {{ user_profile.postal_code }} {{ user_profile.country }}" required>
+                                        value="{{ user_profile.street_address }} {{ user_profile.city }} {{ user_profile.postal_code }} {{ user_profile.country }}" required>  <!-- Pre-filled user address -->
                                 </div>
-                                <button type="button" id="next-to-payment" class="btn btn-primary">Next</button>
+                                <button type="button" id="next-to-payment" class="btn btn-primary">Next</button>  <!-- Button to proceed to payment info -->
                             </form>
                         </div>
 
@@ -63,9 +63,9 @@
                             <h2>Payment Information</h2>
                             <form id="payment-form">
                                 <div id="card-element" class="form-control">
-                                    <!-- A Stripe Element will be inserted here. -->
+                                    <!-- Stripe Element will be inserted here -->
                                 </div>
-                                <button type="submit" id="submit-payment" class="btn btn-primary mt-3">Pay Now</button>
+                                <button type="submit" id="submit-payment" class="btn btn-primary mt-3">Pay Now</button>  <!-- Button to submit payment -->
                             </form>
                         </div>
                     </div>
@@ -77,21 +77,22 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="https://js.stripe.com/v3/"></script>
+<script src="https://js.stripe.com/v3/"></script>  <!-- Load Stripe.js -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    var stripe = Stripe('{{ STRIPE_TEST_PUBLIC_KEY }}');
-    var elements = stripe.elements();
-    var cardElement = elements.create('card');
-    cardElement.mount('#card-element');
+    var stripe = Stripe('{{ STRIPE_TEST_PUBLIC_KEY }}');  // Initialize Stripe 
+    var elements = stripe.elements();  // Create an instance of Stripe Elements 
+    var cardElement = elements.create('card');  // Create a card element 
+    cardElement.mount('#card-element');  // Mount the card element to the DOM 
 
-    var planId = "{{ plan_id }}";
+    var planId = "{{ plan_id }}";  // Get the plan ID from the context 
 
+    // Fetch the order overview data
     fetch(`/checkout/order/${planId}/overview/`)
         .then(response => response.json())
         .then(data => {
             if (data.error) {
-                document.getElementById('order-overview').innerHTML = `<p>${data.error}</p>`;
+                document.getElementById('order-overview').innerHTML = `<p>${data.error}</p>`;  // Display error message
             } else {
                 document.getElementById('order-overview').innerHTML = `
                     <p><strong>Name:</strong> ${data.name}</p>
@@ -100,54 +101,56 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p><strong>Duration:</strong> ${data.duration}</p>
                     <p><strong>Benefit:</strong> ${data.benefit}</p>
                     <img src="${data.image_url}" alt="${data.name}" style="width: 100%; max-width: 200px;">
-                `;
+                `;  // Display order overview details -->
             }
         })
         .catch(error => {
-            console.error('Error fetching order information:', error);
+            console.error('Error fetching order information:', error);  // Log any errors
         });
 
+    // Move to payment info step
     document.getElementById('next-to-payment').addEventListener('click', function() {
         var contactInfoForm = document.getElementById('contact-info-form');
         if (contactInfoForm.checkValidity()) {
             document.getElementById('step-contact-info').style.display = 'none';
             document.getElementById('step-payment-info').style.display = 'block';
         } else {
-            contactInfoForm.reportValidity();
+            contactInfoForm.reportValidity();  // Validate the contact info form 
         }
     });
 
+    // Handle the payment form submission
     document.getElementById('payment-form').addEventListener('submit', function(event) {
         event.preventDefault();
 
         stripe.createToken(cardElement).then(function(result) {
             if (result.error) {
-                console.error(result.error.message);
+                console.error(result.error.message);  // Log any errors creating the token
             } else {
                 fetch('/checkout/process-payment/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-CSRFToken': getCookie('csrftoken')
+                        'X-CSRFToken': getCookie('csrftoken')  // Include CSRF token 
                     },
                     body: JSON.stringify({
-                        token: result.token.id,
-                        plan_id: planId,
+                        token: result.token.id,  // Send the Stripe token 
+                        plan_id: planId,  // Send the plan ID 
                     }),
                 })
-
                 .then(response => response.json())
                 .then(data => {
                     if (data.error) {
-                        console.error('Error processing payment:', data.error);
+                        console.error('Error processing payment:', data.error); // Log any payment processing errors
                     } else {
-                        window.location.href = '/checkout/success/'; // Redirect after payment
+                        window.location.href = '/checkout/success/';  // Redirect on successful payment 
                     }
                 })
-                .catch(error => console.error('Error:', error));
+                .catch(error => console.error('Error:', error));  // Log any fetch errors 
             }
         });
 
+        // Function to get the CSRF token
         function getCookie(name) {
             let cookieValue = null;
             if (document.cookie && document.cookie !== '') {

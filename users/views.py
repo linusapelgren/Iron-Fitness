@@ -6,23 +6,21 @@ from .models import UserProfile
 from allauth.account.views import PasswordChangeView
 from django.urls import reverse_lazy
 from django.contrib import messages
-from subscription.models import SubscriptionPlan
 import stripe
 from django.conf import settings
 from django.utils import timezone
 from datetime import timedelta
 
-class CustomSignupView(AllauthSignupView):
-    form_class = CustomSignupForm
-
 @login_required
 def profile_view(request):
+    """A view to display the user's profile."""
     user_profile = UserProfile.objects.filter(user=request.user).first()
     context = {'user_profile': user_profile, 'user': request.user}
     return render(request, 'users/profile.html', context)
 
 @login_required
 def profile_edit(request):
+    """A view to edit the user's profile."""
     user_profile, created = UserProfile.objects.get_or_create(user=request.user)
 
     if request.method == 'POST':
@@ -46,6 +44,7 @@ stripe.api_key = settings.STRIPE_TEST_SECRET_KEY  # Use your secret key
 
 @login_required
 def manage_subscription(request):
+    """A view to manage the user's subscription."""
     user_profile = UserProfile.objects.get(user=request.user)
     subscription_plan = user_profile.subscription_plan
     

@@ -34,6 +34,7 @@ def plan_details(request, id):
 stripe.api_key = settings.STRIPE_TEST_SECRET_KEY  # or settings.STRIPE_SECRET_KEY if you're using live keys
 
 def subscribe(request, id):
+    """ A view to create a new subscription"""
     plan = get_object_or_404(SubscriptionPlan, id=id)
     # Create a checkout session
     checkout_session = stripe.checkout.Session.create(
@@ -49,6 +50,7 @@ def subscribe(request, id):
     return JsonResponse({'id': checkout_session.id})
 
 def order_overview(request, plan_id):
+    """ A view to show the order overview """
     plan = get_object_or_404(SubscriptionPlan, id=plan_id)
     # Prepare the data you need
     data = {

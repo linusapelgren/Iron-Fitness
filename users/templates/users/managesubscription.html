@@ -23,11 +23,14 @@
                         <h3 class="mb-4">Your Active Subscription</h3>
                         {% if subscription_plan %}
                             <div class="subscription-details">
+                                <!-- Display subscription plan details -->
                                 <p><strong>Plan:</strong> {{ subscription_plan.name }}</p>
                                 <p><strong>Price:</strong> ${{ subscription_plan.price }}</p>
                                 <p><strong>Start Date:</strong> {{ user_profile.subscription_start_date|date:"F j, Y" }}</p>
                                 <p><strong>Binding Time:</strong> {{ subscription_plan.binding_time }}</p>
+                                <!-- Display the subscription plan image -->
                                 <img src="{{ subscription_plan.image.url }}" alt="Subscription Plan Image" class="img-fluid" style="max-width: 400px;">
+                                <!-- Show cancellation option if allowed -->
                                 {% if can_cancel %}
                                     <form method="post" action="{% url 'cancel_subscription' %}">
                                         {% csrf_token %}
@@ -40,6 +43,7 @@
                         {% else %}
                             <p>You do not have an active subscription.</p>
                         {% endif %}
+                        <!-- Display error message if any -->
                         {% if error %}
                             <div class="alert alert-danger mt-3">{{ error }}</div>
                         {% endif %}

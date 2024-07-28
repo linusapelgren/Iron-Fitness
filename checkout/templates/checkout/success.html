@@ -1,20 +1,19 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %}  <!-- Extends the base template -->
+{% load static %}  <!-- Load static template tags -->
 
-{% block title %}Checkout Success{% endblock %}
-
+{% block title %}Checkout Success{% endblock %} 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
 <div class="d-flex flex-column min-vh-100" style="align-items: center;">
-    <h1>Thank you for your purchase!</h1>
-    <p>Your subscription was successful.</p>
+    <h1>Thank you for your purchase!</h1>  
+    <p>Your subscription was successful.</p>  
 </div>
 {% endblock %}
 

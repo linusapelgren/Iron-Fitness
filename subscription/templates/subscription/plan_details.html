@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}{{ plan.name }} - Subscription Plan Details{% endblock %}
+{% block title %}
+    {{ plan.name }} - Subscription Plan Details
+{% endblock %}
 
 {% block page_header %}
+    <!-- Page header with the plan name -->
     <header class="container header-container">
         <div class="row">
             <div class="col text-center">
@@ -14,38 +17,53 @@
 {% endblock %}
 
 {% block content %}
-<div class="d-flex flex-column min-vh-100">
-    <section class="container my-5">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card border-0 shadow-sm">
-                    <img class="card-img-top img-fluid" src="{{ plan.image.url }}" alt="{{ plan.name }}" loading="lazy">
+    <!-- Main content section displaying plan details -->
+    <div class="d-flex flex-column min-vh-100">
+        <section class="container my-5">
+            <div class="row">
+                <!-- Column for the plan image -->
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm">
+                        <img class="card-img-top img-fluid" 
+                             src="{{ plan.image.url }}" 
+                             alt="{{ plan.name }}" 
+                             loading="lazy">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-body">
-                        <h2 class="card-title">{{ plan.name }}</h2>
-                        <p class="card-text">{{ plan.description }}</p>
-                        <p class="lead font-weight-bold">${{ plan.price }}</p>
-                        <!-- Payment button -->
-                        <div class="row mt-4">
-                            <div class="col text-left">
-                                {% if not has_active_subscription %}
-                                    <!-- Update href to include plan_id -->
-                                    <a href="{% url 'checkout' plan_id=plan.id %}" class="btn btn-primary">Subscribe Now</a>
-                                {% else %}
-                                    <p class="text-success">You are already subscribed to a plan.</p>
-                                {% endif %}
-                                <a href="{% url 'plans' %}" class="btn btn-secondary">Back to Plans</a>
+
+                <!-- Column for the plan details -->
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ plan.name }}</h2>
+                            <p class="card-text">{{ plan.description }}</p>
+                            <p class="lead font-weight-bold">${{ plan.price }}</p>
+
+                            <!-- Conditional display of subscription button or message -->
+                            <div class="row mt-4">
+                                <div class="col text-left">
+                                    {% if not has_active_subscription %}
+                                        <!-- Link to checkout page with the current plan's ID -->
+                                        <a href="{% url 'checkout' plan_id=plan.id %}" class="btn btn-primary">
+                                            Subscribe Now
+                                        </a>
+                                    {% else %}
+                                        <!-- Message indicating that the user is already subscribed -->
+                                        <p class="text-success">You are already subscribed to a plan.</p>
+                                    {% endif %}
+
+                                    <!-- Link to go back to the plans list -->
+                                    <a href="{% url 'plans' %}" class="btn btn-secondary">
+                                        Back to Plans
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </div>
 {% endblock %}
 
 {% block scripts %}

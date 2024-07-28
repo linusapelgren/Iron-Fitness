@@ -1,5 +1,6 @@
 from django.db import models
 
+# Choices for fitness class
 CLASS_CHOICES = [
     ('yoga', 'Yoga'),
     ('pilates', 'Pilates'),
@@ -10,6 +11,7 @@ CLASS_CHOICES = [
     ('hiit', 'HIIT (High-Intensity Interval Training)'),
 ]
 
+# Model for class time
 class ClassTime(models.Model):
     fitness_class = models.CharField(max_length=20, choices=CLASS_CHOICES)
     time_range = models.CharField(max_length=11)  # Format "HH:MM-HH:MM"
@@ -22,7 +24,7 @@ class ClassTime(models.Model):
     def __str__(self):
         return f"{self.fitness_class} - {self.time_range}"
 
-
+# Model for booking
 class Booking(models.Model):
     visitor_name = models.CharField(max_length=100)
     visitor_email = models.EmailField()

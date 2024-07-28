@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from subscription.models import SubscriptionPlan
 
 class UserProfile(models.Model):
+    """Model for user profile"""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=15, blank=True)
     gym_visits = models.IntegerField(default=0)
