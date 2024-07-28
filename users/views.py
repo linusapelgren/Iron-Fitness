@@ -11,6 +11,9 @@ from django.conf import settings
 from django.utils import timezone
 from datetime import timedelta
 
+class CustomSignupView(AllauthSignupView):
+    form_class = CustomSignupForm
+
 @login_required
 def profile_view(request):
     """A view to display the user's profile."""
