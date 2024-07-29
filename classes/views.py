@@ -47,24 +47,35 @@ def book_class(request):
 
     if request.method == 'POST':
         if 'search_times' in request.POST:
-            selected_class = request.POST.get('fitness_class')
-            selected_day = request.POST.get('class_day')
+            selected_class = request.POST.get('fitness_class', '')
+            selected_day = request.POST.get('class_day', '')
             if selected_class and selected_day:
                 times = ClassTime.objects.filter(fitness_class=selected_class, day_of_week=selected_day).order_by('time_range')
         
         elif 'book_now' in request.POST:
-            form = BookingForm(request.POST)  # Initialize form with POST data
-            booking = Booking(
-                visitor_name=form.cleaned_data['visitor_name'],
-                visitor_email=form.cleaned_data['visitor_email'],
-                visitor_phone=form.cleaned_data['visitor_phone'],
-                fitness_class=form.cleaned_data['fitness_class'],
-                class_day=form.cleaned_data['class_day'],
-                class_time=form.cleaned_data['class_time']
-            )  # Create a booking instance from form data
-            booking.save()  # Save the booking to the database
-            return redirect('successful_booking')  # Redirect to success page
-            
+            # Extract data directly from request.POST
+            visitor_name = request.POST.get('visitor_name', '')
+            visitor_email = request.POST.get('visitor_email', '')
+            visitor_phone = request.POST.get('visitor_phone', '')
+            fitness_class = request.POST.get('fitness_class', '')
+            class_day = request.POST.get('class_day', '')
+            class_time = request.POST.get('class_time', '')
+
+            if visitor_name and visitor_email and visitor_phone and fitness_class and class_day and class_time:
+                booking = Booking(
+                    visitor_name=visitor_name,
+                    visitor_email=visitor_email,
+                    visitor_phone=visitor_phone,
+                    fitness_class=fitness_class,
+                    class_day=class_day,
+                    class_time=class_time
+                )  # Create a booking instance from POST data
+                booking.save()  # Save the booking to the database
+                return redirect('successful_booking')  # Redirect to success page
+            else:
+                # Log missing data if any required field is missing
+                logger.error("Booking form submission missing required data. Data received: %s", request.POST)
+    
     return render(request, 'classes/classes.html', {
         'form': form,
         'times': times,
