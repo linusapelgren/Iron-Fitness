@@ -3,7 +3,8 @@ from .forms import BookingForm
 from .models import ClassTime, Booking  
 from django.contrib.auth.decorators import login_required  
 from users.models import UserProfile
-from django.http import JsonResponse  
+from django.http import JsonResponse
+import logging  
 
 @login_required
 def book_class(request):
