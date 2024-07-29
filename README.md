@@ -6,67 +6,232 @@ For example; Love Running is a site that hopes to help keep people motivated to 
 
 ![Responsice Mockup](https://github.com/lucyrush/readme-template/blob/master/media/love_running_mockup.png)
 
-## Features 
+## Design
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so. You will need to explain what value each of the features provides for the user, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+### Wireframes
+
+#### Desktop
+
+<details><summary>Home</summary>
+<img src="static/wireframes/index.png">
+</details>
+<details><summary>Subscription</summary>
+<img src="static/wireframes/plans.png">
+</details>
+<details><summary>Plan Details</summary>
+<img src="static/wireframes/details.png">
+</details>
+<details><summary>Checkout</summary>
+<img src="static/wireframes/checkout.png">
+</details>
+<details><summary>Checkout Page 2</summary>
+<img src="static/wireframes/checkoutpage2.png">
+</details>
+<details><summary>Successful purchase</summary>
+<img src="static/wireframes/successfulpucharse.png">
+</details>
+<details><summary>Classes</summary>
+<img src="static/wireframes/classes.png">
+</details>
+<details><summary>Booking Successful</summary>
+<img src="static/wireframes/booking.png">
+</details>
+<details><summary>Contact</summary>
+<img src="static/wireframes/contact.png">
+</details>
+<details><summary>Profile</summary>
+<img src="static/wireframes/profile.png">
+</details>
+<details><summary>Profile Edit</summary>
+<img src="static/wireframes/profileedit.png">
+</details>
+
+#### Mobile
+
+<details><summary>Home</summary>
+<img src="static/wireframes/indexmobile.png">
+</details>
+<details><summary>Subscription</summary>
+<img src="static/wireframes/plansmobile.png">
+</details>
+<details><summary>Plan Details</summary>
+<img src="static/wireframes/detailsmobile.png">
+</details>
+<details><summary>Checkout</summary>
+<img src="static/wireframes/checkoutmobile.png">
+</details>
+<details><summary>Checkout Page 2</summary>
+<img src="static/wireframes/checkoutpage2mobile.png">
+</details>
+<details><summary>Successful purchase</summary>
+<img src="static/wireframes/successfulpurchasemobile.png">
+</details>
+<details><summary>Classes</summary>
+<img src="static/wireframes/classesmobile.png">
+</details>
+<details><summary>Booking Successful</summary>
+<img src="static/wireframes/bookingmobile.png">
+</details>
+<details><summary>Contact</summary>
+<img src="static/wireframes/contactmobile.png">
+</details>
+<details><summary>Profile</summary>
+<img src="static/wireframes/profilemobile.png">
+</details>
+<details><summary>Profile Edit</summary>
+<img src="static/wireframes/profileeditmobile.png">
+</details>
+
+#### Side note
+- I didnt make any wireframes for the allauth pages since i didnt really change the layout of them
+
+### Styling
+
+#### Color Pallette
+- I wanted a clean looking website so the color pallette i chose was just black and white
+
+#### Font 
+- I wanted the font to be modern and sleek so i decided to go with Roboto.
+
+## Site content
+
+### My pages
+
+#### The landing page
+
+ - The landing page gives the user a stylish welcome to the page 
+ - It features a short video to grab the attention of the users
+
+  ![Landing Page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+
+  ![Landing Page Video](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+
+#### The subscription page
+
+ - The subscription page houses the different subscription plans available on the site
+
+  ![Subscription page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+
+ #### The plan details page
+
+ - This page displays infromation about the plan the user selected
+ - It also has a subscribe now button which is how you access the checkout page
+
+  ![Subscription page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+
+ 
+ #### The checkout page
+
+  - This is where the user can subscribe to any given plan
+  - It features clean form and a stripe payment system which makes it very easy to use for the user
+
+  ![Checkout  page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+  ![Checkout  page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+  ![Checkout  page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+  ![Checkout  page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+
+#### The Contact page
+
+ - This page displays the necisary infortmation about the gym, like contact number and mail. It also has a google maps link that displays "the location" of the gym. 
+ - It also features an image slider that 
+
+  ![Conatct page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+  ![Contact form](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+  ![Google Maps](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+  ![Image slider](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+
+### Allauth pages
+
+ - These are the pages that are supplied with allauth, although i have customized them.
+
+  ### Profile page
+
+  ![Image slider](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+
+  ### Profile edit page
+
+  ![Image slider](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png) 
+
+  ### Login 
+
+  ![Image slider](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+
+  ### Register 
+
+  ![Image slider](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+
+  ### Forgot password
+
+  ![Image slider](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+
+## Features 
 
 ### Existing Features
 
-- __Navigation Bar__
+#### Base template
+  - This project features a base template which is used to clean up the rest of the code by simply extending it in every other template
 
-  - Featured on all three pages, the full responsive navigation bar includes links to the Logo, Home page, Gallery and Sign Up page and is identical in each page to allow for easy navigation.
-  - This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button. 
+#### Navigation Bar
+  - Accessible on all pages, the fully responsive navigation bar includes links to the Home page, Classes page, Subscription page, Contact page, and the pages tied to the user profile
 
 ![Nav Bar](https://github.com/lucyrush/readme-template/blob/master/media/love_running_nav.png)
 
-- __The landing page image__
+![Nav Bar Mobile](https://github.com/lucyrush/readme-template/blob/master/media/love_running_nav.png)
 
-  - The landing includes a photograph with text overlay to allow the user to see exactly which location this site would be applicable to. 
-  - This section introduces the user to Love Running with an eye catching animation to grab their attention
+#### Stripe payment system
 
-![Landing Page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+#### Managing subscriptions
 
-- __Club Ethos Section__
+#### Binding time
 
-  - The club ethos section will allow the user to see the benefits of joining the Love Running meetups, as well as the benefits of running overall. 
-  - This user will see the value of signing up for the Love Running meetups. This should encourage the user to consider running as their form of exercise. 
+#### Dynamic display of active subscriptions
 
-![Club Ethos](https://github.com/lucyrush/readme-template/blob/master/media/love_running_ethos.png)
+#### Class booking system 
 
-- __Meetup Times section__
+#### Class scheduling
 
-  - This section will allow the user to see exactly when the meetups will happen, where they will be located and how long the run will be in kilometers. 
-  - This section will be updated as these times change to keep the user up to date. 
+#### Google maps
 
-![Meetup Times](https://github.com/lucyrush/readme-template/blob/master/media/love_running_times.png)
+#### Image slider
 
-- __The Footer__ 
+#### Allauth features
+- The site uses allauth which handles user accounts
+- This allows the users to register accounts login, reseting passwords and managing their accounts
 
-  - The footer section includes links to the relevant social media sites for Love Running. The links will open to a new tab to allow easy navigation for the user. 
-  - The footer is valuable to the user as it encourages them to keep connected via social media
-
-![Footer](https://github.com/lucyrush/readme-template/blob/master/media/love_running_footer.png)
-
-- __Gallery__
-
-  - The gallery will provide the user with supporting images to see what the meet ups look like. 
-  - This section is valuable to the user as they will be able to easily identify the types of events the organisation puts together. 
-
-![Gallery](https://github.com/lucyrush/readme-template/blob/master/media/love_running_gallery.png)
-
-- __The Sign Up Page__
-
-  - This page will allow the user to get signed up to Love Running to start their running journey with the community. The user will be able specify if they would like to take part in road, trail or both types of running. The user will be asked to submit their full name and email address. 
-
-![Sign Up](https://github.com/lucyrush/readme-template/blob/master/media/love_running_signup.png)
-
-For some/all of your features, you may choose to reference the specific project files that implement them.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+#### MailJet 
+- MailJet is used to send emails to the user
 
 ### Features Left to Implement
 
-- Another feature idea
+- An online shop for supplements, clothing and gym equipment
+
+## Technologies Used
+
+### Packages
+
+The following packages were installed throughout the development. 
+
+| Package Name| Package Description |
+| ----------- | ----------- |
+| [Django-allAuth](https://docs.allauth.org/en/latest/)
+| [Whitenoise](https://pypi.org/project/whitenoise/)   
+| [Pillow](https://pypi.org/project/pillow/) 
+| [Stripe](https://dashboard.stripe.com/test/developers) 
+| [Black](https://pypi.org/project/black/) 
+
+### Tools and Programs Used
+
+- [GitPod](https://gitpod.io/workspaces) was used as the main IDE for the project. 
+- [Git](https://git-scm.com/) was used for version control. 
+- [GitHub](https://github.com/) for hosting my repository
+- [Heroku](https://id.heroku.com/login) was used for deployment.
+- [Favicon.io](https://favicon.io/) was used to create the favicon for Perfect Fit.
+- [AmIResponsive](https://ui.dev/amiresponsive) for creating the README header image. 
+- [FontAwesome](https://fontawesome.com/) for providing icons used throughout the site.  
+- [Balsamiq](https://balsamiq.com/) for creating the wireframes. 
+- [Code Institute Pep8 Linter](https://pep8ci.herokuapp.com/#) was used for reviewing all .py files during code validation tests. 
+- [Google cloud](https://console.cloud.google.com/welcome/new?project=plated-reducer-430217-s6) was used for implementing google maps
+- [Canva](https://www.canva.com) was used for creating assets used in the project
 
 ## Testing 
 
@@ -85,56 +250,37 @@ If this section grows too long, you may want to split it off into a separate fil
   - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-running-2.0%2Findex.html)
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-running-2.0%252Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#css)
+- JS
+ - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-running-2.0%252Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#css)
+- Python
+ - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-running-2.0%252Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#css)
+
+### Lighthouse tool
+
+### Manual testing
 
 ### Unfixed Bugs
 
-You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed. 
+- When signing up it says internal server error but if you refresh the page it works again
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub) 
+For this project the application was deployed to Heroku using the following steps:
 
-- The site was deployed to GitHub pages. The steps to deploy are as follows: 
-  - In the GitHub repository, navigate to the Settings tab 
-  - From the source section drop-down menu, select the Master Branch
-  - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
-
-The live link can be found here - https://code-institute-org.github.io/love-running-2.0/index.html 
-
+1. I logged into my Heroku account and navigated to the dashboard. 
+2. From here I clicked 'New' and created a new app.
+3. perfect-fit was chosen as the app name and region set to EU, finally I clicked 'Create app'
+4. In the 'Settings' tab and from here I located the section 'Config Vars' and clicked 'Reveal Config Vars'
+5. Ensure that within the settings.py file the DEBUG has been set to False
+6. From here you can add your environment variables for your Database, Secret Key, CollecStatic, Cloudinary Database, Stripe Public Key, Stripe Private Key and Webhook Secret. 
+7. After this has been done navigate to the 'Deploy' tab and under 'Deployment Method' click on 'GitHub'.
+8. Locate the repository from GitHub and paste the link here and click 'Connect'.
+9. Ensure that the selected branch is 'main branch' before clicking to Deploy. 
+10. Once the build is finished there should be a message saying 'Your app was successfully deployed' with a 'View' button.
 
 ## Credits 
 
-In this section you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-
-You can break the credits section up into Content and Media, depending on what you have included in your project. 
-
-### Content 
-
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
-
-### Media
-
-- The photos used on the home and sign up page are from This Open Source site
-- The images used for the gallery page were taken from this other open source site
-
-
-Congratulations on completing your Readme, you have made another big stride in the direction of being a developer! 
-
-## Other General Project Advice
-
-Below you will find a couple of extra tips that may be helpful when completing your project. Remember that each of these projects will become part of your final portfolio so it’s important to allow enough time to showcase your best work! 
-
-- One of the most basic elements of keeping a healthy commit history is with the commit message. When getting started with your project, read through [this article](https://chris.beams.io/posts/git-commit/) by Chris Beams on How to Write  a Git Commit Message 
-  - Make sure to keep the messages in the imperative mood 
-
-- When naming the files in your project directory, make sure to consider meaningful naming of files, point to specific names and sections of content.
-  - For example, instead of naming an image used ‘image1.png’ consider naming it ‘landing_page_img.png’. This will ensure that there are clear file paths kept. 
-
-- Do some extra research on good and bad coding practices, there are a handful of useful articles to read, consider reviewing the following list when getting started:
-  - [Writing Your Best Code](https://learn.shayhowe.com/html-css/writing-your-best-code/)
-  - [HTML & CSS Coding Best Practices](https://medium.com/@inceptiondj.info/html-css-coding-best-practice-fadb9870a00f)
-  - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#General)
-
-Getting started with your Portfolio Projects can be daunting, planning your project can make it a lot easier to tackle, take small steps to reach the final outcome and enjoy the process! 
+- [Pexels](https://www.pexels.com/sv-se/) for images used on the site
+- The Boutique Ado walkthrough project, which helped with the building of my project
+- [Codepen] (https://codepen.io/kevinpowell/pen/BavVLra) for helping me with the scrolling message banner
+- [Youtube] (https://www.youtube.com/watch?v=PkADl0HubMY) for helping me with the image slider
