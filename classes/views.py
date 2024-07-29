@@ -6,6 +6,8 @@ from users.models import UserProfile
 from django.http import JsonResponse
 import logging  
 
+logger = logging.getLogger(__name__)
+
 @login_required
 def book_class(request):
     """A view that displays the booking page and handles the booking form"""
