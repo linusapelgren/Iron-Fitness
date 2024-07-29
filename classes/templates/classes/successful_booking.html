@@ -1,16 +1,14 @@
+
 {% extends "base.html" %}
-{% load static %}
 
-{% block title %}Book a class{% endblock %}
-
-{% block page_header %}{% endblock %}
+{% block title %}Booking Successful{% endblock %}
 
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-  <div class="col-md-6">
-    <h2 class="text-center">Successful booking</h2>
-    <p class="text-center">Your booking was successful</p>
-    <a href="{% url 'book_class' %}" class="btn btn-primary w-100">Book another class</a>
-  </div>
+    <div class="col-md-6 text-center">
+        <h2>Booking Successful!</h2>
+        <p>Your booking has been successfully made. Thank you!</p>
+        <a href="{% url 'book_class' %}" class="btn btn-primary">Back to Booking</a>
+    </div>
 </div>
 {% endblock %}

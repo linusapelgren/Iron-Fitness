@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+
 {% block title %}Book a class{% endblock %}
 
 {% block page_header %}{% endblock %}
+
 
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
@@ -16,15 +18,15 @@
       {{ form.non_field_errors }}
 
       <div class="elem-group">
-        <label for="id_visitor_name" class="form-label" value="{{ form.visitor_name.value }}">Name</label>
+        <label for="id_visitor_name" class="form-label">Name</label>
         {{ form.visitor_name }}
       </div>
       <div class="elem-group">
-        <label for="id_visitor_email" class="form-label" value="{{ form.visitor_email.value }}">Email</label>
+        <label for="id_visitor_email" class="form-label">Email</label>
         {{ form.visitor_email }}
       </div>
       <div class="elem-group">
-        <label for="id_visitor_phone" class="form-label" value="{{ form.visitor_phone.value }}">Phone Number</label>
+        <label for="id_visitor_phone" class="form-label">Phone Number</label>
         {{ form.visitor_phone }}
       </div>
 
@@ -42,7 +44,7 @@
 
     {% if times %}
       <div id="available-times" style="margin-top: 20px;">
-        <form method="post" action="{% url 'book_class' %}">
+        <form method="post" action="{% url 'successful_booking' %}">
           {% csrf_token %}
           <input type="hidden" name="fitness_class" value="{{ selected_class }}">
           <input type="hidden" name="class_day" value="{{ selected_day }}">
@@ -59,16 +61,6 @@
 
           <hr>
           <button type="submit" name="book_now" class="btn btn-primary w-100">Book Now</button>
-          {% if form.errors %}
-            <div class="alert alert-danger">
-                {{ form.non_field_errors }}
-                {% for field in form %}
-                    {% if field.errors %}
-                        <div>{{ field.label }}: {{ field.errors }}</div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-          {% endif %}
         </form>
       </div>
     {% else %}
