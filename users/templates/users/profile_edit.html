@@ -35,17 +35,7 @@
                                     <!-- Label as clickable profile picture area -->
                                     <label for="file" class="profile-picture-label">
                                         <div class="profile-picture-container">
-                                            {% if user_profile.picture %}
-                                                <img id="output" src="{{ user_profile.picture.url }}" alt="Profile Picture" class="img-fluid profile-picture" />
-                                            {% else %}
-                                                <img id="output" src="{% static 'profile_pics/blank_profile.png' %}" alt="Profile Picture" class="img-fluid profile-picture" />
-                                            {% endif %}
-                                            <div class="overlay">
-                                                <div class="text">Change Profile Picture</div>
-                                            </div>
-                                            <div class="edit-icon-overlay">
-                                                <img src="{% static 'icons/edit.png' %}" alt="Edit Icon" class="img-fluid edit-icon">
-                                            </div>
+                                            <img src="{{ % static profile_pics/blank_profile.png %}}" alt="Profile Picture" class="img-fluid profile-picture">
                                         </div>
                                     </label>
                                 </div>
