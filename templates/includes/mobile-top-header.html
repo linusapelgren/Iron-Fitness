@@ -7,8 +7,15 @@
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="main-nav">
         <!-- Add your main navigation items here -->
-        <a href="{% url 'home' %}" class="dropdown-item">Home</a>
-        <a href="{% url 'about' %}" class="dropdown-item">About</a>
+        <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'plans' %}" id="plans-link">
+            Subscription
+        </a>
+        <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'book_class' %}" id="classes-link">
+            Classes
+        </a>
+        <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'contact' %}" id="contact-link">
+            Contact
+        </a>
         <!-- Add more nav items as needed -->
     </div>
 </li>
