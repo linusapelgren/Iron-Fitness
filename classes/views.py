@@ -48,6 +48,8 @@ def book_class(request):
                 if selected_class and selected_day:
                     times = ClassTime.objects.filter(fitness_class=selected_class, day_of_week=selected_day).order_by('time_range')
                     # Re-fetch class times if form is invalid
+                else:
+                logger.error("Form errors: %s", form.errors)  # Log form errors to console
 
     return render(request, 'classes/classes.html', {
         'form': form,
