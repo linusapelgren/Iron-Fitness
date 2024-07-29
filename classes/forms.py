@@ -20,25 +20,25 @@ TIME_CHOICES = generate_time_choices()  # Generate time choices for form fields
 class BookingForm(forms.Form):
     visitor_name = forms.CharField(max_length=100, required=True, widget=forms.TextInput(attrs={
         'class': 'form-control', 'placeholder': 'Your name'
-    }))
+    }))  # Visitor name field
     visitor_email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
         'class': 'form-control', 'placeholder': 'example.email@email.com'
-    }))
+    }))  # Visitor email field
     visitor_phone = forms.CharField(max_length=15, required=True, widget=forms.TextInput(attrs={
         'class': 'form-control', 'placeholder': '070-000 0000'
-    }))
+    }))  # Visitor phone field
     fitness_class = forms.ChoiceField(choices=[], required=True, widget=forms.Select(attrs={
         'class': 'form-select'
-    }))
+    }))  # Fitness class field
     class_day = forms.ChoiceField(choices=[
         ('Monday', 'Monday'), ('Tuesday', 'Tuesday'), ('Wednesday', 'Wednesday'),
         ('Thursday', 'Thursday'), ('Friday', 'Friday'), ('Saturday', 'Saturday'), ('Sunday', 'Sunday')
     ], required=True, widget=forms.Select(attrs={
         'class': 'form-select'
-    }))
+    }))  # Class day field
     class_time = forms.ChoiceField(choices=[], required=True, widget=forms.Select(attrs={
         'class': 'form-select'
-    }))
+    }))  # Class time field
 
     def __init__(self, *args, **kwargs):
         initial_data = kwargs.pop('initial', {})
@@ -60,4 +60,19 @@ class BookingForm(forms.Form):
 
     def get_class_times_for_day_and_class(self, fitness_class, day_of_week):
         times = ClassTime.objects.filter(fitness_class=fitness_class, day_of_week=day_of_week).order_by('time_range')
-        return [(ct.time_range, ct.time_range) for ct in times]
+        return [(ct.time_range, ct.time_range) for ct in times]  # Retrieve class times for specific class and day
+
+class ClassTimeAdminForm(forms.ModelForm):
+    time_range = forms.ChoiceField(choices=TIME_CHOICES, required=True, widget=forms.Select(attrs={
+        'class': 'form-select'
+    }))  # Time range field with predefined choices
+    day_of_week = forms.ChoiceField(choices=[
+        ('Monday', 'Monday'), ('Tuesday', 'Tuesday'), ('Wednesday', 'Wednesday'),
+        ('Thursday', 'Thursday'), ('Friday', 'Friday'), ('Saturday', 'Saturday'), ('Sunday', 'Sunday')
+    ], required=True, widget=forms.Select(attrs={
+        'class': 'form-select'
+    }))  # Day of week field
+
+    class Meta:
+        model = ClassTime  # Specify the model for the form
+        fields = '__all__'  # Use all fields from the model
