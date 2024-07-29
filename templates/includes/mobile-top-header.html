@@ -1,38 +1,17 @@
 <li class="list-inline-item dropdown">
-    <a class="text-black nav-link d-block d-lg-none" href="#" id="main-nav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <div class="text-center">
-            <div><i class="fas fa-bars fa-lg"></i></div>
-            <p class="my-0">Menu</p>
-        </div>
-    </a>
-    <div class="dropdown-menu border-0" aria-labelledby="main-nav">
-        <!-- Add your main navigation items here -->
-        <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'plans' %}" id="plans-link">
-            Subscription
-        </a>
-        <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'book_class' %}" id="classes-link">
-            Classes
-        </a>
-        <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'contact' %}" id="contact-link">
-            Contact
-        </a>
-        <!-- Add more nav items as needed -->
-    </div>
-</li>
-<li class="list-inline-item dropdown">
-    <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options-mobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
             <div><i class="fas fa-user fa-lg"></i></div>
             <p class="my-0">My Account</p>
         </div>
     </a>
-    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+    <div class="dropdown-menu border-0" aria-labelledby="user-options-mobile">
         {% if request.user.is_authenticated %}
-            <a href="{% url 'profile_view' %}" class="dropdown-item">My Profile</a>
+            <a href="{% url 'profile_view' %}" class="dropdown-item">Profile</a>
             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
         {% else %}
-            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
             <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+            <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
         {% endif %}
     </div>
 </li>
