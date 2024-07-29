@@ -3697,3 +3697,23 @@ File /workspace/Iron-Fitness/templates/includes/mobile-top-header.html previous 
 /workspace/Iron-Fitness/templates/includes/mobile-top-header.html notified as changed. Signal results: [(<function template_changed at 0x7fc3f8669e40>, True), (<function translation_file_changed at 0x7fc3f7c7fe20>, None)].
 File /workspace/Iron-Fitness/templates/allauth/base.html previous mtime: 1722260769.1903255, current mtime: 1722260936.7100527
 /workspace/Iron-Fitness/templates/allauth/base.html notified as changed. Signal results: [(<function template_changed at 0x7fc3f8669e40>, True), (<function translation_file_changed at 0x7fc3f7c7fe20>, None)].
+File /workspace/Iron-Fitness/templates/includes/mobile-top-header.html previous mtime: 1722260781.4343054, current mtime: 1722262193.8400104
+/workspace/Iron-Fitness/templates/includes/mobile-top-header.html notified as changed. Signal results: [(<function template_changed at 0x7fc3f8669e40>, True), (<function translation_file_changed at 0x7fc3f7c7fe20>, None)].
+File /workspace/Iron-Fitness/templates/includes/mobile-top-header.html previous mtime: 1722262193.8400104, current mtime: 1722262200.791999
+/workspace/Iron-Fitness/templates/includes/mobile-top-header.html notified as changed. Signal results: [(<function template_changed at 0x7fc3f8669e40>, True), (<function translation_file_changed at 0x7fc3f7c7fe20>, None)].
+File /workspace/Iron-Fitness/templates/allauth/base.html previous mtime: 1722260936.7100527, current mtime: 1722262540.3794498
+/workspace/Iron-Fitness/templates/allauth/base.html notified as changed. Signal results: [(<function template_changed at 0x7fc3f8669e40>, True), (<function translation_file_changed at 0x7fc3f7c7fe20>, None)].
+File /workspace/Iron-Fitness/templates/allauth/base.html previous mtime: 1722262540.3794498, current mtime: 1722263704.1215723
+/workspace/Iron-Fitness/templates/allauth/base.html notified as changed. Signal results: [(<function template_changed at 0x7fc3f8669e40>, True), (<function translation_file_changed at 0x7fc3f7c7fe20>, None)].
+File /workspace/Iron-Fitness/templates/allauth/base.html previous mtime: 1722263704.1215723, current mtime: 1722263744.5135071
+/workspace/Iron-Fitness/templates/allauth/base.html notified as changed. Signal results: [(<function template_changed at 0x7fc3f8669e40>, True), (<function translation_file_changed at 0x7fc3f7c7fe20>, None)].
+File /workspace/Iron-Fitness/templates/allauth/base.html previous mtime: 1722263744.5135071, current mtime: 1722263796.5174234
+/workspace/Iron-Fitness/templates/allauth/base.html notified as changed. Signal results: [(<function template_changed at 0x7fc3f8669e40>, True), (<function translation_file_changed at 0x7fc3f7c7fe20>, None)].
+File /workspace/Iron-Fitness/templates/allauth/base.html previous mtime: 1722263796.5174234, current mtime: 1722263876.4972944
+/workspace/Iron-Fitness/templates/allauth/base.html notified as changed. Signal results: [(<function template_changed at 0x7fc3f8669e40>, True), (<function translation_file_changed at 0x7fc3f7c7fe20>, None)].
+File /workspace/Iron-Fitness/templates/allauth/base.html previous mtime: 1722263876.4972944, current mtime: 1722263891.1812708
+/workspace/Iron-Fitness/templates/allauth/base.html notified as changed. Signal results: [(<function template_changed at 0x7fc3f8669e40>, True), (<function translation_file_changed at 0x7fc3f7c7fe20>, None)].
+File /workspace/Iron-Fitness/templates/includes/main-nav.html previous mtime: 1721816547.6178544, current mtime: 1722264346.376537
+/workspace/Iron-Fitness/templates/includes/main-nav.html notified as changed. Signal results: [(<function template_changed at 0x7fc3f8669e40>, True), (<function translation_file_changed at 0x7fc3f7c7fe20>, None)].
+File /workspace/Iron-Fitness/templates/includes/mobile-top-header.html previous mtime: 1722262200.791999, current mtime: 1722264407.1644392
+/workspace/Iron-Fitness/templates/includes/mobile-top-header.html notified as changed. Signal results: [(<function template_changed at 0x7fc3f8669e40>, True), (<function translation_file_changed at 0x7fc3f7c7fe20>, None)].
