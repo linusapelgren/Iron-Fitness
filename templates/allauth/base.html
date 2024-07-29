@@ -52,21 +52,21 @@
 <body>
     <header class="container-fluid fixed-top" id="header">
         <!-- Top Navigation Bar -->
-        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex align-items-center">
             <!-- Logo Section -->
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+            <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-start">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="logo-font text-black my-0"><strong>Iron Fitness Gym</strong></h2>
+                    <h2 class="logo-font text-black mb-0"><strong>Iron Fitness Gym</strong></h2>
                 </a>
             </div>
             <!-- User Account Section -->
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+            <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end">
+                <ul class="list-inline list-unstyled mb-0">
                     <li class="list-inline-item dropdown">
                         <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
-                                <p class="my-0">My Account</p>
+                                <p class="mb-0">My Account</p>
                             </div>
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -82,6 +82,7 @@
                 </ul>
             </div>
         </div>
+    
         <!-- Navigation Menu -->
         <div class="row bg-white">
             <nav class="navbar navbar-expand-lg navbar-light w-100">
@@ -92,6 +93,7 @@
                 {% include 'includes/main-nav.html' %}
             </nav>
         </div>
+    
         <!-- Banner Section -->
         <div class="banner-container">
             <div class="scroll">
