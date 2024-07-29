@@ -102,9 +102,11 @@ For example; Love Running is a site that hopes to help keep people motivated to 
  - The landing page gives the user a stylish welcome to the page 
  - It features a short video to grab the attention of the users
 
-  ![Landing Page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+  <details><summary>Click to expand</summary>
+  <img src="static/images/landingpage.png">
 
-  ![Landing Page Video](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+  <img src="static/images/landingpagemobile.png">
+  </details>
 
 #### The subscription page
 
@@ -174,7 +176,7 @@ For example; Love Running is a site that hopes to help keep people motivated to 
 #### Navigation Bar
   - Accessible on all pages, the fully responsive navigation bar includes links to the Home page, Classes page, Subscription page, Contact page, and the pages tied to the user profile
 
-![Nav Bar](https://github.com/lucyrush/readme-template/blob/master/media/love_running_nav.png)
+<img src="static/images/navbar.png">
 
 ![Nav Bar Mobile](https://github.com/lucyrush/readme-template/blob/master/media/love_running_nav.png)
 
@@ -182,17 +184,44 @@ For example; Love Running is a site that hopes to help keep people motivated to 
 
 #### Managing subscriptions
 
+<details><summary>Click to expand</summary>
+<img src="static/images/cancelsubscription.png">
+
+<img src="static/images/cancelledsubscription.png">
+</details>
+
 #### Binding time
+
+<details><summary>Click to expand</summary>
+<img src="static/images/managesubscriptionbindingtime.png">
+</details>
 
 #### Dynamic display of active subscriptions
 
+<details><summary>Click to expand</summary>
+<img src="static/images/activesubscription.png">
+
+<img src="static/images/noactivesubscription.png">
+</details>
+
 #### Class booking system 
+
+<details><summary>Click to expand</summary>
+<img src="static/images/bookingpage.png">
+</details>
 
 #### Class scheduling
 
+<details><summary>Click to expand</summary>
+<img src="static/images/addclasstimeadmin.png">
+</details>
+
 #### Google maps
 
-#### Image slider
+<details><summary>Click to expand</summary>
+<img src="static/images/googlemaps.png">
+</details>
+
 
 #### Allauth features
 - The site uses allauth which handles user accounts
