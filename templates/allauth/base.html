@@ -43,11 +43,10 @@
           </a>
         </div>
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-          <nav class="navbar navbar-expand-lg navbar-light w-100">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <li class="list-inline-item dropdown">
+            <nav class="navbar navbar-expand-lg navbar-light w-100">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options-mobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="text-center">
                         <div><i class="fas fa-user fa-lg"></i></div>
@@ -62,10 +61,9 @@
                         <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                         <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
                     {% endif %}
-                </div>
-            </li>            
-            {% include 'includes/main-nav.html' %}
-          </nav>
+                </div>         
+                {% include 'includes/main-nav.html' %}
+            </nav>
         </div>
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
           <ul class="list-inline list-unstyled text-center text-lg-right my-0">
