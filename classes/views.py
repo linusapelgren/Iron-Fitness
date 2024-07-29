@@ -13,27 +13,6 @@ def book_class(request):
     """A view that displays the booking page and handles the booking form"""
     user = request.user  # Get the current logged-in user
     profile = getattr(user, 'userprofile', None) or UserProfile.objects.create(user=user)  # Get or create the user's profile
-    initial_data = {
-        'visitor_name': user.first_name,
-        'visitor_email': user.email,
-        'visitor_phone': profile.phone_number if profile else '',
-    }  # Initialize form data with user's info
-    
-    form = BookingForm(request.POST or None, initial=initial_data)  # Create form instance with initial data
-    
-    times = []  # Initialize empty list for class times
-    selected_class = ''  # Initialize selected class as empty string
-    selected_day = ''  # Initialize selected day as empty string
-    
-    import logging
-
-    logger = logging.getLogger(__name__)
-
-@login_required
-def book_class(request):
-    """A view that displays the booking page and handles the booking form"""
-    user = request.user  # Get the current logged-in user
-    profile = getattr(user, 'userprofile', None) or UserProfile.objects.create(user=user)  # Get or create the user's profile
     
     # Initialize form and variables
     form = BookingForm(initial={
@@ -41,6 +20,7 @@ def book_class(request):
         'visitor_email': user.email,
         'visitor_phone': profile.phone_number if profile else '',
     })
+    
     times = []
     selected_class = ''
     selected_day = ''
@@ -61,6 +41,7 @@ def book_class(request):
             class_day = request.POST.get('class_day', '')
             class_time = request.POST.get('class_time', '')
 
+            # Check if all required fields are filled
             if visitor_name and visitor_email and visitor_phone and fitness_class and class_day and class_time:
                 booking = Booking(
                     visitor_name=visitor_name,
@@ -82,6 +63,10 @@ def book_class(request):
         'selected_class': selected_class,
         'selected_day': selected_day
     })
+
+def success_url(request):
+    """A view that displays the success page"""
+    return render(request, 'classes/successful_booking.html')  # Render the success page
 
 def success_url(request):
     """A view that displays the success page"""
