@@ -32,6 +32,16 @@ def book_class(request):
     user = request.user  # Get the current logged-in user
     profile = getattr(user, 'userprofile', None) or UserProfile.objects.create(user=user)  # Get or create the user's profile
     
+    # Initialize form and variables
+    form = BookingForm(initial={
+        'visitor_name': user.first_name,
+        'visitor_email': user.email,
+        'visitor_phone': profile.phone_number if profile else '',
+    })
+    times = []
+    selected_class = ''
+    selected_day = ''
+
     if request.method == 'POST':
         if 'search_times' in request.POST:
             selected_class = request.POST.get('fitness_class')
@@ -40,7 +50,7 @@ def book_class(request):
                 times = ClassTime.objects.filter(fitness_class=selected_class, day_of_week=selected_day).order_by('time_range')
         
         elif 'book_now' in request.POST:
-            form = BookingForm(request.POST)  # Remove `initial=initial_data` here
+            form = BookingForm(request.POST)  # Initialize form with POST data
             if form.is_valid():
                 booking = Booking(
                     visitor_name=form.cleaned_data['visitor_name'],
@@ -55,35 +65,19 @@ def book_class(request):
             else:
                 logger.error("Form is invalid. Errors: %s", form.errors)
                 logger.info("Form data: %s", request.POST)
+                # Update times list based on current POST data
                 selected_class = request.POST.get('fitness_class', '')
                 selected_day = request.POST.get('class_day', '')
                 if selected_class and selected_day:
                     times = ClassTime.objects.filter(fitness_class=selected_class, day_of_week=selected_day).order_by('time_range')
-        else:
-            form = BookingForm(initial={
-                'visitor_name': user.first_name,
-                'visitor_email': user.email,
-                'visitor_phone': profile.phone_number if profile else '',
-            })
-            times = []
-            selected_class = ''
-            selected_day = ''
-    else:
-        form = BookingForm(initial={
-            'visitor_name': user.first_name,
-            'visitor_email': user.email,
-            'visitor_phone': profile.phone_number if profile else '',
-        })
-        times = []
-        selected_class = ''
-        selected_day = ''
-
+    
     return render(request, 'classes/classes.html', {
         'form': form,
         'times': times,
         'selected_class': selected_class,
         'selected_day': selected_day
     })
+
 def success_url(request):
     """A view that displays the success page"""
     return render(request, 'classes/successful_booking.html')  # Render the success page
