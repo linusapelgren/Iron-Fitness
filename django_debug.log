@@ -18658,3 +18658,5 @@ File /workspace/Iron-Fitness/users/migrations/0015_alter_userprofile_picture.py 
 File /workspace/.pip-modules/lib/python3.12/site-packages/allauth/account/middleware.py first seen with mtime 1720795401.2854655
 File /workspace/.pip-modules/lib/python3.12/site-packages/allauth/account/migrations/0009_emailaddress_unique_primary_email.py first seen with mtime 1720795401.2934656
 File /workspace/.pip-modules/lib/python3.12/site-packages/PIL/_typing.py first seen with mtime 1721137645.1345448
+File /workspace/Iron-Fitness/home/templates/home/index.html previous mtime: 1722247802.7676468, current mtime: 1722286656.3100827
+/workspace/Iron-Fitness/home/templates/home/index.html notified as changed. Signal results: [(<function template_changed at 0x7fb8c3189e40>, True), (<function translation_file_changed at 0x7fb8c2643e20>, None)].
