@@ -1,0 +1,23 @@
+[33m4e41155[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Changed name from success.html to successful_booking.html
+[33md501be6[m Removed form error logging
+[33m2cfeecc[m Added form error logging
+[33m40cada4[m Moved classes.html and success.html to templates folder
+[33m4bcd5d8[m Added classes page
+[33me0d82fa[m Updated static files location in urls.py files
+[33m36e44de[m Removed media directory
+[33m6e95cec[m Removed media directory
+[33me4ae285[m Moved files to static directory
+[33mbbadc43[m Updated custom_storages.py and setting.py
+[33ma671cab[m Moved files from media to static folder
+[33mddb10f0[m Added cache control to settings.py
+[33m6e86b78[m Add django-storages to requirements
+[33mce7f808[m Configured AWS S3 for static and media files
+[33m58d9e3c[m Updated dataset
+[33mdc5a35d[m Update static files configuration
+[33m67c83af[m Add whitenoise to requirements
+[33m8e4263c[m Installed whitenoise
+[33m52d3c3c[m Updated static file path in settings.py
+[33mf3637dd[m Updated allowed hosts
+[33mf4ee89d[m Updated allowed hosts
+[33mc4ece1f[m Updated allowed hosts
+[33meb3fb5b[m Added heroku to allowed hosts
