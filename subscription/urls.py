@@ -9,4 +9,4 @@ urlpatterns = [
     path('subscription/<int:id>/', views.plan_details, name='plan_details'),
     path('subscribe/<int:id>/', views.subscribe, name='subscribe'),
     path('checkout/', include('checkout.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

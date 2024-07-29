@@ -10,6 +10,6 @@ urlpatterns = [
     path('subscription/', include('subscription.urls')),
     path('classes/', include('classes.urls')),
     path('users/', include('users.urls')),
-    path('checkout/', include('checkout.urls')),  # Ensure this line is present
+    path('checkout/', include('checkout.urls')),  
     path('contact/', include('contact.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
