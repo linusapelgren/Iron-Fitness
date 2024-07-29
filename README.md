@@ -1,8 +1,8 @@
 # Iron Fitness
 
-In this section, you will include one or two paragraphs providing an overview of your project. Essentially, this part is your sales pitch. At this stage, you should have a name for your project so use it! Don’t introduce the project as a Portfolio project for the diploma. In this section, describe what the project hopes to accomplish, who it is intended to target and how it will be useful to the target audience. 
-
-For example; Love Running is a site that hopes to help keep people motivated to meet up for runs on a regular basis in Dublin, Ireland. The site will be targeted toward runners who are looking for a way to socialise and keep themselves fit. Love Running will be useful for runners to see exactly when and where they should be to join the running club. 
+- Iron Fitness Gym is an all encompasing website built to simplify the gym goers experience. 
+- It features a complete membership subscription service and and class booking. 
+- All done in a sleek, modern and user friendly style
 
 ![Responsice Mockup](https://github.com/lucyrush/readme-template/blob/master/media/love_running_mockup.png)
 
@@ -112,26 +112,33 @@ For example; Love Running is a site that hopes to help keep people motivated to 
 
  - The subscription page houses the different subscription plans available on the site
 
-  ![Subscription page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+  <details><summary>Click to expand</summary>
+  <img src="static/images/plans.png">
+
+  <img src="static/images/plansmobile.png">
+  </details>
 
  #### The plan details page
 
  - This page displays infromation about the plan the user selected
  - It also has a subscribe now button which is how you access the checkout page
 
-  ![Subscription page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+  <details><summary>Click to expand</summary>
+  <img src="static/images/plandetails.png">
 
+  <img src="static/images/plandetailsmobile.png">
+  </details>
  
  #### The checkout page
 
   - This is where the user can subscribe to any given plan
   - It features clean form and a stripe payment system which makes it very easy to use for the user
 
-  ![Checkout  page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
-  ![Checkout  page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
-  ![Checkout  page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
-  ![Checkout  page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+  <details><summary>Click to expand</summary>
+  <img src="static/images/checkout.png">
 
+  <img src="static/images/checkout2.png">
+  </details>
 #### The Contact page
 
  - This page displays the necisary infortmation about the gym, like contact number and mail. It also has a google maps link that displays "the location" of the gym. 
@@ -176,11 +183,17 @@ For example; Love Running is a site that hopes to help keep people motivated to 
 #### Navigation Bar
   - Accessible on all pages, the fully responsive navigation bar includes links to the Home page, Classes page, Subscription page, Contact page, and the pages tied to the user profile
 
+<details><summary>Click to expand</summary>
 <img src="static/images/navbar.png">
 
-![Nav Bar Mobile](https://github.com/lucyrush/readme-template/blob/master/media/love_running_nav.png)
+<img src="static/images/navmobile.png">
+</details>
 
 #### Stripe payment system
+
+<details><summary>Click to expand</summary>
+<img src="static/images/stripe.png">
+</details>
 
 #### Managing subscriptions
 
