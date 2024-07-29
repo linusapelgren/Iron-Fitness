@@ -51,12 +51,11 @@ def book_class(request):
                 selected_class = request.POST.get('fitness_class')
                 selected_day = request.POST.get('class_day')
                 logger.error("Form is invalid. Errors: %s", form.errors)
+                logger.info("Form data: %s", request.POST)
                 if selected_class and selected_day:
                     times = ClassTime.objects.filter(fitness_class=selected_class, day_of_week=selected_day).order_by('time_range')
                     # Re-fetch class times if form is invalid
             
-
-
     return render(request, 'classes/classes.html', {
         'form': form,
         'times': times,

@@ -59,6 +59,16 @@
 
           <hr>
           <button type="submit" name="book_now" class="btn btn-primary w-100">Book Now</button>
+          {% if form.errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+                {% for field in form %}
+                    {% if field.errors %}
+                        <div>{{ field.label }}: {{ field.errors }}</div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+          {% endif %}
         </form>
       </div>
     {% else %}
