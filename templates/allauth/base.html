@@ -3,6 +3,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+
     {% block meta %}
         <!-- Meta tags for compatibility, character set, and viewport settings -->
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,10 +11,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon">
     {% endblock %}
+
     {% block extrameta %}
         <!-- Additional meta tags can be added here -->
     {% endblock %}
+
     {% block corecss %}
+        <!-- Core CSS files -->
         <!-- Bootstrap CSS from CDN -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
         <!-- Custom CSS -->
@@ -23,10 +27,13 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     {% endblock %}
+
     {% block extracss %}
         <!-- Additional CSS files can be included here -->
     {% endblock %}
+
     {% block corejs %}
+        <!-- Core JavaScript files -->
         <!-- jQuery from CDN -->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <!-- Bootstrap JS from CDN -->
@@ -34,96 +41,80 @@
         <!-- Font Awesome for icons -->
         <script src="https://kit.fontawesome.com/5e76b10468.js" crossorigin="anonymous"></script>
     {% endblock %}
+
     {% block extrajs %}
         <!-- Additional JavaScript files can be included here -->
     {% endblock %}
+
     <!-- Title of the page -->
     <title>Iron Fitness Gym {% block extra_title%}{% endblock %}</title>
 </head>
 <body>
-    <style>
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.5rem 1rem;
-        }
-        .main-logo-link h2 {
-            margin: 0;
-        }
-        .navbar .navbar-toggler {
-            margin-left: auto;
-        }
-        .navbar-toggler-icon {
-            font-size: 1.25rem;
-        }
-        .dropdown-menu {
-            min-width: 10rem;
-        }
-        .dropdown-item {
-            padding: 0.5rem 1rem;
-        }
-        .list-inline-item .nav-link {
-            display: flex;
-            align-items: center;
-            padding: 0.25rem 0.5rem;
-        }
-        .list-inline-item .nav-link .fas {
-            margin-right: 0.25rem;
-        }
-        .list-inline-item .nav-link p {
-            margin: 0;
-        }
-    </style>
-    <header class="container-fluid fixed-top">
-        <div id="topnav" class="row bg-white d-none d-lg-flex">
-            <div class="col-12 header-container">
-                <div class="my-auto text-center text-lg-left">
-                    <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                        <h2 class="logo-font text-black"><strong>Iron Fitness</strong></h2>
-                    </a>
-                </div>
-                <div class="my-auto">
-                    <ul class="list-inline list-unstyled text-center my-0">
-                        <li class="list-inline-item dropdown">
-                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user fa-lg"></i>
+    <header class="container-fluid fixed-top" id="header">
+        <!-- Top Navigation Bar -->
+        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+            <!-- Logo Section -->
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                    <h2 class="logo-font text-black my-0"><strong>Iron Fitness Gym</strong></h2>
+                </a>
+            </div>
+            <!-- Navigation Menu -->
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                <nav class="navbar navbar-expand-lg navbar-light w-100">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    {% include 'includes/mobile-top-header.html' %}
+                    {% include 'includes/main-nav.html' %}
+                </nav>
+            </div>
+            <!-- User Account Section -->
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                    <li class="list-inline-item dropdown">
+                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-user fa-lg"></i></div>
                                 <p class="my-0">My Account</p>
-                            </a>
-                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                                {% if request.user.is_authenticated %}
-                                    <a href="{% url 'profile_view' %}" class="dropdown-item">My Profile</a>
-                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                                {% else %}
-                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                                {% endif %}
                             </div>
-                        </li>
-                    </ul>
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                <a href="{% url 'profile_view' %}" class="dropdown-item">Profile</a>
+                                <a href="#" onclick="logoutUser(event)" class="dropdown-item">Logout</a>
+                            {% else %}
+                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Banner Section -->
+        <div class="banner-container">
+            <div class="scroll">
+                <div class="LeftToRight">
+                    <h4 class="logo-font text-white">Bind yourself today for a $10 discount!</h4>
                 </div>
             </div>
         </div>
-        <div class="row bg-white">
-            <nav class="navbar navbar-expand-lg navbar-light w-100">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                {% include 'includes/mobile-top-header.html' %}
-                {% include 'includes/main-nav.html' %}
-            </nav>
-        </div>
     </header>
+
     {% if messages %}
         <!-- Container for displaying messages (e.g., alerts) -->
         <div class="message-container"></div>
     {% endif %}
+
     {% block page_header %}
         <!-- Placeholder for page-specific header content -->
     {% endblock %}
+
     {% block content %}
         <!-- Main content area for individual pages -->
     {% endblock %}
+
     {% block footer %}
         <!-- Footer section -->
         <footer class="footer bg-white py-3">
@@ -141,6 +132,7 @@
             </div>
         </footer>
     {% endblock %}
+
     {% block postloadjs %}
         <!-- JavaScript files or inline scripts that run after page load -->
         <script src="{% static 'js/script.js' %}"></script>
@@ -171,8 +163,9 @@
             }
         </script>
     {% endblock %}
+    
     {% block scripts %}
         <!-- Additional scripts for individual pages -->
     {% endblock %}
-</body>
+  </body>
 </html>
