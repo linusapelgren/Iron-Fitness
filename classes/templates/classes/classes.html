@@ -16,15 +16,15 @@
       {{ form.non_field_errors }}
 
       <div class="elem-group">
-        <label for="id_visitor_name" class="form-label">Name</label>
+        <label for="id_visitor_name" class="form-label" value="{{ form.visitor_name.value }}">Name</label>
         {{ form.visitor_name }}
       </div>
       <div class="elem-group">
-        <label for="id_visitor_email" class="form-label">Email</label>
+        <label for="id_visitor_email" class="form-label" value="{{ form.visitor_email.value }}">Email</label>
         {{ form.visitor_email }}
       </div>
       <div class="elem-group">
-        <label for="id_visitor_phone" class="form-label">Phone Number</label>
+        <label for="id_visitor_phone" class="form-label" value="{{ form.visitor_phone.value }}">Phone Number</label>
         {{ form.visitor_phone }}
       </div>
 
