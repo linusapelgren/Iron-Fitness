@@ -5,7 +5,7 @@
             <p class="my-0">My Account</p>
         </div>
     </a>
-    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+    <div class="dropdown-menu border-0" aria-labelledby="user-options-mobile">
         {% if request.user.is_authenticated %}
             <a href="{% url 'profile_view' %}" class="dropdown-item">Profile</a>
             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
