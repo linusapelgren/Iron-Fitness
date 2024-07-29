@@ -1,11 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
-
 {% block title %}Book a class{% endblock %}
 
 {% block page_header %}{% endblock %}
-
 
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
@@ -13,35 +11,46 @@
     <h2 class="text-center">Book a class</h2>
     <p class="text-center">Fill out the form below to book a class.</p>
 
+    <!-- Booking form -->
     <form method="post" action="{% url 'book_class' %}" id="booking-form">
       {% csrf_token %}
       {{ form.non_field_errors }}
 
+      <!-- Visitor name field -->
       <div class="elem-group">
         <label for="id_visitor_name" class="form-label">Name</label>
         {{ form.visitor_name }}
       </div>
+
+      <!-- Visitor email field -->
       <div class="elem-group">
         <label for="id_visitor_email" class="form-label">Email</label>
         {{ form.visitor_email }}
       </div>
+
+      <!-- Visitor phone number field -->
       <div class="elem-group">
         <label for="id_visitor_phone" class="form-label">Phone Number</label>
         {{ form.visitor_phone }}
       </div>
 
+      <!-- Fitness class selection field -->
       <div class="elem-group">
         <label for="id_fitness_class" class="form-label">Select Fitness Class</label>
         {{ form.fitness_class }}
       </div>
+
+      <!-- Class day selection field -->
       <div class="elem-group">
         <label for="id_class_day" class="form-label">Select Day</label>
         {{ form.class_day }}
       </div>
 
+      <!-- Search times button -->
       <button type="submit" name="search_times" class="btn btn-primary w-100">Search for Time</button>
     </form>
 
+    <!-- Display available times if any -->
     {% if times %}
       <div id="available-times" style="margin-top: 20px;">
         <form method="post" action="{% url 'successful_booking' %}">
@@ -49,6 +58,7 @@
           <input type="hidden" name="fitness_class" value="{{ selected_class }}">
           <input type="hidden" name="class_day" value="{{ selected_day }}">
 
+          <!-- Class time selection field -->
           <div class="elem-group">
             <label for="id_class_time" class="form-label">Select Time</label>
             <select name="class_time" id="id_class_time" class="form-select">
@@ -60,10 +70,13 @@
           </div>
 
           <hr>
+
+          <!-- Book now button -->
           <button type="submit" name="book_now" class="btn btn-primary w-100">Book Now</button>
         </form>
       </div>
     {% else %}
+      <!-- Display message if no available times -->
       {% if selected_class and selected_day %}
         <div class="alert alert-info" role="alert" style="margin-top: 20px;">
           No available times for {{ selected_class }} on {{ selected_day }}.
