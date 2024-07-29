@@ -39,34 +39,69 @@
     {% endblock %}
     <!-- Title of the page -->
     <title>Iron Fitness Gym {% block extra_title%}{% endblock %}</title>
- <body>
+</head>
+<body>
+    <style>
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+        }
+        .main-logo-link h2 {
+            margin: 0;
+        }
+        .navbar .navbar-toggler {
+            margin-left: auto;
+        }
+        .navbar-toggler-icon {
+            font-size: 1.25rem;
+        }
+        .dropdown-menu {
+            min-width: 10rem;
+        }
+        .dropdown-item {
+            padding: 0.5rem 1rem;
+        }
+        .list-inline-item .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.25rem 0.5rem;
+        }
+        .list-inline-item .nav-link .fas {
+            margin-right: 0.25rem;
+        }
+        .list-inline-item .nav-link p {
+            margin: 0;
+        }
+    </style>
     <header class="container-fluid fixed-top">
-        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="logo-font text-black my-0"><strong>Iron Fitness</strong></h2>
-                </a>
-            </div>
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                    <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                                <div><i class="fas fa-user fa-lg"></i></div>
+        <div id="topnav" class="row bg-white d-none d-lg-flex">
+            <div class="col-12 header-container">
+                <div class="my-auto text-center text-lg-left">
+                    <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                        <h2 class="logo-font text-black"><strong>Iron Fitness</strong></h2>
+                    </a>
+                </div>
+                <div class="my-auto">
+                    <ul class="list-inline list-unstyled text-center my-0">
+                        <li class="list-inline-item dropdown">
+                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user fa-lg"></i>
                                 <p class="my-0">My Account</p>
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                {% if request.user.is_authenticated %}
+                                    <a href="{% url 'profile_view' %}" class="dropdown-item">My Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                {% endif %}
                             </div>
-                        </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                                <a href="" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            {% endif %}
-                        </div>
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="row bg-white">
@@ -136,9 +171,8 @@
             }
         </script>
     {% endblock %}
-</body>
     {% block scripts %}
         <!-- Additional scripts for individual pages -->
     {% endblock %}
-  </body>
+</body>
 </html>
