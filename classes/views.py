@@ -58,7 +58,7 @@ def book_class(request):
 
 def success_url(request):
     """A view that displays the success page"""
-    return render(request, 'classes/success.html')  # Render the success page
+    return render(request, 'classes/successful_booking.html')  # Render the success page
 
 def load_times(request):
     """A view that loads class times based on selected class and day"""
