@@ -26,6 +26,27 @@ def book_class(request):
 
     logger = logging.getLogger(__name__)
 
+@login_required
+def book_class(request):
+    """A view that displays the booking page and handles the booking form"""
+    user = request.user  # Get the current logged-in user
+    profile = getattr(user, 'userprofile', None) or UserProfile.objects.create(user=user)  # Get or create the user's profile
+    initial_data = {
+        'visitor_name': user.first_name,
+        'visitor_email': user.email,
+        'visitor_phone': profile.phone_number if profile else '',
+    }  # Initialize form data with user's info
+    
+    # Initialize form with POST data if available
+    form = BookingForm(request.POST or None, initial=initial_data)
+    
+    times = []  # Initialize empty list for class times
+    selected_class = request.POST.get('fitness_class', '')  # Preserve selected class
+    selected_day = request.POST.get('class_day', '')  # Preserve selected day
+    
+    import logging
+    logger = logging.getLogger(__name__)
+
     if request.method == 'POST':
         if 'search_times' in request.POST:
             selected_class = request.POST.get('fitness_class')
@@ -35,6 +56,8 @@ def book_class(request):
                 # Filter class times based on selected class and day
         
         elif 'book_now' in request.POST:
+            # Make sure the form is initialized with POST data
+            form = BookingForm(request.POST, initial=initial_data)
             if form.is_valid():
                 booking = Booking(
                     visitor_name=form.cleaned_data['visitor_name'],
@@ -46,16 +69,13 @@ def book_class(request):
                 )  # Create a booking instance from form data
                 booking.save()  # Save the booking to the database
                 return redirect('successful_booking')  # Redirect to success page
-                logger.info("Form is valid.")
             else:
-                selected_class = request.POST.get('fitness_class')
-                selected_day = request.POST.get('class_day')
                 logger.error("Form is invalid. Errors: %s", form.errors)
                 logger.info("Form data: %s", request.POST)
                 if selected_class and selected_day:
                     times = ClassTime.objects.filter(fitness_class=selected_class, day_of_week=selected_day).order_by('time_range')
                     # Re-fetch class times if form is invalid
-            
+
     return render(request, 'classes/classes.html', {
         'form': form,
         'times': times,
