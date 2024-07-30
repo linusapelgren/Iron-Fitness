@@ -1,10 +1,34 @@
 # Iron Fitness
 
+<img src="static/images/amiresponsive.png">
+
+## Overview
 - Iron Fitness Gym is an all encompasing website built to simplify the gym goers experience. 
 - It features a complete membership subscription service and and class booking. 
 - All done in a sleek, modern and user friendly style
 
-<img src="static/images/amiresponsive.png">
+Deployed Site - [Iron Fitness](https://ironfitness-62429d8e23c9.herokuapp.com/)
+
+## Content
+- [User Stories](#user-stories)
+- [Design](#design)
+    - [Wireframes](#wireframes)
+    - [Site Styling](#styling)
+- [Site Content](#site-content)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+    - [Packages](#packages)
+    - [Tools and Programs Used](#tools-and-programs-used)
+- [Testing](#testing)
+    - [Code Validation](#code-validation)
+    - [Lighthouse Tool](#lighthouse-tool)
+    - [Manual Testing](#manual-testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
+
+## User Stories
+- All my user stories
+User Stories - [User Stories](https://github.com/linusapelgren/Iron-Fitness/issues)
 
 ## Design
 
