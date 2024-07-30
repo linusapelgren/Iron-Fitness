@@ -105,10 +105,8 @@ footer a {
         left: 0;
         z-index: 1030;
     }
-
-    
 }
-@media (max-width: 428px){
+@media (max-width: 768px){
     .background-video{
         display: none;
     }
