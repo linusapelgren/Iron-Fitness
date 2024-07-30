@@ -4,7 +4,7 @@
 - It features a complete membership subscription service and and class booking. 
 - All done in a sleek, modern and user friendly style
 
-![Responsice Mockup](https://github.com/lucyrush/readme-template/blob/master/media/love_running_mockup.png)
+<img src="static/images/amiresponsive.png">
 
 ## Design
 
