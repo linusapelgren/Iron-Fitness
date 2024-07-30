@@ -13,3 +13,5 @@ urlpatterns = [
     path("checkout/", include("checkout.urls")),
     path("contact/", include("contact.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+handler404 = "iron_fitness.views.handler404"

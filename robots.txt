@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /admin/
+Sitemap: https://ironfitness-62429d8e23c9.herokuapp.com/sitemap.xml
