@@ -169,16 +169,38 @@
 
   ### Login 
 
-  ![Image slider](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+  <details><summary>Click to expand</summary>
+  <img src="static/images/pages/login.png">
+
+  <img src="static/images/pages/loginmobile.png">
+
+  </details>
 
   ### Register 
 
-  ![Image slider](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+ 
+  <details><summary>Click to expand</summary>
+  <img src="static/images/pages/register.png">
 
+  <img src="static/images/pages/registermobile.png">
+
+  </details>
+
+  ### Change password
+
+  <details><summary>Click to expand</summary>
+  <img src="static/images/pages/register.png">
+
+  <img src="static/images/pages/registermobile.png">
+
+  </details>
   ### Forgot password
+  <details><summary>Click to expand</summary>
+  <img src="static/images/pages/resetpassword.png">
 
-  ![Image slider](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+  <img src="static/images/pages/resetmobile.png">
 
+  </details>
 ## Features 
 
 ### Existing Features
