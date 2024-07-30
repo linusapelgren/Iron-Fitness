@@ -14,6 +14,7 @@ Deployed Site - [Iron Fitness](https://ironfitness-62429d8e23c9.herokuapp.com/)
 - [Design](#design)
     - [Wireframes](#wireframes)
     - [Site Styling](#styling)
+- [Marketing](#marketing)
 - [Site Content](#site-content)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
@@ -116,6 +117,14 @@ User Stories - [User Stories](https://github.com/linusapelgren/Iron-Fitness/issu
 
 #### Font 
 - I wanted the font to be modern and sleek so i decided to go with Roboto.
+
+## Marketing
+
+#### Iron Fitness - Facebook
+
+To enhance the promotion of Iron Fitness on social media, a Facebook page has been established. Success in e-commerce on Facebook is driven by regular updates, active user engagement, feedback polls, and competitions designed to attract both new and returning customers.
+
+<img src="static/images/facebookpage.png">
 
 ## Site content
 
