@@ -6,31 +6,33 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0001_initial'),
+        ("users", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='userprofile',
-            name='first_name',
+            model_name="userprofile",
+            name="first_name",
         ),
         migrations.RemoveField(
-            model_name='userprofile',
-            name='last_name',
+            model_name="userprofile",
+            name="last_name",
         ),
         migrations.AddField(
-            model_name='userprofile',
-            name='gym_visits',
+            model_name="userprofile",
+            name="gym_visits",
             field=models.IntegerField(default=0),
         ),
         migrations.AddField(
-            model_name='userprofile',
-            name='picture',
-            field=models.ImageField(default='media/blank_profile.png', upload_to='media/profile_pics/'),
+            model_name="userprofile",
+            name="picture",
+            field=models.ImageField(
+                default="media/blank_profile.png", upload_to="media/profile_pics/"
+            ),
         ),
         migrations.AlterField(
-            model_name='userprofile',
-            name='phone_number',
-            field=models.CharField(default='', max_length=15),
+            model_name="userprofile",
+            name="phone_number",
+            field=models.CharField(default="", max_length=15),
         ),
     ]

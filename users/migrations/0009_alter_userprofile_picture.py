@@ -6,13 +6,16 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0008_alter_userprofile_picture'),
+        ("users", "0008_alter_userprofile_picture"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='userprofile',
-            name='picture',
-            field=models.ImageField(default='users/profile_pics/blank_profile.png', upload_to='users/profile_pics/'),
+            model_name="userprofile",
+            name="picture",
+            field=models.ImageField(
+                default="users/profile_pics/blank_profile.png",
+                upload_to="users/profile_pics/",
+            ),
         ),
     ]

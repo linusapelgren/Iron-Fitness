@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0021_userprofile_subscription_start_date'),
+        ("users", "0021_userprofile_subscription_start_date"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='userprofile',
-            name='subscription_duration_months',
+            model_name="userprofile",
+            name="subscription_duration_months",
             field=models.IntegerField(blank=True, null=True),
         ),
     ]

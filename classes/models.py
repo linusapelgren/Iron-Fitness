@@ -2,14 +2,15 @@ from django.db import models
 
 # Choices for fitness class
 CLASS_CHOICES = [
-    ('yoga', 'Yoga'),
-    ('pilates', 'Pilates'),
-    ('spinning', 'Spinning'),
-    ('zumba', 'Zumba'),
-    ('crossfit', 'CrossFit'),
-    ('boxing', 'Boxing'),
-    ('hiit', 'HIIT (High-Intensity Interval Training)'),
+    ("yoga", "Yoga"),
+    ("pilates", "Pilates"),
+    ("spinning", "Spinning"),
+    ("zumba", "Zumba"),
+    ("crossfit", "CrossFit"),
+    ("boxing", "Boxing"),
+    ("hiit", "HIIT (High-Intensity Interval Training)"),
 ]
+
 
 # Model for class time
 class ClassTime(models.Model):
@@ -17,12 +18,20 @@ class ClassTime(models.Model):
     time_range = models.CharField(max_length=11)  # Format "HH:MM-HH:MM"
     day_of_week = models.CharField(
         max_length=9,
-        choices=[('Monday', 'Monday'), ('Tuesday', 'Tuesday'), ('Wednesday', 'Wednesday'),
-                 ('Thursday', 'Thursday'), ('Friday', 'Friday'), ('Saturday', 'Saturday'), ('Sunday', 'Sunday')]
+        choices=[
+            ("Monday", "Monday"),
+            ("Tuesday", "Tuesday"),
+            ("Wednesday", "Wednesday"),
+            ("Thursday", "Thursday"),
+            ("Friday", "Friday"),
+            ("Saturday", "Saturday"),
+            ("Sunday", "Sunday"),
+        ],
     )
 
     def __str__(self):
         return f"{self.fitness_class} - {self.time_range}"
+
 
 # Model for booking
 class Booking(models.Model):

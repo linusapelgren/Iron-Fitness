@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('subscription', '0005_alter_subscriptionplan_binding_time'),
+        ("subscription", "0005_alter_subscriptionplan_binding_time"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='subscriptionplan',
-            name='binding_time',
-            field=models.CharField(default='None', max_length=50),
+            model_name="subscriptionplan",
+            name="binding_time",
+            field=models.CharField(default="None", max_length=50),
         ),
     ]

@@ -7,14 +7,19 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('subscription', '0002_alter_subscriptionplan_image'),
-        ('users', '0017_alter_userprofile_phone_number'),
+        ("subscription", "0002_alter_subscriptionplan_image"),
+        ("users", "0017_alter_userprofile_phone_number"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='userprofile',
-            name='subscription_plan',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='subscription.subscriptionplan'),
+            model_name="userprofile",
+            name="subscription_plan",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to="subscription.subscriptionplan",
+            ),
         ),
     ]

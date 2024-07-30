@@ -143,6 +143,22 @@
 
   <img src="static/images/pages/checkoutmobile2.png">
   </details>
+
+ #### The classes page
+
+  - This is where the user can subscribe to any given plan
+  - It features clean form and a stripe payment system which makes it very easy to use for the user
+
+  <details><summary>Click to expand</summary>
+  <img src="static/images/pages/bookingpage.png">
+
+  <img src="static/images/pages/bookingmobile.png">
+
+  <img src="static/images/pages/successfulbooking.png">
+
+  <img src="static/images/pages/successfulbookingmobile.png">
+  </details>
+
 #### The Contact page
 
  - This page displays the necisary infortmation about the gym, like contact number and mail. It also has a google maps link that displays "the location" of the gym. 
@@ -161,11 +177,21 @@
 
   ### Profile page
 
-  ![Image slider](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+  <details><summary>Click to expand</summary>
+  <img src="static/images/pages/profile.png">
+
+  <img src="static/images/pages/profilemobile.png">
+
+  </details>
 
   ### Profile edit page
 
-  ![Image slider](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png) 
+  <details><summary>Click to expand</summary>
+  <img src="static/images/pages/profileedit.png">
+
+  <img src="static/images/pages/profileeditmobile.png">
+
+  </details>
 
   ### Login 
 
@@ -177,7 +203,6 @@
   </details>
 
   ### Register 
-
  
   <details><summary>Click to expand</summary>
   <img src="static/images/pages/register.png">
@@ -189,11 +214,12 @@
   ### Change password
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/pages/register.png">
+  <img src="static/images/pages/change.png">
 
-  <img src="static/images/pages/registermobile.png">
+  <img src="static/images/pages/changemobile.png">
 
   </details>
+
   ### Forgot password
   <details><summary>Click to expand</summary>
   <img src="static/images/pages/resetpassword.png">
@@ -201,6 +227,7 @@
   <img src="static/images/pages/resetmobile.png">
 
   </details>
+
 ## Features 
 
 ### Existing Features
@@ -212,57 +239,67 @@
   - Accessible on all pages, the fully responsive navigation bar includes links to the Home page, Classes page, Subscription page, Contact page, and the pages tied to the user profile
 
 <details><summary>Click to expand</summary>
-<img src="static/images/navbar.png">
+<img src="static/images/features/navbar.png">
 
-<img src="static/images/navmobile.png">
+<img src="static/images/features/navmobile.png">
 </details>
 
 #### Stripe payment system
 
 <details><summary>Click to expand</summary>
-<img src="static/images/stripe.png">
+<img src="static/images/features/stripe.png">
 </details>
 
 #### Managing subscriptions
 
 <details><summary>Click to expand</summary>
-<img src="static/images/cancelsubscription.png">
+<img src="static/images/features/cancelsubscription.png">
 
-<img src="static/images/cancelledsubscription.png">
+<img src="static/images/features/cancelledsubscription.png">
 </details>
 
 #### Binding time
 
 <details><summary>Click to expand</summary>
-<img src="static/images/managesubscriptionbindingtime.png">
+<img src="static/images/features/managesubscriptionbindingtime.png">
 </details>
 
 #### Dynamic display of active subscriptions
 
 <details><summary>Click to expand</summary>
-<img src="static/images/activesubscription.png">
+<img src="static/images/features/activesubscription.png">
 
-<img src="static/images/noactivesubscription.png">
+<img src="static/images/features/noactivesubscription.png">
 </details>
 
 #### Class booking system 
 
 <details><summary>Click to expand</summary>
-<img src="static/images/bookingpage.png">
+<img src="static/images/features/form.png">
+<img src="static/images/features/formtime.png">
 </details>
 
 #### Class scheduling
 
 <details><summary>Click to expand</summary>
-<img src="static/images/addclasstimeadmin.png">
+<img src="static/images/features/addclasstimeadmin.png">
 </details>
 
 #### Google maps
 
 <details><summary>Click to expand</summary>
-<img src="static/images/googlemaps.png">
+<img src="static/images/features/googlemaps.png">
 </details>
 
+#### Order overview
+<details><summary>Click to expand</summary>
+<img src="static/images/features/orderoverview.png">
+</details>
+
+#### Class schedules
+<details><summary>Click to expand</summary>
+<img src="static/images/features/addclasstimeadmin.png">
+</details>
 
 #### Allauth features
 - The site uses allauth which handles user accounts
@@ -271,10 +308,18 @@
 #### MailJet 
 - MailJet is used to send emails to the user
 
+<details><summary>Click to expand</summary>
+<img src="static/images/features/passwordresetmail.png">
+</details>
+
+
 ### Features Left to Implement
 
 - An online shop for supplements, clothing and gym equipment
 - Profile picture changer
+- Age verification for senior plans
+- Time based deals
+- Gym visit counter for 10 and 1 visit plans
 
 ## Technologies Used
 
@@ -309,13 +354,158 @@ The following packages were installed throughout the development.
 ### Validator Testing 
 
 - HTML
-  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-running-2.0%2Findex.html)
+  - One error was returned when passing through the official [W3C validator](https://validator.w3.org/nu/)
+  - This error i didn't manage to find a solution for without it messing up my main navigation
+  - <img src="static/images/testing/htmlvalidator.png">
+
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-running-2.0%252Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#css)
-- Python
- - All of the .py files were formatted using Black and then checked with a Pep8 linter, all of the files passed this check - however the settings.py had long lines for the password authentication section and I was unable to remedy this issue. 
+  - <img src="static/images/testing/cssvalidator.png">
 
 ### Lighthouse tool
+
+#### Notes
+
+- Some of the results aren't that great, but i didn't have the time to find the solutions to them without ruining the code
+
+#### Landing page
+
+ - The landing page gives the user a stylish welcome to the page 
+ - It features a short video to grab the attention of the users
+
+  <details><summary>Click to expand</summary>
+  <img src="static/images/testing/indexlighthouse.png">
+
+  <img src="static/images/testing/indexlighthousemobile.png">
+  </details>
+
+#### Subscription page
+
+ - The subscription page houses the different subscription plans available on the site
+
+  <details><summary>Click to expand</summary>
+  <img src="static/images/testing/planslighthouse.png">
+
+  <img src="static/images/testing/planslighthousemobile.png">
+  </details>
+
+#### Plan details page
+
+ - This page displays infromation about the plan the user selected
+ - It also has a subscribe now button which is how you access the checkout page
+
+  <details><summary>Click to expand</summary>
+  <img src="static/images/testing/detailslighthouse.png">
+
+  <img src="static/images/testing/detailsmobile.png">
+  </details>
+ 
+#### Checkout page
+
+  - This is where the user can subscribe to any given plan
+  - It features clean form and a stripe payment system which makes it very easy to use for the user
+
+  <details><summary>Click to expand</summary>
+  <img src="static/images/testing/checkout.png">
+
+  <img src="static/images/testing/checkout2.png">
+
+  <img src="static/images/testing/checkoutmobile.png">
+
+  <img src="static/images/testing/checkout2mobile.png">
+
+  <img src="static/images/testing/purchase.png">
+
+  <img src="static/images/testing/purchasemobile.png">
+  </details>
+
+#### Classes page
+
+  - This is where the user can subscribe to any given plan
+  - It features clean form and a stripe payment system which makes it very easy to use for the user
+
+  <details><summary>Click to expand</summary>
+  <img src="static/images/testing/classes.png">
+
+  <img src="static/images/testing/classesmobile.png">
+
+  <img src="static/images/testing/successfulbooking.png">
+
+  <img src="static/images/testing/successfulbookingmobile.png">
+  </details>
+
+#### The Contact page
+
+  - This page displays the necisary infortmation about the gym, like contact number and mail. It also has a google maps link that displays "the location" of the gym. 
+  - It also features an image slider that 
+
+  <details><summary>Click to expand</summary>
+  <img src="static/images/testing/contact.png">
+
+  <img src="static/images/testing/contactmobile.png">
+
+  </details>
+
+### Allauth pages
+
+ - These are the pages that are supplied with allauth, although i have customized them a little.
+
+#### Profile page
+
+  <details><summary>Click to expand</summary>
+  <img src="static/images/testing/profile.png">
+
+  <img src="static/images/testing/profilemobile.png">
+
+  </details>
+
+#### Profile edit page
+
+  <details><summary>Click to expand</summary>
+  <img src="static/images/testing/edit.png">
+
+  <img src="static/images/testing/editmobile.png">
+
+  </details>
+
+#### Login 
+
+  <details><summary>Click to expand</summary>
+  <img src="static/images/testing/login.png">
+
+  <img src="static/images/testing/loginmobile.png">
+
+  </details>
+
+#### Register 
+ 
+  <details><summary>Click to expand</summary>
+  <img src="static/images/testing/register.png">
+
+  <img src="static/images/testing/registermobile.png">
+
+  </details>
+
+#### Change password
+
+  <details><summary>Click to expand</summary>
+  <img src="static/images/testing//change.png">
+
+  <img src="static/images/testing/changemobile.png">
+
+  </details>
+
+#### Forgot password
+  <details><summary>Click to expand</summary>
+  <img src="static/images/testing/reset.png">
+
+  <img src="static/images/testing/resetmobile.png">
+
+  <img src="static/images/testing/resetsent.png">
+
+  <img src="static/images/testing/resetsentmobile.png">
+
+  </details>
 
 ### Manual testing
 

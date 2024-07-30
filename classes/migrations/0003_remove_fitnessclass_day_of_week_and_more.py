@@ -7,30 +7,44 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('classes', '0002_alter_classtime_fitness_class'),
+        ("classes", "0002_alter_classtime_fitness_class"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='fitnessclass',
-            name='day_of_week',
+            model_name="fitnessclass",
+            name="day_of_week",
         ),
         migrations.RemoveField(
-            model_name='fitnessclass',
-            name='end_time',
+            model_name="fitnessclass",
+            name="end_time",
         ),
         migrations.RemoveField(
-            model_name='fitnessclass',
-            name='start_time',
+            model_name="fitnessclass",
+            name="start_time",
         ),
         migrations.AlterField(
-            model_name='classtime',
-            name='fitness_class',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='classes.fitnessclass'),
+            model_name="classtime",
+            name="fitness_class",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to="classes.fitnessclass"
+            ),
         ),
         migrations.AlterField(
-            model_name='fitnessclass',
-            name='name',
-            field=models.CharField(choices=[('yoga', 'Yoga'), ('pilates', 'Pilates'), ('spinning', 'Spinning'), ('zumba', 'Zumba'), ('crossfit', 'CrossFit'), ('boxing', 'Boxing'), ('hiit', 'HIIT (High-Intensity Interval Training)')], max_length=100, unique=True),
+            model_name="fitnessclass",
+            name="name",
+            field=models.CharField(
+                choices=[
+                    ("yoga", "Yoga"),
+                    ("pilates", "Pilates"),
+                    ("spinning", "Spinning"),
+                    ("zumba", "Zumba"),
+                    ("crossfit", "CrossFit"),
+                    ("boxing", "Boxing"),
+                    ("hiit", "HIIT (High-Intensity Interval Training)"),
+                ],
+                max_length=100,
+                unique=True,
+            ),
         ),
     ]

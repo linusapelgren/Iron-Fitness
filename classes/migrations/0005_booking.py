@@ -6,20 +6,28 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('classes', '0004_alter_classtime_fitness_class_and_more'),
+        ("classes", "0004_alter_classtime_fitness_class_and_more"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Booking',
+            name="Booking",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('visitor_name', models.CharField(max_length=100)),
-                ('visitor_email', models.EmailField(max_length=254)),
-                ('visitor_phone', models.CharField(max_length=15)),
-                ('fitness_class', models.CharField(max_length=20)),
-                ('class_day', models.CharField(max_length=9)),
-                ('class_time', models.CharField(max_length=11)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("visitor_name", models.CharField(max_length=100)),
+                ("visitor_email", models.EmailField(max_length=254)),
+                ("visitor_phone", models.CharField(max_length=15)),
+                ("fitness_class", models.CharField(max_length=20)),
+                ("class_day", models.CharField(max_length=9)),
+                ("class_time", models.CharField(max_length=11)),
             ],
         ),
     ]

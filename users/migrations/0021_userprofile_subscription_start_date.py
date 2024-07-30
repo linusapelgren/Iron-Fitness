@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0020_remove_userprofile_stripe_subscription_id'),
+        ("users", "0020_remove_userprofile_stripe_subscription_id"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='userprofile',
-            name='subscription_start_date',
+            model_name="userprofile",
+            name="subscription_start_date",
             field=models.DateTimeField(blank=True, null=True),
         ),
     ]

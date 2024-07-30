@@ -7,30 +7,41 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('classes', '0003_remove_fitnessclass_day_of_week_and_more'),
+        ("classes", "0003_remove_fitnessclass_day_of_week_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='classtime',
-            name='fitness_class',
-            field=models.CharField(choices=[('yoga', 'Yoga'), ('pilates', 'Pilates'), ('spinning', 'Spinning'), ('zumba', 'Zumba'), ('crossfit', 'CrossFit'), ('boxing', 'Boxing'), ('hiit', 'HIIT (High-Intensity Interval Training)')], max_length=20),
+            model_name="classtime",
+            name="fitness_class",
+            field=models.CharField(
+                choices=[
+                    ("yoga", "Yoga"),
+                    ("pilates", "Pilates"),
+                    ("spinning", "Spinning"),
+                    ("zumba", "Zumba"),
+                    ("crossfit", "CrossFit"),
+                    ("boxing", "Boxing"),
+                    ("hiit", "HIIT (High-Intensity Interval Training)"),
+                ],
+                max_length=20,
+            ),
         ),
         migrations.RemoveField(
-            model_name='classtime',
-            name='end_time',
+            model_name="classtime",
+            name="end_time",
         ),
         migrations.RemoveField(
-            model_name='classtime',
-            name='start_time',
+            model_name="classtime",
+            name="start_time",
         ),
         migrations.AddField(
-            model_name='classtime',
-            name='time_range',
+            model_name="classtime",
+            name="time_range",
             field=models.CharField(default=django.utils.timezone.now, max_length=255),
             preserve_default=False,
         ),
         migrations.DeleteModel(
-            name='FitnessClass',
+            name="FitnessClass",
         ),
     ]

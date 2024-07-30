@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('classes', '0005_booking'),
+        ("classes", "0005_booking"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='classtime',
-            name='time_range',
+            model_name="classtime",
+            name="time_range",
             field=models.CharField(max_length=11),
         ),
     ]

@@ -6,17 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('subscription', '0003_subscriptionplan_binding_period'),
+        ("subscription", "0003_subscriptionplan_binding_period"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='subscriptionplan',
-            name='binding_period',
+            model_name="subscriptionplan",
+            name="binding_period",
         ),
         migrations.AddField(
-            model_name='subscriptionplan',
-            name='binding_time',
-            field=models.CharField(default='None', max_length=50),
+            model_name="subscriptionplan",
+            name="binding_time",
+            field=models.CharField(default="None", max_length=50),
         ),
     ]
