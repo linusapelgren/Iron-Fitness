@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY", "")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = "DEVELOPMENT" in os.environ
+DEBUG = False
 
 ALLOWED_HOSTS = ["ironfitness-62429d8e23c9.herokuapp.com", "localhost"]
 
@@ -199,14 +199,8 @@ if "USE_AWS" in os.environ:
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-STRIPE_TEST_PUBLIC_KEY = os.getenv(
-    "STRIPE_TEST_PUBLIC_KEY",
-    "pk_test_51PehLIRvzCaZ4Xmpa3fAje2VRg7BUCSTIi1eXeCjW6BKOtupBc7NRanFDF8E4IH145jRufJGJgBHnvSPA3tnJeBV00AcetY068",
-)
-STRIPE_TEST_SECRET_KEY = os.getenv(
-    "STRIPE_TEST_SECRET_KEY",
-    "sk_test_51PehLIRvzCaZ4XmpH3q3p9sbzCEWmJ77aqM8TRMe4dRzABO6QLTgPCIHKhTt83O1P3QQ1eJhTAZLmhNE5jYtByU700DmIAvoHN",
-)
+STRIPE_TEST_PUBLIC_KEY = os.getenv("STRIPE_TEST_PUBLIC_KEY",)
+STRIPE_TEST_SECRET_KEY = os.getenv("STRIPE_TEST_SECRET_KEY")
 STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET", "")
 
 ACCOUNT_FORMS = {
