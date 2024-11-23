@@ -31,30 +31,24 @@
                     <div class="row mt-1 mb-2"></div> <!-- Optional row for spacing -->
                     <div class="row">
                         {% for plan in plans %}
-                            <!-- Loop through each subscription plan and create a card for it -->
-                            <div class="col-sm-6 col-md-4 mb-4">
-                                <!-- Each card is wrapped in an anchor tag for linking to details page -->
-                                <a href="{% url 'plan_details' plan.id %}" class="text-decoration-none text-black">
-                                    <div class="card h-100 border-0">
-                                        <img class="card-img-top img-fluid" src="{{ plan.image.url }}" alt="{{ plan.name }}">
-                                        <div class="card-body pb-0">
-                                            <h5 class="card-title">{{ plan.name }}</h5>
-                                            <p class="card-text">{{ plan.description }}</p>
-                                        </div>
-                                        <div class="card-footer bg-white pt-0 border-0 text-left">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <p class="lead mb-0 font-weight-bold">${{ plan.price }}</p> <!-- Price of the plan -->
-                                                </div>
+                        <div class="col-sm-6 col-md-4 mb-4">
+                            <a href="{% url 'plan_details' plan.id %}" class="text-decoration-none text-black">
+                                <div class="card h-100 border-0">
+                                    <img class="card-img-top img-fluid" src="{{ plan.image.url }}" alt="{{ plan.name }}">
+                                    <div class="card-body pb-0">
+                                        <h5 class="card-title">{{ plan.name }}</h5>
+                                        <p class="card-text">{{ plan.description }}</p>
+                                    </div>
+                                    <div class="card-footer bg-white pt-0 border-0 text-left">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="lead mb-0 font-weight-bold">${{ plan.price }}</p> 
                                             </div>
                                         </div>
                                     </div>
-                                </a>
-                            </div>
-                            <!-- Force the next cards onto a new line after every 3 cards -->
-                            {% if forloop.counter|divisibleby:3 %}
-                                <div class="w-100"></div>
-                            {% endif %}
+                                </div>
+                            </a>
+                        </div>
                         {% endfor %}
                     </div>
                 </div>
