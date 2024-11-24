@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col-md-4 text-center">
                         <div class="profile-picture-finished mb-4">
-                            <img src="{{ user_profile.picture.url }}" alt="Profile Picture" class="img-fluid profile-picture">
+                            <img src="{% static 'profile_pics/blank_profile.png' %}" alt="Profile Picture">
                         </div>
                         <div class="profile-actions">
                             <a href="{% url 'profile_edit' %}" class="btn btn-primary btn-block mb-2">Edit Profile</a>
