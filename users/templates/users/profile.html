@@ -24,15 +24,13 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 text-center">
-                        <div class="profile-picture-finished mb-4">
-                            <img src="{% static 'profile_pics/blank_profile.png' %}" alt="Profile Picture">
-                        </div>
                         <div class="profile-actions">
                             <a href="{% url 'profile_edit' %}" class="btn btn-primary btn-block mb-2">Edit Profile</a>
                             <a href="{% url 'account_change_password' %}" class="btn btn-secondary btn-block">Change Password</a>
                         </div>
                     </div>
                     <div class="col-md-8">
+                        <!-- Contact Information Section -->
                         <div class="contact-info mb-4 p-3 border rounded">
                             <h3 class="mb-3">Contact Information</h3>
                             <p><strong>Name:</strong> {{ user_profile.user.first_name }} {{ user_profile.user.last_name }}</p>
@@ -40,6 +38,7 @@
                             <p><strong>Phone:</strong> {{ user_profile.phone_number }}</p>
                             <p><strong>Address:</strong> {{ user_profile.street_address }} {{ user_profile.postal_code }}, {{ user_profile.city }}, {{ user_profile.country }}</p>
                         </div>
+                        <!-- Membership Section -->
                         <div class="membership mb-4 p-3 border rounded position-relative">
                             <h3 class="mb-3">Membership</h3>
                             {% if user_profile.subscription_plan %}
@@ -50,6 +49,24 @@
                                 <a href="{% url 'manage_subscription' %}" class="btn btn-danger position-absolute" style="top: 10px; right: 10px;">Manage</a>
                             {% else %}
                                 <p>No active subscription plan.</p>
+                            {% endif %}
+                        </div>
+                        <!-- Booked Classes Section -->
+                        <div class="booked-classes mb-4 p-3 border rounded">
+                            <h3 class="mb-3">Booked Classes</h3>
+                            {% if booked_classes %}
+                                <ul class="list-group">
+                                    {% for booking in booked_classes %}
+                                        <li class="list-group-item">
+                                            <strong>{{ booking.fitness_class }}</strong><br>
+                                            Day: {{ booking.class_day }}<br>
+                                            Time: {{ booking.class_time }}<br>
+                                            <small>Booked by: {{ booking.visitor_name }} ({{ booking.visitor_phone }})</small>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p>No classes booked yet.</p>
                             {% endif %}
                         </div>
                     </div>
