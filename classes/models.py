@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Choices for fitness class
 CLASS_CHOICES = [
@@ -41,6 +42,7 @@ class Booking(models.Model):
     fitness_class = models.CharField(max_length=20)
     class_day = models.CharField(max_length=9)
     class_time = models.CharField(max_length=11)  # Format "HH:MM-HH:MM"
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="booked_classes")
 
     def __str__(self):
         return f"{self.visitor_name} - {self.fitness_class} - {self.class_day} - {self.class_time}"
