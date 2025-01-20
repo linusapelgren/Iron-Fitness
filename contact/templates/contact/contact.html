@@ -64,17 +64,22 @@
             <div class="newsletter-signup mt-5">
                 <form method="post" class="form-inline justify-content-center">
                     {% csrf_token %}
+                    
+                    <!-- Render the form fields -->
                     {{ form.as_p }}
                     
-                    {% if user.is_authenticated %}
-                        <!-- If user is logged in, show a button that leads to user dashboard or any other page -->
-                        <button type="submit" class="btn btn-primary">Sign Up</button>
-                    {% else %}
-                        <!-- If user is not logged in, show a button to log in -->
-                        <a href="{% url 'account_login' %}" class="btn btn-primary">Log In</a>
-                    {% endif %}
-                    
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
                 </form>
+
+                <!-- Display success or error messages -->
+                {% if messages %}
+                    <div class="alert alert-info mt-3">
+                        {% for message in messages %}
+                            <p>{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>

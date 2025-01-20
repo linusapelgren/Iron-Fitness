@@ -17,7 +17,5 @@ class UserProfile(models.Model):
         SubscriptionPlan, null=True, blank=True, on_delete=models.SET_NULL
     )
     subscription_start_date = models.DateTimeField(null=True, blank=True)
-    is_subscribed_to_newsletter = models.BooleanField(default=False)
-
     def __str__(self):
         return f"{self.user.username} Profile"

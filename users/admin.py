@@ -11,7 +11,6 @@ class UserProfileAdmin(admin.ModelAdmin):
         "user_last_name",
         "subscription_plan",
         "subscription_start_date",
-        'is_subscribed_to_newsletter',
     )
 
     # Method to display the user's first name in the list view
