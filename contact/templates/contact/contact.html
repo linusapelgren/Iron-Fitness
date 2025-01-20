@@ -56,9 +56,12 @@
                 </div>
             </div>
 
-             <!-- newsletter_signup.html -->
+            <span class="divider-line" style="display: block; width: 100%; height: 2px; background-color: black; margin-bottom: 25px;"></span>
+            <h2 class="text-center" style="text-decoration: underline;">Sign Up for Our Newsletter</h2>
+            <span class="divider-line" style="display: block; width: 100%; height: 2px; background-color: black; margin-bottom: 25px;"></span>
+
+            <!-- Newsletter Signup Section -->
             <div class="newsletter-signup mt-5">
-                <h2 class="text-center" style="text-decoration: underline;">Sign Up for Our Newsletter</h2>
                 <form method="post" class="form-inline justify-content-center">
                     {% csrf_token %}
                     {{ form.as_p }}
