@@ -24,7 +24,6 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = [
             "phone_number",
-            "picture",
             "street_address",
             "city",
             "postal_code",
