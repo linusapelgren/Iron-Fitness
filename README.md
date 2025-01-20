@@ -120,6 +120,13 @@ User Stories - [User Stories](https://github.com/linusapelgren/Iron-Fitness/issu
 
 ## Marketing
 
+#### Business Model 
+The chosen business model for this e-commerce site is B2C (Business to Consumer). IronFitnessGym was created with the goal of offering users a seamless, convenient way to sign up for gym memberships and book classes, all online. By using our platform, customers can bypass the traditional hassles of gym reception desks and restrictive opening hours.
+
+Once a user subscribes to a membership, they immediately receive a virtual gym card, enabling them to start their fitness journey without waiting for a physical card to arrive. This instant access ensures a smooth and efficient start to their training, saving valuable time and providing a hassle-free experience.
+
+Our mission is to inspire as many people in Karlskoga as possible to begin their fitness journey. We aim to provide easy access to top-quality training options and build a supportive community where fitness enthusiasts can thrive, all with the convenience of managing everything online.
+
 #### Iron Fitness - Facebook
 
 To enhance the promotion of Iron Fitness on social media, a Facebook page has been established. Success in e-commerce on Facebook is driven by regular updates, active user engagement, feedback polls, and competitions designed to attract both new and returning customers.
