@@ -57,6 +57,7 @@ def book_class(request):
                 and class_day
                 and class_time
             ):
+                # Create a booking instance from POST data
                 booking = Booking(
                     visitor_name=visitor_name,
                     visitor_email=visitor_email,
@@ -64,7 +65,8 @@ def book_class(request):
                     fitness_class=fitness_class,
                     class_day=class_day,
                     class_time=class_time,
-                )  # Create a booking instance from POST data
+                    user=user  # Associate booking with the logged-in user
+                )
                 booking.save()  # Save the booking to the database
                 return redirect("successful_booking")  # Redirect to success page
             else:
@@ -84,7 +86,6 @@ def book_class(request):
             "selected_day": selected_day,
         },
     )
-
 
 def success_url(request):
     """A view that displays the success page"""
