@@ -267,22 +267,41 @@ footer a {
         padding-top: 116px;
     }
 }
-
-.newsletter-signup {
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 5px;
+.input-container {
+    display: flex; /* Align items horizontally */
+    justify-content: center; /* Center the items */
+    align-items: stretch; /* Stretch items to have equal height */
 }
 
-.newsletter-signup h2 {
-    margin-bottom: 20px;
+input[type="email"] {
+    height: 40px; /* Set height for the input field */
+    padding: 10px; /* Add some padding inside the input */
+    border-radius: 5px 0 0 5px; /* Rounded left corners */
+    border: 1px solid #ccc; /* Border for the input */
+    flex-grow: 2; /* Make the input field take more space */
+    font-size: 16px; /* Adjust font size */
+    min-width: 250px; /* Set a minimum width for the input */
 }
 
-.newsletter-signup form {
-    max-width: 500px;
-    margin: 0 auto;
+/* Style the button to match input field height */
+button[type="submit"] {
+    height: 40px; /* Match the input field height */
+    padding: 10px 20px; /* Adjust button padding */
+    border-radius: 0 5px 5px 0; /* Rounded right corners */
+    font-size: 16px; /* Button font size */
+    border: 1px solid #ccc; /* Border to match the input */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth hover effect */
 }
 
-.newsletter-signup .form-control {
-    margin-right: 10px;
+/* Hover effect for the button */
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue when hovered */
+}
+
+/* Optional: Add margin between the input and button */
+.input-container input {
+    margin-right: 10px; /* Add some space between the input and the button */
 }

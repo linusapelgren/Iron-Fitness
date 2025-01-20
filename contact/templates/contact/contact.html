@@ -60,19 +60,15 @@
             <h1 class="text-center mb-4">Sign up for our newsletter</h1>
             <span class="divider-line" style="display: block; width: 100%; height: 2px; background-color: black; margin-bottom: 25px;"></span>
 
-            <!-- Newsletter Signup Section -->
             <div class="newsletter-signup mt-5">
                 <form method="post" class="form-inline justify-content-center">
                     {% csrf_token %}
                     
-                    <!-- Render the form fields -->
-                    {{ form.as_p }}
-                    
-                    <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                    <div class="input-container">
+                        {{ form.email }}  <!-- This will render the email field with the placeholder -->
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </div>
                 </form>
-
-                <!-- Display success or error messages -->
                 {% if messages %}
                     <div class="alert alert-info mt-3">
                         {% for message in messages %}
@@ -80,7 +76,7 @@
                         {% endfor %}
                     </div>
                 {% endif %}
-            </div>
+            </div>        
         </div>
     </div>
 </div>

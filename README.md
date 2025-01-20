@@ -118,6 +118,12 @@ User Stories - [User Stories](https://github.com/linusapelgren/Iron-Fitness/issu
 #### Font 
 - I wanted the font to be modern and sleek so i decided to go with Roboto.
 
+### Database Schema
+
+ - The user model was established using Django-Allauth
+
+  ![Database Schema](media/readme/database_schema.jpg)
+
 ## Marketing
 
 #### Business Model 
