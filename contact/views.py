@@ -1,20 +1,23 @@
 from django.shortcuts import render, redirect
 from .forms import NewsletterSignupForm
 from django.contrib import messages
-
-def contact(request):
-    """A view that displays the contact page"""
-    return render(request, "contact/contact.html")
+from django.contrib.auth.decorators import login_required
 
 def contact_us(request):
+    """ A view to return the contact us page """
+    return render(request, 'contact/contact.html')
+
+@login_required  # Ensures the user is logged in
+def newsletter_signup(request):
+    user = request.user  # Get the logged-in user
     if request.method == 'POST':
         form = NewsletterSignupForm(request.POST)
         if form.is_valid():
-            email = form.cleaned_data['email']
-            # Here you would typically save the email to a database or send it somewhere
-            messages.success(request, 'Thank you for signing up for our newsletter!')
-            return redirect('contact_us')  # Redirect to avoid form resubmission on refresh
+            form.save(user)  # Save the subscription preference for the user
+            # Show a success message and redirect
+            messages.success(request, "You have successfully updated your newsletter preferences.")
+            return redirect('newsletter_success')  # Redirect to a success page or confirmation page
     else:
         form = NewsletterSignupForm()
-    
-    return render(request, 'contact.html', {'form': form})
+
+    return render(request, 'newsletter_signup.html', {'form': form})

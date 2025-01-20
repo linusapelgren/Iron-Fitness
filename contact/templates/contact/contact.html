@@ -56,14 +56,23 @@
                 </div>
             </div>
 
-             <!-- Newsletter Signup Form -->
-             <div class="newsletter-signup mt-5">
+             <!-- newsletter_signup.html -->
+            <div class="newsletter-signup mt-5">
                 <h2 class="text-center" style="text-decoration: underline;">Sign Up for Our Newsletter</h2>
                 <form method="post" class="form-inline justify-content-center">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                    
+                    {% if user.is_authenticated %}
+                        <!-- If user is logged in, show a button that leads to user dashboard or any other page -->
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    {% else %}
+                        <!-- If user is not logged in, show a button to log in -->
+                        <a href="{% url 'account_login' %}" class="btn btn-primary">Log In</a>
+                    {% endif %}
+                    
                 </form>
+                
                 {% if messages %}
                     <div class="alert alert-success mt-3">
                         {% for message in messages %}
