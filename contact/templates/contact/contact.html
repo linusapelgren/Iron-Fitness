@@ -37,7 +37,7 @@
                 <div class="col-md-6 mb-5">
                     <div class="contact-form">
                         <h2 style="text-decoration: underline; padding-bottom: 10px;">Send us a mail!</h2>
-                        <p><strong>Mail: </strong>IronFitness@gmail.com</p>
+                        <p><strong>Mail: </strong>ironfitnessgymsweden@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -65,18 +65,19 @@
                     {% csrf_token %}
                     
                     <div class="input-container">
-                        {{ form.email }}  <!-- This will render the email field with the placeholder -->
+                        {{ form.email }}  <!-- Render the email field with placeholder and id -->
                         <button type="submit" class="btn btn-primary">Sign Up</button>
                     </div>
                 </form>
-                {% if messages %}
-                    <div class="alert alert-info mt-3">
-                        {% for message in messages %}
+            
+                {% for message in messages %}
+                    {% if 'newsletter' in message.tags %}
+                        <div class="alert alert-info mt-3">
                             <p>{{ message }}</p>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>        
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>                     
         </div>
     </div>
 </div>

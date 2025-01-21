@@ -16,16 +16,13 @@ import os
 import django.core.mail
 from django.contrib.messages import constants as messages
 import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = "#)e$6@8v&1y*2z%7!j#4o^5w$3u@9n$0a%f!z8b&1r^6m*5q@x*7e"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

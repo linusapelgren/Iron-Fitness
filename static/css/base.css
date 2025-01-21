@@ -273,7 +273,7 @@ footer a {
     align-items: stretch; /* Stretch items to have equal height */
 }
 
-input[type="email"] {
+#newsletter-email {
     height: 40px; /* Set height for the input field */
     padding: 10px; /* Add some padding inside the input */
     border-radius: 5px 0 0 5px; /* Rounded left corners */
