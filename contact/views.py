@@ -4,6 +4,7 @@ from .models import NewsletterSubscriber
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib.admin.views.decorators import staff_member_required
 
 def contact_us(request):
     """ A view to return the contact us page and handle newsletter signup """
@@ -47,3 +48,29 @@ def contact_us(request):
         form = NewsletterSignupForm()
 
     return render(request, 'contact/contact.html', {'form': form})
+
+@staff_member_required  # Ensure that only admin users can access this view
+def send_newsletter(request):
+    if request.method == 'POST':
+        subject = request.POST['subject']
+        message = request.POST['message']
+        
+        # Get all subscriber emails
+        subscribers = NewsletterSubscriber.objects.all()
+        recipient_list = [subscriber.email for subscriber in subscribers]
+        
+        # Send the email
+        if recipient_list:
+            send_mail(
+                subject,
+                message,
+                settings.DEFAULT_FROM_EMAIL,  # Make sure this is defined in settings.py
+                recipient_list,
+                fail_silently=False,
+            )
+            messages.success(request, "Newsletter sent successfully!")
+            return redirect('newsletter_success')  # Redirect to a success page or another view
+        else:
+            messages.error(request, "No subscribers found.")
+    
+    return render(request, 'contact/newsletter.html')

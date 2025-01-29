@@ -264,3 +264,7 @@ button[type="submit"]:hover {
 .input-container input {
     margin-right: 10px; /* Add some space between the input and the button */
 }
+
+#newsletter-form{
+    width: 80%;
+}
