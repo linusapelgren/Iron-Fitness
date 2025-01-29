@@ -9,6 +9,7 @@ from django.http import JsonResponse
 logger = logging.getLogger(__name__)
 @login_required
 def book_class(request):
+    print("----Book class----\n")
     user = request.user
 
     # Retrieve the existing UserProfile for the logged-in user
@@ -34,20 +35,27 @@ def book_class(request):
     times = []
 
     if request.method == 'POST':
+
+        print("----Testing----\n")
+        print(request.POST)
         if 'search_times' in request.POST:
+            print("----First if----\n")
             selected_class = request.POST.get('fitness_class')
             selected_day = request.POST.get('class_day')
 
             # Get available times based on the selected class and day
             times = ClassTime.objects.filter(fitness_class=selected_class, day_of_week=selected_day)
-            logger.debug(f"Available times for {selected_class} on {selected_day}: {times}")
+            request.session['visitor_name'] = request.POST.get('visitor_name')
+            request.session['visitor_email'] = request.POST.get('visitor_email')
+            request.session['visitor_phone'] = request.POST.get('visitor_phone')
 
         elif 'book_now' in request.POST:
-            visitor_name = request.POST.get('visitor_name')
-            visitor_email = request.POST.get('visitor_email')
-            visitor_phone = request.POST.get('visitor_phone')
+            print("----Second if----\n")
+            visitor_name = request.session['visitor_name']
+            visitor_email = request.session['visitor_email']
+            visitor_phone = request.session['visitor_phone']
             class_time_id = request.POST.get('class_time')
-
+            
             # Ensure we get the actual ClassTime object by filtering using time_range or other identifier
             try:
                 class_time = ClassTime.objects.get(id=class_time_id)
@@ -70,15 +78,11 @@ def book_class(request):
                 class_time=class_time,
                 user=user  # Ensure the user is associated with the booking
             )
-            logger.debug(f"Booking object created: {booking}")
-            logger.debug(f"User profile before saving: {profile.booked_classes.all()}")
             booking.save()
-            logger.debug(f"Booking created: {booking}")
 
             # Add the booking to the user's profile
             profile.booked_classes.add(booking)
             profile.save()
-            logger.debug(f"User profile after saving: {profile.booked_classes.all()}")
 
             # Redirect to success page
             return redirect('successful_booking')

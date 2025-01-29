@@ -31,7 +31,7 @@ class ClassTime(models.Model):
     )
 
     def __str__(self):
-        return f"{self.fitness_class} - {self.time_range}"
+        return f"{self.get_fitness_class_display()} - {self.time_range}"
 
 
 class Booking(models.Model):

@@ -48,7 +48,7 @@
     <!-- Check if times are available, then render the second form -->
     {% if times %}
       <div id="available-times" style="margin-top: 20px;">
-        <form method="post" action="{% url 'successful_booking' %}">
+        <form method="post" action="{% url 'book_class' %}">
           {% csrf_token %}
           <input type="hidden" name="fitness_class" value="{{ selected_class }}">
           <input type="hidden" name="class_day" value="{{ selected_day }}">
@@ -58,7 +58,7 @@
             <select name="class_time" id="id_class_time" class="form-select">
               <option value="">Select a time</option>
               {% for time in times %}
-                <option value="{{ time.time_range }}">{{ time }}</option>
+                <option value="{{ time.id }}">{{ time }}</option>
               {% endfor %}
             </select>
           </div>

@@ -51,12 +51,7 @@
                             {% if booked_classes %}
                                 <ul class="list-group">
                                     {% for booking in booked_classes %}
-                                        <li class="list-group-item">
-                                            <strong>{{ booking.class_time.fitness_class }}</strong><br>
-                                            Day: {{ booking.class_time.day_of_week }}<br>
-                                            Time: {{ booking.class_time.time_range }}<br>
-                                            <small>Booked by: {{ booking.visitor_name }} ({{ booking.visitor_phone }})</small>
-                                        </li>
+                                        <strong>{{ booking.class_time }}</strong><br>
                                     {% endfor %}
                                 </ul>
                             {% else %}
