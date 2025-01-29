@@ -1,6 +1,11 @@
-{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name %}Hello from Iron Fitness!{% endblocktrans %}
+{% load i18n %}
+{% autoescape off %}
+{% blocktrans with site_name=current_site.name %}
+Hello from Iron Fitness!
+{% endblocktrans %}
 
-{% block content %}{% endblock content %}
+{% block content %}
+{% endblock content %}
 
-{{ site_domain }}{% endblocktrans %}
+{{ site_domain }} {% endblock %}
 {% endautoescape %}
