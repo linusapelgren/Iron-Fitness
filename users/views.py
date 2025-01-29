@@ -33,7 +33,6 @@ def profile_view(request):
         'user_profile': user_profile,
         'booked_classes': booked_classes  # Now passing the correct booked classes
     }
-    print(booked_classes)
     return render(request, "users/profile.html", context)
 
 
