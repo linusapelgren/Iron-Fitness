@@ -3,89 +3,94 @@ from .forms import BookingForm
 from .models import ClassTime, Booking
 from django.contrib.auth.decorators import login_required
 from users.models import UserProfile
-from django.http import JsonResponse
 import logging
+from django.http import JsonResponse
 
 logger = logging.getLogger(__name__)
-
-
 @login_required
 def book_class(request):
-    """A view that displays the booking page and handles the booking form"""
-    user = request.user  # Get the current logged-in user
-    profile = getattr(user, "userprofile", None) or UserProfile.objects.create(
-        user=user
-    )  # Get or create the user's profile
+    user = request.user
 
-    # Initialize form and variables
-    form = BookingForm(
-        initial={
-            "visitor_name": user.first_name,
-            "visitor_email": user.email,
-            "visitor_phone": profile.phone_number if profile else "",
-        }
-    )
+    # Retrieve the existing UserProfile for the logged-in user
+    try:
+        profile = UserProfile.objects.get(user=user)
+        logger.debug(f"Existing profile found for {user.username}.")
+    except UserProfile.DoesNotExist:
+        logger.error(f"No profile found for {user.username}, but they are logged in.")
+        return redirect('profile_creation')  # Redirect to a profile creation page (if necessary)
 
+    # Get the phone number from the profile
+    phone_number = profile.phone_number if profile else ''
+
+    # Initialize the form with the user's profile information
+    form = BookingForm(initial={
+        'visitor_name': f'{user.first_name} {user.last_name}',
+        'visitor_email': user.email,
+        'visitor_phone': phone_number,  # Ensure the phone number is correctly passed
+    })
+
+    selected_class = None
+    selected_day = None
     times = []
-    selected_class = ""
-    selected_day = ""
 
-    if request.method == "POST":
-        if "search_times" in request.POST:
-            selected_class = request.POST.get("fitness_class", "")
-            selected_day = request.POST.get("class_day", "")
-            if selected_class and selected_day:
-                times = ClassTime.objects.filter(
-                    fitness_class=selected_class, day_of_week=selected_day
-                ).order_by("time_range")
+    if request.method == 'POST':
+        if 'search_times' in request.POST:
+            selected_class = request.POST.get('fitness_class')
+            selected_day = request.POST.get('class_day')
 
-        elif "book_now" in request.POST:
-            # Extract data directly from request.POST
-            visitor_name = request.POST.get("visitor_name", "")
-            visitor_email = request.POST.get("visitor_email", "")
-            visitor_phone = request.POST.get("visitor_phone", "")
-            fitness_class = request.POST.get("fitness_class", "")
-            class_day = request.POST.get("class_day", "")
-            class_time = request.POST.get("class_time", "")
+            # Get available times based on the selected class and day
+            times = ClassTime.objects.filter(fitness_class=selected_class, day_of_week=selected_day)
+            logger.debug(f"Available times for {selected_class} on {selected_day}: {times}")
 
-            # Check if all required fields are filled
-            if (
-                visitor_name
-                and visitor_email
-                and visitor_phone
-                and fitness_class
-                and class_day
-                and class_time
-            ):
-                # Create a booking instance from POST data
-                booking = Booking(
-                    visitor_name=visitor_name,
-                    visitor_email=visitor_email,
-                    visitor_phone=visitor_phone,
-                    fitness_class=fitness_class,
-                    class_day=class_day,
-                    class_time=class_time,
-                    user=user  # Associate booking with the logged-in user
-                )
-                booking.save()  # Save the booking to the database
-                return redirect("successful_booking")  # Redirect to success page
-            else:
-                # Log missing data if any required field is missing
-                logger.error(
-                    "Booking form submission missing required data. Data received: %s",
-                    request.POST,
-                )
+        elif 'book_now' in request.POST:
+            visitor_name = request.POST.get('visitor_name')
+            visitor_email = request.POST.get('visitor_email')
+            visitor_phone = request.POST.get('visitor_phone')
+            class_time_id = request.POST.get('class_time')
 
-    return render(
-        request,
-        "classes/classes.html",
-        {
-            "form": form,
-            "times": times,
-            "selected_class": selected_class,
-            "selected_day": selected_day,
-        },
-    )
+            # Ensure we get the actual ClassTime object by filtering using time_range or other identifier
+            try:
+                class_time = ClassTime.objects.get(id=class_time_id)
+                logger.debug(f"ClassTime selected: {class_time}")
+            except ClassTime.DoesNotExist:
+                logger.error(f"ClassTime with id {class_time_id} not found.")
+                return render(request, 'classes/classes.html', {
+                    'form': form,
+                    'times': times,
+                    'selected_class': selected_class,
+                    'selected_day': selected_day,
+                    'error': 'Selected class time is invalid.',
+                })
+
+            # Create and save the booking
+            booking = Booking(
+                visitor_name=visitor_name,
+                visitor_email=visitor_email,
+                visitor_phone=visitor_phone,
+                class_time=class_time,
+                user=user  # Ensure the user is associated with the booking
+            )
+            logger.debug(f"Booking object created: {booking}")
+            logger.debug(f"User profile before saving: {profile.booked_classes.all()}")
+            booking.save()
+            logger.debug(f"Booking created: {booking}")
+
+            # Add the booking to the user's profile
+            profile.booked_classes.add(booking)
+            profile.save()
+            logger.debug(f"User profile after saving: {profile.booked_classes.all()}")
+
+            # Redirect to success page
+            return redirect('successful_booking')
+
+    # If not POST, render the page with the form
+    return render(request, 'classes/classes.html', {
+        'form': form,
+        'times': times,
+        'selected_class': selected_class,
+        'selected_day': selected_day,
+    })
+
 
 def success_url(request):
     """A view that displays the success page"""

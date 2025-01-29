@@ -12,17 +12,28 @@ from django.utils import timezone
 from datetime import timedelta
 from classes.models import Booking
 
-
 class CustomSignupView(AllauthSignupView):
     form_class = CustomSignupForm
 
-
 @login_required
 def profile_view(request):
-    """A view to display the user's profile."""
+    """A view that shows the user's profile and booked classes."""
+    
+    # Fetch the UserProfile for the current logged-in user
     user_profile = UserProfile.objects.filter(user=request.user).first()
-    booked_classes = Booking.objects.filter(user=request.user)
-    context = {"user_profile": user_profile, "user": request.user}
+    
+    if user_profile is None:
+        # In case no UserProfile exists for the logged-in user, handle it gracefully
+        return render(request, "users/profile.html", {"error": "User profile not found."})
+
+    # Fetch booked classes associated with the user profile
+    booked_classes = user_profile.booked_classes.all()  # Corrected line
+    
+    context = {
+        'user_profile': user_profile,
+        'booked_classes': booked_classes  # Now passing the correct booked classes
+    }
+    print(booked_classes)
     return render(request, "users/profile.html", context)
 
 

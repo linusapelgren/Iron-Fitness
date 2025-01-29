@@ -37,22 +37,34 @@ class BookingForm(forms.Form):
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={"class": "form-control", "placeholder": "Your name"}
+            attrs={
+                "class": "form-control", 
+                "placeholder": "Your name", 
+                "readonly": "readonly"  # This makes the field read-only
+            }
         ),
-    )  # Visitor name field
+    )
     visitor_email = forms.EmailField(
         required=True,
         widget=forms.EmailInput(
-            attrs={"class": "form-control", "placeholder": "example.email@email.com"}
+            attrs={
+                "class": "form-control", 
+                "placeholder": "example.email@email.com", 
+                "readonly": "readonly"
+            }
         ),
-    )  # Visitor email field
+    )
     visitor_phone = forms.CharField(
         max_length=15,
         required=True,
         widget=forms.TextInput(
-            attrs={"class": "form-control", "placeholder": "070-000 0000"}
+            attrs={
+                "class": "form-control", 
+                "placeholder": "070-000 0000", 
+                "readonly": "readonly"
+            }
         ),
-    )  # Visitor phone field
+    )
     fitness_class = forms.ChoiceField(
         choices=[], required=True, widget=forms.Select(attrs={"class": "form-select"})
     )  # Fitness class field

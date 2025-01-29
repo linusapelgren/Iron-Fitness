@@ -23,17 +23,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <!-- Form Section -->
-                    <div class="col- form-container">
-                        <form method="post" enctype="multipart/form-data" style="display: flex; flex-direction: row;" class="editform">
+                    <div class="col-12 col-md-8 offset-md-2">
+                        <!-- Form Section -->
+                        <form method="post" enctype="multipart/form-data" class="editform">
                             {% csrf_token %}
-                            <div class="col-md-4 text-center edit">
-                                <!-- Buttons container inside the form -->
-                                <div class="profile-actions">
-                                    <button type="submit" class="btn btn-primary btn-block mb-2">Save Changes</button>
-                                    <a href="{% url 'profile_view' %}" class="btn btn-secondary btn-block">Back to Profile</a>
-                                </div>
-                            </div>
                             <!-- Contact Information Section -->
                             <div class="contact-info contact-edit mb-4 p-3 border rounded">
                                 <h3 class="mb-3">Contact Information</h3>
@@ -58,6 +51,13 @@
                                 <div class="mb-3">
                                     <label for="country" class="form-label">Country</label>
                                     {{ form.country }}
+                                </div>
+                            </div>
+                            <!-- Buttons Section -->
+                            <div class="text-center">
+                                <div class="profile-actions d-flex" style="gap: 10px;">
+                                    <button type="submit" class="btn btn-primary" style="border-radius: 5px;">Save Changes</button>
+                                    <a href="{% url 'profile_view' %}" class="btn btn-secondary">Back to Profile</a>
                                 </div>
                             </div>
                         </form>
