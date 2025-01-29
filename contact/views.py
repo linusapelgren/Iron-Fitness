@@ -69,7 +69,7 @@ def send_newsletter(request):
                 fail_silently=False,
             )
             messages.success(request, "Newsletter sent successfully!")
-            return redirect('newsletter_success')  # Redirect to a success page or another view
+            return render(request, 'send_newsletter.html')
         else:
             messages.error(request, "No subscribers found.")
     
