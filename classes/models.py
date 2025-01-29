@@ -41,7 +41,7 @@ class Booking(models.Model):
     visitor_phone = models.CharField(max_length=15)
     fitness_class = models.CharField(max_length=20)
     class_day = models.CharField(max_length=9)  # For example, 'Monday'
-    class_time = models.CharField(max_length=11)  # Format "HH:MM-HH:MM"
+    class_time = models.CharField(max_length=20)  # Format "HH:MM-HH:MM"
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="booked_classes")
 
     def __str__(self):
