@@ -102,7 +102,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = 'IRON FITNESS <ironfitnessgymsweden@gmail.com>'
-ACCOUNT_EMAIL_HTML = False
+
 
 
 ACCOUNT_FORMS = {"signup": "users.forms.CustomSignupForm"}
