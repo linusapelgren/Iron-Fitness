@@ -90,7 +90,7 @@ AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
-SITE_ID = 1
+SITE_ID = 2
 
 WSGI_APPLICATION = "iron_fitness.wsgi.application"
 
