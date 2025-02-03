@@ -46,6 +46,7 @@ Deployed Site - [Iron Fitness](https://ironfitness-9cbf5540effc.herokuapp.com)
 #### EPIC | Subscriping
 - As a site user, I can securely enter my payment information so that I can subscribe to my chosen plan quickly
 - As a site user, I can cancel my subscription plan easily on my profile page
+- As a site user, I can find and select a subscription plan to subscribe to easily
 
 #### EPIC | Booking
 - As a site user, I can choose from a multitude of gym classes to attend
@@ -53,8 +54,8 @@ Deployed Site - [Iron Fitness](https://ironfitness-9cbf5540effc.herokuapp.com)
 - As a site user, I can see my booked classes on my profile page
 
 #### EPIC | Admin & Store Management
-- As a site admin, I can add or remove subsription plans easily through an easy to use page
-- As a site admin, I can add or remove class times through an easy to use page
+- As a site admin, I can add or remove subsription plans from the admin panel
+- As a site admin, I can add or remove scheduled class times from the admin panel
 - As a site admin, I can send out bulk emails to all my newsletter subscribers through an easy to use page 
 
 ## Design
