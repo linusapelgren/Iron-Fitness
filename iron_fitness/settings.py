@@ -22,7 +22,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =  "#)e$6@8v&1y*2z%7!j#4o^5w$3u@9n$0a%f!z8b&1r^6m*5q@x*7e"
+SECRET_KEY =  os.environ.get("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
