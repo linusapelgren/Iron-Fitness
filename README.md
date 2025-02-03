@@ -7,7 +7,7 @@
 - It features a complete membership subscription service and and class booking. 
 - All done in a sleek, modern and user friendly style
 
-Deployed Site - [Iron Fitness](https://ironfitness-62429d8e23c9.herokuapp.com/)
+Deployed Site - [Iron Fitness](https://ironfitness-9cbf5540effc.herokuapp.com)
 
 ## Content
 - [User Stories](#user-stories)

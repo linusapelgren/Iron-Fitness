@@ -287,6 +287,10 @@ button[type="submit"]:hover {
     .map-iframe {
         height: 200px; 
     }
+    .errorpage {
+        padding: 0 15px; 
+        height: auto; 
+    }
 }
 
 @media (max-width: 600px) {
