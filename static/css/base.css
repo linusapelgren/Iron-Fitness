@@ -200,7 +200,7 @@ footer a {
 button[type="submit"] {
     height: 40px; 
     padding: 10px 20px; 
-    border-radius: 0 5px 5px 0; 
+    border-radius: 5px; 
     font-size: 16px; 
     border: 1px solid #ccc; 
     background-color: #007bff;

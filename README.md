@@ -1,6 +1,6 @@
 # Iron Fitness
 
-<img src="static/images/amiresponsive.png">
+<img src="static/images/amiresponsive.png" alt="AmIResponsive">
 
 ## Overview
 - Iron Fitness Gym is an all encompasing website built to simplify the gym goers experience. 
@@ -64,73 +64,73 @@ Deployed Site - [Iron Fitness](https://ironfitness-9cbf5540effc.herokuapp.com)
 #### Desktop
 
 <details><summary>Home</summary>
-<img src="static/wireframes/index.png">
+<img src="static/wireframes/index.png" alt="Index">
 </details>
 <details><summary>Subscription</summary>
-<img src="static/wireframes/plans.png">
+<img src="static/wireframes/plans.png" alt="Subscription">
 </details>
 <details><summary>Plan Details</summary>
-<img src="static/wireframes/details.png">
+<img src="static/wireframes/details.png" alt="Plan details">
 </details>
 <details><summary>Checkout</summary>
-<img src="static/wireframes/checkout.png">
+<img src="static/wireframes/checkout.png" alt="Checkout page">
 </details>
 <details><summary>Checkout Page 2</summary>
-<img src="static/wireframes/checkoutpage2.png">
+<img src="static/wireframes/checkoutpage2.png" alt="Checkout page 2">
 </details>
 <details><summary>Successful purchase</summary>
-<img src="static/wireframes/successfulpucharse.png">
+<img src="static/wireframes/successfulpucharse.png" alt="Successful purchase">
 </details>
 <details><summary>Classes</summary>
-<img src="static/wireframes/classes.png">
+<img src="static/wireframes/classes.png" alt="Classes">
 </details>
 <details><summary>Booking Successful</summary>
-<img src="static/wireframes/booking.png">
+<img src="static/wireframes/booking.png" alt="Successful booking">
 </details>
 <details><summary>Contact</summary>
-<img src="static/wireframes/contact.png">
+<img src="static/wireframes/contact.png" alt="Contact">
 </details>
 <details><summary>Profile</summary>
-<img src="static/wireframes/profile.png">
+<img src="static/wireframes/profile.png" alt="Profile">
 </details>
 <details><summary>Profile Edit</summary>
-<img src="static/wireframes/profileedit.png">
+<img src="static/wireframes/profileedit.png" alt="Profile edit">
 </details>
 
 #### Mobile
 
 <details><summary>Home</summary>
-<img src="static/wireframes/indexmobile.png">
+<img src="static/wireframes/indexmobile.png" alt="Index mobile">
 </details>
 <details><summary>Subscription</summary>
-<img src="static/wireframes/plansmobile.png">
+<img src="static/wireframes/plansmobile.png" alt="Subscription mobile">
 </details>
 <details><summary>Plan Details</summary>
-<img src="static/wireframes/detailsmobile.png">
+<img src="static/wireframes/detailsmobile.png" alt="Plan details mobile">
 </details>
 <details><summary>Checkout</summary>
-<img src="static/wireframes/checkoutmobile.png">
+<img src="static/wireframes/checkoutmobile.png" alt="Checkout mobile">
 </details>
 <details><summary>Checkout Page 2</summary>
-<img src="static/wireframes/checkoutpage2mobile.png">
+<img src="static/wireframes/checkoutpage2mobile.png" alt="Checkout page 2 mobile">
 </details>
 <details><summary>Successful purchase</summary>
-<img src="static/wireframes/successfulpurchasemobile.png">
+<img src="static/wireframes/successfulpurchasemobile.png" alt="Successful purchase mobile">
 </details>
 <details><summary>Classes</summary>
-<img src="static/wireframes/classesmobile.png">
+<img src="static/wireframes/classesmobile.png" alt="Classes mobile">
 </details>
 <details><summary>Booking Successful</summary>
-<img src="static/wireframes/bookingmobile.png">
+<img src="static/wireframes/bookingmobile.png" alt="Booking mobile">
 </details>
 <details><summary>Contact</summary>
-<img src="static/wireframes/contactmobile.png">
+<img src="static/wireframes/contactmobile.png" alt="Contact mobile">
 </details>
 <details><summary>Profile</summary>
-<img src="static/wireframes/profilemobile.png">
+<img src="static/wireframes/profilemobile.png" alt="Profile mobile">
 </details>
 <details><summary>Profile Edit</summary>
-<img src="static/wireframes/profileeditmobile.png">
+<img src="static/wireframes/profileeditmobile.png" alt="Profile edit mobile">
 </details>
 
 #### Side note
@@ -144,11 +144,11 @@ Deployed Site - [Iron Fitness](https://ironfitness-9cbf5540effc.herokuapp.com)
 #### Font 
 - I wanted the font to be modern and sleek so i decided to go with Roboto.
 
-### Database Schema
+#### Database Schema
 
- - The user model was established using Django-Allauth
+ - The ER Diagram was made using (https://dbdiagram.io/)
 
-  ![Database Schema](media/readme/database_schema.jpg)
+  ![Database Schema](static/images/erd.png)
 
 ## Marketing
 
@@ -163,7 +163,7 @@ Our mission is to inspire as many people in Karlskoga as possible to begin their
 
 To enhance the promotion of Iron Fitness on social media, a Facebook page has been established. Success in e-commerce on Facebook is driven by regular updates, active user engagement, feedback polls, and competitions designed to attract both new and returning customers.
 
-<img src="static/images/facebookpage.png">
+<img src="static/images/facebookpage.png" alt="Facebook page">
 
 ## Site content
 
@@ -175,9 +175,9 @@ To enhance the promotion of Iron Fitness on social media, a Facebook page has be
  - It features a short video to grab the attention of the users
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/pages/landingpage.png">
+  <img src="static/images/pages/landingpage.png" alt="Landning page">
 
-  <img src="static/images/pages/landingpagemobile.png">
+  <img src="static/images/pages/landingpagemobile.png" alt="Ladning page mobile">
   </details>
 
 #### The subscription page
@@ -185,9 +185,9 @@ To enhance the promotion of Iron Fitness on social media, a Facebook page has be
  - The subscription page houses the different subscription plans available on the site
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/pages/plans.png">
+  <img src="static/images/pages/plans.png"alt="Subscription page">
 
-  <img src="static/images/pages/plansmobile.png">
+  <img src="static/images/pages/plansmobile.png" alt="Subscription page mobile">
   </details>
 
  #### The plan details page
@@ -196,9 +196,9 @@ To enhance the promotion of Iron Fitness on social media, a Facebook page has be
  - It also has a subscribe now button which is how you access the checkout page
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/pages/plandetails.png">
+  <img src="static/images/pages/plandetails.png" alt="Plan details">
 
-  <img src="static/images/pages/plandetailsmobile.png">
+  <img src="static/images/pages/plandetailsmobile.png" alt="Plan details mobile">
   </details>
  
  #### The checkout page
@@ -207,13 +207,13 @@ To enhance the promotion of Iron Fitness on social media, a Facebook page has be
   - It features clean form and a stripe payment system which makes it very easy to use for the user
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/pages/checkout.png">
+  <img src="static/images/pages/checkout.png" alt="Checkout page">
 
-  <img src="static/images/pages/checkout2.png">
+  <img src="static/images/pages/checkout2.png" alt="Checkout page 2">
 
-  <img src="static/images/pages/checkoutmobile.png">
+  <img src="static/images/pages/checkoutmobile.png" alt="Checkout page mobile">
 
-  <img src="static/images/pages/checkoutmobile2.png">
+  <img src="static/images/pages/checkoutmobile2.png" alt="Checkout page 2 mobile">
   </details>
 
  #### The classes page
@@ -222,82 +222,73 @@ To enhance the promotion of Iron Fitness on social media, a Facebook page has be
   - It features clean form and a stripe payment system which makes it very easy to use for the user
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/pages/bookingpage.png">
+  <img src="static/images/pages/bookingpage.png" alt="Booking page mobile">
 
-  <img src="static/images/pages/bookingmobile.png">
+  <img src="static/images/pages/bookingmobile.png" alt="Booking page mobile">
 
-  <img src="static/images/pages/successfulbooking.png">
+  <img src="static/images/pages/successfulbooking.png" alt="Successful booking">
 
-  <img src="static/images/pages/successfulbookingmobile.png">
+  <img src="static/images/pages/successfulbookingmobile.png" alt="Successful booking mobile">
   </details>
 
-#### The Contact page
+#### The contact page
 
  - This page displays the necisary infortmation about the gym, like contact number and mail. It also has a google maps link that displays "the location" of the gym. 
  - It also features an image slider that 
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/pages/contactpage.png">
+  <img src="static/images/pages/contactpage.png" alt="Contact page">
 
-  <img src="static/images/pages/contactpagemobile.png">
+  <img src="static/images/pages/contactpagemobile.png" alt="Contact page mobile">
 
   </details>
 
-### Allauth pages
+#### Allauth pages
 
  - These are the pages that are supplied with allauth, although i have customized them a little.
 
-  ### Profile page
+  #### Profile page
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/pages/profile.png">
+  <img src="static/images/pages/profile.png" alt="Profile">
 
-  <img src="static/images/pages/profilemobile.png">
-
+  <img src="static/images/pages/profilemobile.png" alt="Profile mobile">
   </details>
 
-  ### Profile edit page
+  #### Profile edit page
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/pages/profileedit.png">
+  <img src="static/images/pages/editprofile.png" alt="Profile edit">
 
-  <img src="static/images/pages/profileeditmobile.png">
-
+  <img src="static/images/pages/editprofilemobile.png" alt="Profile edit mobile">
   </details>
 
-  ### Login 
+  #### Login 
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/pages/login.png">
+  <img src="static/images/pages/login.png" alt="Login">
 
-  <img src="static/images/pages/loginmobile.png">
-
+  <img src="static/images/pages/loginmobile.png" alt="Login mobile">
   </details>
 
-  ### Register 
+  #### Register 
  
   <details><summary>Click to expand</summary>
-  <img src="static/images/pages/register.png">
-
-  <img src="static/images/pages/registermobile.png">
-
+  <img src="static/images/pages/register.png" alt="Register">
+  <img src="static/images/pages/registermobile.png" alt="Register mobile">
   </details>
 
-  ### Change password
-
+  #### Change password
   <details><summary>Click to expand</summary>
-  <img src="static/images/pages/change.png">
-
-  <img src="static/images/pages/changemobile.png">
-
+  <img src="static/images/pages/change.png" alt="Change password">
+  <img src="static/images/pages/changemobile.png" alt="Change password mobile">
   </details>
 
-  ### Forgot password
+  #### Forgot password
   <details><summary>Click to expand</summary>
-  <img src="static/images/pages/resetpassword.png">
+  <img src="static/images/pages/resetpassword.png" alt="Reset password">
 
-  <img src="static/images/pages/resetmobile.png">
-
+  <img src="static/images/pages/resetmobile.png" alt="Reset password mobile">
   </details>
 
 ## Features 
@@ -311,81 +302,84 @@ To enhance the promotion of Iron Fitness on social media, a Facebook page has be
   - Accessible on all pages, the fully responsive navigation bar includes links to the Home page, Classes page, Subscription page, Contact page, and the pages tied to the user profile
 
 <details><summary>Click to expand</summary>
-<img src="static/images/features/navbar.png">
-
-<img src="static/images/features/navmobile.png">
+<img src="static/images/features/navbar.png" alt="Navbar">
+<img src="static/images/features/navmobile.png" alt="Navbar mobile">
 </details>
 
 #### Stripe payment system
 
 <details><summary>Click to expand</summary>
-<img src="static/images/features/stripe.png">
+<img src="static/images/features/stripe.png" alt="Stripe Payments">
 </details>
 
 #### Managing subscriptions
 
 <details><summary>Click to expand</summary>
-<img src="static/images/features/cancelsubscription.png">
+<img src="static/images/features/cancelsubscription.png" alt="Cancel subscription">
 
-<img src="static/images/features/cancelledsubscription.png">
+<img src="static/images/features/cancelledsubscription.png" alt="Cancelled subscription">
 </details>
 
 #### Binding time
 
 <details><summary>Click to expand</summary>
-<img src="static/images/features/managesubscriptionbindingtime.png">
+<img src="static/images/features/managesubscriptionbindingtime.png" alt="Binding times">
 </details>
 
 #### Dynamic display of active subscriptions
 
 <details><summary>Click to expand</summary>
-<img src="static/images/features/activesubscription.png">
-
-<img src="static/images/features/noactivesubscription.png">
+<img src="static/images/features/activesubscription.png" alt="Active subscription">
+<img src="static/images/features/noactivesubscription.png" alt="No active subscription">
 </details>
 
 #### Class booking system 
 
 <details><summary>Click to expand</summary>
-<img src="static/images/features/form.png">
-<img src="static/images/features/formtime.png">
+<img src="static/images/features/form.png" alt="Booking Form">
+<img src="static/images/features/formtime.png" alt="Booking Form">
 </details>
 
 #### Class scheduling
 
 <details><summary>Click to expand</summary>
-<img src="static/images/features/addclasstimeadmin.png">
+<img src="static/images/features/addclasstimeadmin.png" alt="Class Scheduling">
 </details>
 
 #### Google maps
 
 <details><summary>Click to expand</summary>
-<img src="static/images/features/googlemaps.png">
+<img src="static/images/features/googlemaps.png"alt="Google Maps">
 </details>
 
 #### Order overview
+
 <details><summary>Click to expand</summary>
-<img src="static/images/features/orderoverview.png">
+<img src="static/images/features/orderoverview.png" alt="Order overview">
 </details>
 
 #### Class schedules
+
 <details><summary>Click to expand</summary>
-<img src="static/images/features/addclasstimeadmin.png">
+<img src="static/images/features/addclasstimeadmin.png" alt="Class Schedules">
 </details>
 
 #### Booked classes overview
+
 <details><summary>Click to expand</summary>
-<img src="static/images/features/bookedclasses.png">
+<img src="static/images/features/bookedclasses.png" alt="Booked Classes">
 </details>
 
 #### Newsletter
+
 <details><summary>Click to expand</summary>
-<img src="static/images/features/newsletter.png">
+<img src="static/images/features/newsletter.png" alt="Newsletter Signup">
 </details>
 
 #### Bulk sending emails
+
 <details><summary>Click to expand</summary>
-<img src="static/images/features/bulksend.png">
+<img src="static/images/features/bulksend.png" alt="Bulk Send Email">
 </details>
 
 #### Allauth features
@@ -393,7 +387,7 @@ To enhance the promotion of Iron Fitness on social media, a Facebook page has be
 - This allows the users to register accounts login, reseting passwords and managing their accounts
 
 <details><summary>Click to expand</summary>
-<img src="static/images/features/passwordresetmail.png">
+<img src="static/images/features/passwordresetmail.png" alt="Password Reset Email">
 </details>
 
 
@@ -410,13 +404,32 @@ To enhance the promotion of Iron Fitness on social media, a Facebook page has be
 
 The following packages were installed throughout the development. 
 
-| Package Name| Package Description |
-| ----------- | ----------- |
-| [Django-allAuth](https://docs.allauth.org/en/latest/)
-| [Whitenoise](https://pypi.org/project/whitenoise/)   
-| [Pillow](https://pypi.org/project/pillow/) 
-| [Stripe](https://dashboard.stripe.com/test/developers) 
-| [Black](https://pypi.org/project/black/) 
+| Package Name |  
+| ----------- |  
+| [asgiref](https://pypi.org/project/asgiref/) |  
+| [boto3](https://pypi.org/project/boto3/) |  
+| [botocore](https://pypi.org/project/botocore/) |  
+| [dj-database-url](https://pypi.org/project/dj-database-url/) |  
+| [Django](https://www.djangoproject.com/) |  
+| [Django-allAuth](https://docs.allauth.org/en/latest/) |  
+| [django-debug-toolbar](https://pypi.org/project/django-debug-toolbar/) |  
+| [django-mailjet](https://pypi.org/project/django-mailjet/) |  
+| [django-storages](https://pypi.org/project/django-storages/) |  
+| [gunicorn](https://pypi.org/project/gunicorn/) |  
+| [jmespath](https://pypi.org/project/jmespath/) |  
+| [livereload](https://pypi.org/project/livereload/) |  
+| [mailjet-rest](https://pypi.org/project/mailjet-rest/) |  
+| [Pillow](https://pypi.org/project/pillow/) |  
+| [psycopg2](https://pypi.org/project/psycopg2/) |  
+| [python-http-client](https://pypi.org/project/python-http-client/) |  
+| [s3transfer](https://pypi.org/project/s3transfer/) |  
+| [sendgrid](https://pypi.org/project/sendgrid/) |  
+| [sendgrid-django](https://pypi.org/project/sendgrid-django/) |  
+| [sqlparse](https://pypi.org/project/sqlparse/) |  
+| [Stripe](https://pypi.org/project/stripe/) |  
+| [Whitenoise](https://pypi.org/project/whitenoise/) |  
+| [Black](https://pypi.org/project/black/) |  
+
 
 ### Tools and Programs Used
 
@@ -431,6 +444,7 @@ The following packages were installed throughout the development.
 - [Code Institute Pep8 Linter](https://pep8ci.herokuapp.com/#) was used for reviewing all .py files during code validation tests. 
 - [Google cloud](https://console.cloud.google.com/welcome/new?project=plated-reducer-430217-s6) was used for implementing google maps
 - [Canva](https://www.canva.com) was used for creating assets used in the project
+- [Dbdiagram](https://dbdiagram.io) was used for making ER Diagram
 
 ## Testing 
 
@@ -438,20 +452,53 @@ The following packages were installed throughout the development.
 
 - HTML
   - No error was returned when passing through the official [W3C validator](https://validator.w3.org/nu/)
-  
   <details><summary>Click to expand</summary>
-  - <img src="static/images/testing/htmlvalidator.png">
+  - <img src="static/images/testing/htmlcheck.png" alt="HTML Validation">
   </details>
 
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
   <details><summary>Click to expand</summary>
-  - <img src="static/images/testing/cssvalidator.png">
+  - <img src="static/images/testing/cssvalidator.png" alt="CSS Validation">
   </details>
   
-
 - Python
   - No errors were found when passing through the official [CI Python Validator](https://pep8ci.herokuapp.com)
+  - Users 
+
+    <details><summary>Click to expand</summary>
+    - <img src="static/images/testing/userlint.png" alt="Users Python Validation">
+    </details>
+
+  - Home 
+
+    <details><summary>Click to expand</summary>
+    - <img src="static/images/testing/homelint.png" alt="Home Python Validation">
+    </details>
+
+  - Checkout
+
+    <details><summary>Click to expand</summary>
+    - <img src="static/images/testing/checkoutlint.png" alt="Checkout Python Validation">
+    </details>
+
+  - Classes 
+
+    <details><summary>Click to expand</summary>
+    - <img src="static/images/testing/classeslint.png" alt="Classes Python Validation">
+    </details>
+
+  - Contact 
+
+    <details><summary>Click to expand</summary>
+    - <img src="static/images/testing/contactlint.png" alt="Contact Python Validation">
+    </details>
+
+  - Subscription 
+
+    <details><summary>Click to expand</summary>
+    - <img src="static/images/testing/subscriptionlint.png" alt="Subscription Python Validation">
+    </details>
 
 ### Lighthouse tool
 
@@ -465,9 +512,9 @@ The following packages were installed throughout the development.
  - It features a short video to grab the attention of the users
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/testing/indexlighthouse.png">
+  <img src="static/images/testing/indexlighthouse.png" alt="Index">
 
-  <img src="static/images/testing/indexlighthousemobile.png">
+  <img src="static/images/testing/indexlighthousemobile.png" alt="Index mobile">
   </details>
 
 #### Subscription page
@@ -475,9 +522,9 @@ The following packages were installed throughout the development.
  - The subscription page houses the different subscription plans available on the site
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/testing/planslighthouse.png">
+  <img src="static/images/testing/planslighthouse.png" alt="Subscription">
 
-  <img src="static/images/testing/planslighthousemobile.png">
+  <img src="static/images/testing/planslighthousemobile.png" alt="Subscription page">
   </details>
 
 #### Plan details page
@@ -486,9 +533,9 @@ The following packages were installed throughout the development.
  - It also has a subscribe now button which is how you access the checkout page
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/testing/detailslighthouse.png">
+  <img src="static/images/testing/detailslighthouse.png" alt="Plan details">
 
-  <img src="static/images/testing/detailsmobile.png">
+  <img src="static/images/testing/detailsmobile.png" alt="Plan details mobile">
   </details>
  
 #### Checkout page
@@ -497,17 +544,17 @@ The following packages were installed throughout the development.
   - It features clean form and a stripe payment system which makes it very easy to use for the user
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/testing/checkout.png">
+  <img src="static/images/testing/checkout.png" alt="Checkout page">
 
-  <img src="static/images/testing/checkout2.png">
+  <img src="static/images/testing/checkout2.png" alt="Checkout page 2">
 
-  <img src="static/images/testing/checkoutmobile.png">
+  <img src="static/images/testing/checkoutmobile.png" alt="Checkout page mobile">
 
-  <img src="static/images/testing/checkout2mobile.png">
+  <img src="static/images/testing/checkout2mobile.png" alt="Checkout page 2 mobile">
 
-  <img src="static/images/testing/purchase.png">
+  <img src="static/images/testing/purchase.png" alt="Successful purchase">
 
-  <img src="static/images/testing/purchasemobile.png">
+  <img src="static/images/testing/purchasemobile.png" alt="Successful purchase mobile">
   </details>
 
 #### Classes page
@@ -516,13 +563,13 @@ The following packages were installed throughout the development.
   - It features clean form and a stripe payment system which makes it very easy to use for the user
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/testing/classes.png">
+  <img src="static/images/testing/classes.png" alt="Classes">
 
-  <img src="static/images/testing/classesmobile.png">
+  <img src="static/images/testing/classesmobile.png" alt="Classes mobile">
 
-  <img src="static/images/testing/successfulbooking.png">
+  <img src="static/images/testing/successfulbooking.png" alt="Successful booking">
 
-  <img src="static/images/testing/successfulbookingmobile.png">
+  <img src="static/images/testing/successfulbookingmobile.png" alt="Successful booking mobile">
   </details>
 
 #### The Contact page
@@ -531,9 +578,9 @@ The following packages were installed throughout the development.
   - It also features an image slider that 
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/testing/contact.png">
+  <img src="static/images/testing/contact.png" alt="Contact page">
 
-  <img src="static/images/testing/contactmobile.png">
+  <img src="static/images/testing/contactmobile.png" alt="Contact page mobile">
 
   </details>
 
@@ -544,57 +591,57 @@ The following packages were installed throughout the development.
 #### Profile page
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/testing/profile.png">
+  <img src="static/images/testing/profile.png" alt="Profile page">
 
-  <img src="static/images/testing/profilemobile.png">
+  <img src="static/images/testing/profilemobile.png" alt="Profile page mobile">
 
   </details>
 
 #### Profile edit page
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/testing/edit.png">
+  <img src="static/images/testing/edit.png" alt="Profile edit">
 
-  <img src="static/images/testing/editmobile.png">
+  <img src="static/images/testing/editmobile.png" alt="Profile edit mobile">
 
   </details>
 
 #### Login 
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/testing/login.png">
+  <img src="static/images/testing/login.png" alt="Login">
 
-  <img src="static/images/testing/loginmobile.png">
+  <img src="static/images/testing/loginmobile.png" alt="Login mobile">
 
   </details>
 
 #### Register 
  
   <details><summary>Click to expand</summary>
-  <img src="static/images/testing/register.png">
+  <img src="static/images/testing/register.png" alt="Register">
 
-  <img src="static/images/testing/registermobile.png">
+  <img src="static/images/testing/registermobile.png" alt="Register mobile">
 
   </details>
 
 #### Change password
 
   <details><summary>Click to expand</summary>
-  <img src="static/images/testing//change.png">
+  <img src="static/images/testing//change.png" alt="Change password">
 
-  <img src="static/images/testing/changemobile.png">
+  <img src="static/images/testing/changemobile.png" alt="Change password mobile">
 
   </details>
 
 #### Forgot password
   <details><summary>Click to expand</summary>
-  <img src="static/images/testing/reset.png">
+  <img src="static/images/testing/reset.png" alt="Forgot password">
 
-  <img src="static/images/testing/resetmobile.png">
+  <img src="static/images/testing/resetmobile.png" alt="Forgot password mobile">
 
-  <img src="static/images/testing/resetsent.png">
+  <img src="static/images/testing/resetsent.png" alt="Reset sent">
 
-  <img src="static/images/testing/resetsentmobile.png">
+  <img src="static/images/testing/resetsentmobile.png" alt="Reset sent mobile">
 
   </details>
 
@@ -668,5 +715,5 @@ For this project the application was deployed to Heroku using the following step
 
 - [Pexels](https://www.pexels.com/sv-se/) for images used on the site
 - The Boutique Ado walkthrough project, which helped with the building of my project
-- [Codepen] (https://codepen.io/kevinpowell/pen/BavVLra) for helping me with the scrolling message banner
-- [Youtube] (https://www.youtube.com/watch?v=PkADl0HubMY) for helping me with the image slider
+- [Codepen](https://codepen.io/kevinpowell/pen/BavVLra) for helping me with the scrolling message banner
+- [Youtube](https://www.youtube.com/watch?v=PkADl0HubMY) for helping me with the image slider
