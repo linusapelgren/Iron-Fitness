@@ -373,12 +373,24 @@ To enhance the promotion of Iron Fitness on social media, a Facebook page has be
 <img src="static/images/features/addclasstimeadmin.png">
 </details>
 
+#### Booked classes overview
+<details><summary>Click to expand</summary>
+<img src="static/images/features/bookedclasses.png">
+</details>
+
+#### Newsletter
+<details><summary>Click to expand</summary>
+<img src="static/images/features/newsletter.png">
+</details>
+
+#### Bulk sending emails
+<details><summary>Click to expand</summary>
+<img src="static/images/features/bulksend.png">
+</details>
+
 #### Allauth features
 - The site uses allauth which handles user accounts
 - This allows the users to register accounts login, reseting passwords and managing their accounts
-
-#### MailJet 
-- MailJet is used to send emails to the user
 
 <details><summary>Click to expand</summary>
 <img src="static/images/features/passwordresetmail.png">
@@ -388,7 +400,6 @@ To enhance the promotion of Iron Fitness on social media, a Facebook page has be
 ### Features Left to Implement
 
 - An online shop for supplements, clothing and gym equipment
-- Profile picture changer
 - Age verification for senior plans
 - Time based deals
 - Gym visit counter for 10 and 1 visit plans
@@ -427,11 +438,17 @@ The following packages were installed throughout the development.
 
 - HTML
   - No error was returned when passing through the official [W3C validator](https://validator.w3.org/nu/)
+  
+  <details><summary>Click to expand</summary>
   - <img src="static/images/testing/htmlvalidator.png">
+  </details>
 
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
+  <details><summary>Click to expand</summary>
   - <img src="static/images/testing/cssvalidator.png">
+  </details>
+  
 
 - Python
   - No errors were found when passing through the official [CI Python Validator](https://pep8ci.herokuapp.com)
@@ -614,16 +631,23 @@ The following packages were installed throughout the development.
 |  Prevent double subscription  | The user cant subscribe again if they already have an active subscription | When subscribed click on a new plan | The subscribe now button is gone | Pass |
 |  Binding Time | The user cant unsubscribe if they have a bound subscription | When subscribed to a plan with binding time click manage on the profile page | The cancel button is gone | Pass |
 
-#### Mailjet
+#### Google SMTP
 | Feature Tested  | Outcome  | Test Performed  | Result  | Pass/Fail  |
 |---|---|---|---|---|
-|  Send password reset email | The password reset email should be sent when requesting a password change | On the log in page click forgot password and fill out the form | Emial was sent | Pass  |
-|  Send email verification mail | An email verification mail should be sent when signing up | Sign up for an account | Email was sent | Pass  |
+|  Send password reset email | The password reset email should be sent when requesting a password change | On the login page click forgot password and fill out the form | Email was sent | Pass |
+|  Send email verification mail | An email verification mail should be sent when signing up | Sign up for an account | Email was sent | Pass |
+
+#### Newsletter
+| Feature Tested  | Outcome  | Test Performed  | Result  | Pass/Fail  |
+|---|---|---|---|---|
+|  Sign up | Newsletter email should be sent to registered user | On the contact page enter your email adress and click sign up  | Email was sent | Pass |
+|  Bulk send email | As an admin i should be able to send out a bulk email to registered users | Click the profile dropdown and select send bulk email, fill out the form and click send | Email was sent | Pass |
+|  Already registered | The same email adress shouldn't be able to register twice | Enter an already registered email adress and click sign up | The email doesnt get registered | Pass |
 
 
 ### Unfixed Bugs
 
-- When signing up it says internal server error but if you refresh the page it works again
+- None
 
 ## Deployment
 
