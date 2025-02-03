@@ -148,7 +148,9 @@ Deployed Site - [Iron Fitness](https://ironfitness-9cbf5540effc.herokuapp.com)
 
  - The ER Diagram was made using (https://dbdiagram.io/)
 
-  ![Database Schema](static/images/erd.png)
+  <details><summary>ER Diagram</summary>
+  <img src="static/images/erd.png" alt="ER Diagram">
+  </details>
 
 ## Marketing
 

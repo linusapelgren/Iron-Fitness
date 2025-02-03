@@ -51,7 +51,7 @@
                             {% if booked_classes %}
                                 <ul class="list-group">
                                     {% for booking in booked_classes %}
-                                        <strong>{{ booking.class_time }}</strong><br>
+                                        <strong>{{ booking.class_day }}:</strong> {{ booking.class_time }}
                                     {% endfor %}
                                 </ul>
                             {% else %}

@@ -81,11 +81,24 @@ def book_class(request):
                     'error': 'Selected class time is invalid.',
                 })
 
+            # Check if the user has already booked this class
+            existing_booking = Booking.objects.filter(user=user, class_time=class_time).exists()
+            
+            if existing_booking:
+                return render(request, 'classes/classes.html', {
+                    'form': form,
+                    'times': times,
+                    'selected_class': selected_class,
+                    'selected_day': selected_day,
+                    'error': 'You have already booked this class.',  # Error message to display
+                })
+
             # Create and save the booking
             booking = Booking(
                 visitor_name=visitor_name,
                 visitor_email=visitor_email,
                 visitor_phone=visitor_phone,
+                class_day=class_time.day_of_week,
                 class_time=class_time,
                 user=user  # Ensure the user is associated with the booking
             )
@@ -97,6 +110,7 @@ def book_class(request):
 
             # Redirect to success page
             return redirect('successful_booking')
+
 
     # If not POST, render the page with the form
     return render(request, 'classes/classes.html', {
