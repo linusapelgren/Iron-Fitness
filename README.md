@@ -44,13 +44,13 @@ Deployed Site - [Iron Fitness](https://ironfitness-9cbf5540effc.herokuapp.com)
 - As a site user, I can recover my password in case I forget it so that I can recover access to my account.
 
 #### EPIC | Subscriping
-- As a subscriber, I can securely enter my payment information so that I can subscribe to my chosen plan quickly
-- As a subscriber, I can cancel my subscription plan easily on my profile page
+- As a site user, I can securely enter my payment information so that I can subscribe to my chosen plan quickly
+- As a site user, I can cancel my subscription plan easily on my profile page
 
 #### EPIC | Booking
-- As a subscriber, I can choose from a multitude of gym classes to attend
-- As a subscriber, I can book a gym class quick and easy
-- As a subscriber, I can see my booked classes on my profile page
+- As a site user, I can choose from a multitude of gym classes to attend
+- As a site user, I can book a gym class quick and easy
+- As a site user, I can see my booked classes on my profile page
 
 #### EPIC | Admin & Store Management
 - As a site admin, I can add or remove subsription plans easily through an easy to use page
