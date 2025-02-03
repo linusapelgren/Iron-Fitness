@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from contact.models import NewsletterSubscriber
 
+
 @admin.action(description='Send email to selected subscribers')
 def send_bulk_email(modeladmin, request, queryset):
     subject = "Your Custom Subject"
@@ -12,9 +13,14 @@ def send_bulk_email(modeladmin, request, queryset):
 
     try:
         send_mail(subject, message, from_email, recipient_list)
-        modeladmin.message_user(request, f'Email sent to {len(recipient_list)} subscribers.')
+        modeladmin.message_user(
+            request, f'Email sent to {len(recipient_list)} subscribers.'
+            )
     except Exception as e:
-        modeladmin.message_user(request, f'Error sending emails: {e}', level='error')
+        modeladmin.message_user(
+            request, f'Error sending emails: {e}', level='error'
+            )
+
 
 @admin.register(NewsletterSubscriber)
 class NewsletterSubscriberAdmin(admin.ModelAdmin):

@@ -181,6 +181,56 @@ footer a {
     height: 20px;  
 }
 
+.input-container {
+    display: flex;
+    justify-content: center; 
+    align-items: stretch;
+}
+
+#newsletter-email {
+    height: 40px; 
+    padding: 10px; 
+    border-radius: 5px 0 0 5px; 
+    border: 1px solid #ccc; 
+    flex-grow: 2; 
+    font-size: 16px; 
+    min-width: 250px; 
+}
+
+button[type="submit"] {
+    height: 40px; 
+    padding: 10px 20px; 
+    border-radius: 0 5px 5px 0; 
+    font-size: 16px; 
+    border: 1px solid #ccc; 
+    background-color: #007bff;
+    color: white; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; 
+}
+
+.input-container input {
+    margin-right: 10px; 
+}
+
+#newsletter-form{
+    width: 80%;
+}
+
+.map-iframe {
+    width: 400px;
+    height: 350px;
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+#signup_form{
+    height: 100vh;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -200,7 +250,7 @@ footer a {
         z-index: 1030;
     }
 }
-@media (max-width: 820px){
+@media (max-width: 1800px){
     .background-video{
         display: none;
     }
@@ -220,51 +270,37 @@ footer a {
     }
 }
 
-/* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
         padding-top: 116px;
     }
 }
-.input-container {
-    display: flex; /* Align items horizontally */
-    justify-content: center; /* Center the items */
-    align-items: stretch; /* Stretch items to have equal height */
+
+@media (max-width: 768px) {
+    .map-iframe {
+        width: 100%; 
+        height: 250px;  
+    }
 }
 
-#newsletter-email {
-    height: 40px; /* Set height for the input field */
-    padding: 10px; /* Add some padding inside the input */
-    border-radius: 5px 0 0 5px; /* Rounded left corners */
-    border: 1px solid #ccc; /* Border for the input */
-    flex-grow: 2; /* Make the input field take more space */
-    font-size: 16px; /* Adjust font size */
-    min-width: 250px; /* Set a minimum width for the input */
+@media (max-width: 480px) {
+    .map-iframe {
+        height: 200px; 
+    }
 }
 
-/* Style the button to match input field height */
-button[type="submit"] {
-    height: 40px; /* Match the input field height */
-    padding: 10px 20px; /* Adjust button padding */
-    border-radius: 0 5px 5px 0; /* Rounded right corners */
-    font-size: 16px; /* Button font size */
-    border: 1px solid #ccc; /* Border to match the input */
-    background-color: #007bff; /* Button background color */
-    color: white; /* Text color */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth hover effect */
-}
-
-/* Hover effect for the button */
-button[type="submit"]:hover {
-    background-color: #0056b3; /* Darker blue when hovered */
-}
-
-/* Optional: Add margin between the input and button */
-.input-container input {
-    margin-right: 10px; /* Add some space between the input and the button */
-}
-
-#newsletter-form{
-    width: 80%;
+@media (max-width: 600px) {
+    .account_form {
+        padding: 0 10px;
+    }
+    .account_form > div {
+        width: 100%;
+        padding: 20px;
+    }
+    #signup_form{
+        height: 140vh;
+    }
+    .verification{
+        padding: 0 10px;
+    }
 }

@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
-from .forms import BookingForm
-from .models import ClassTime, Booking
+from .forms import BookingForm, ClassTimeAdminForm
+from .models import ClassTime, Booking, CLASS_CHOICES
 from django.contrib.auth.decorators import login_required
 from users.models import UserProfile
 import logging
 from django.http import JsonResponse
 
 logger = logging.getLogger(__name__)
+
+
 @login_required
 def book_class(request):
     print("----Book class----\n")
@@ -17,8 +19,10 @@ def book_class(request):
         profile = UserProfile.objects.get(user=user)
         logger.debug(f"Existing profile found for {user.username}.")
     except UserProfile.DoesNotExist:
-        logger.error(f"No profile found for {user.username}, but they are logged in.")
-        return redirect('profile_creation')  # Redirect to a profile creation page (if necessary)
+        logger.error(
+            f"No profile found for {user.username}, but they are logged in."
+            )
+        return redirect('profile_creation')
 
     # Get the phone number from the profile
     phone_number = profile.phone_number if profile else ''
@@ -27,7 +31,7 @@ def book_class(request):
     form = BookingForm(initial={
         'visitor_name': f'{user.first_name} {user.last_name}',
         'visitor_email': user.email,
-        'visitor_phone': phone_number,  # Ensure the phone number is correctly passed
+        'visitor_phone': phone_number,
     })
 
     selected_class = None
@@ -44,10 +48,18 @@ def book_class(request):
             selected_day = request.POST.get('class_day')
 
             # Get available times based on the selected class and day
-            times = ClassTime.objects.filter(fitness_class=selected_class, day_of_week=selected_day)
-            request.session['visitor_name'] = request.POST.get('visitor_name')
-            request.session['visitor_email'] = request.POST.get('visitor_email')
-            request.session['visitor_phone'] = request.POST.get('visitor_phone')
+            times = ClassTime.objects.filter(
+                fitness_class=selected_class, day_of_week=selected_day
+            )
+            request.session['visitor_name'] = (
+                request.POST.get('visitor_name')
+            )
+            request.session['visitor_email'] = (
+                request.POST.get('visitor_email')
+            )
+            request.session['visitor_phone'] = (
+                request.POST.get('visitor_phone')
+            )
 
         elif 'book_now' in request.POST:
             print("----Second if----\n")
@@ -55,8 +67,7 @@ def book_class(request):
             visitor_email = request.session['visitor_email']
             visitor_phone = request.session['visitor_phone']
             class_time_id = request.POST.get('class_time')
-            
-            # Ensure we get the actual ClassTime object by filtering using time_range or other identifier
+
             try:
                 class_time = ClassTime.objects.get(id=class_time_id)
                 logger.debug(f"ClassTime selected: {class_time}")
@@ -98,12 +109,7 @@ def book_class(request):
 
 def success_url(request):
     """A view that displays the success page"""
-    return render(request, "classes/successful_booking.html")  # Render the success page
-
-
-def success_url(request):
-    """A view that displays the success page"""
-    return render(request, "classes/successful_booking.html")  # Render the success page
+    return render(request, "classes/successful_booking.html")
 
 
 def load_times(request):
@@ -111,7 +117,8 @@ def load_times(request):
     fitness_class = request.GET.get(
         "fitness_class"
     )  # Get fitness class from GET parameters
-    class_day = request.GET.get("class_day")  # Get class day from GET parameters
+    # Get class day from GET parameters
+    class_day = request.GET.get("class_day")
     if fitness_class and class_day:
         class_times = ClassTime.objects.filter(
             fitness_class=fitness_class, day_of_week=class_day
@@ -119,7 +126,8 @@ def load_times(request):
         data = [
             {"id": ct.id, "text": str(ct)} for ct in class_times
         ]  # Prepare data for JSON response
-        return JsonResponse(data, safe=False)  # Return JSON response with class times
+        # Return JSON response with class times
+        return JsonResponse(data, safe=False)
     return JsonResponse(
         [], safe=False
     )  # Return empty JSON response if no class or day specified

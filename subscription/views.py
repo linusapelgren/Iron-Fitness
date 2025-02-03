@@ -27,7 +27,9 @@ def plan_details(request, id):
     except UserProfile.DoesNotExist:
         has_active_subscription = False
 
-    context = {"plan": plan, "has_active_subscription": has_active_subscription}
+    context = (
+        {"plan": plan, "has_active_subscription": has_active_subscription}
+    )
     return render(request, "subscription/plan_details.html", context)
 
 

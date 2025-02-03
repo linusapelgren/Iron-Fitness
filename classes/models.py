@@ -42,7 +42,12 @@ class Booking(models.Model):
     fitness_class = models.CharField(max_length=20)
     class_day = models.CharField(max_length=9)  # For example, 'Monday'
     class_time = models.CharField(max_length=20)  # Format "HH:MM-HH:MM"
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="booked_classes")
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="booked_classes"
+    )
 
     def __str__(self):
-        return f"{self.visitor_name} - {self.fitness_class} - {self.class_day} - {self.class_time}"
+        return (
+            f"{self.visitor_name} - {self.fitness_class} - "
+            f"{self.class_day} - {self.class_time}"
+        )

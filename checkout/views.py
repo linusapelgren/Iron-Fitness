@@ -1,23 +1,24 @@
-import stripe  # Import the Stripe library for payment processing
-from django.conf import settings  # Import Django settings to access configuration
-from django.http import JsonResponse  # Import JsonResponse to send JSON responses
+import stripe
+from django.conf import settings
+from django.http import JsonResponse
 from django.views.decorators.csrf import (
     csrf_exempt,
-)  # Import to exempt views from CSRF verification
+)
 from django.shortcuts import (
     render,
     get_object_or_404,
-)  # Import render to render templates and get_object_or_404 for querying models
+)
 from django.contrib.auth.decorators import (
     login_required,
-)  # Import login_required to restrict access to logged-in users
-from subscription.models import SubscriptionPlan  # Import the SubscriptionPlan model
-from users.models import UserProfile  # Import the UserProfile model
-import json  # Import JSON library for parsing JSON data
-from django.views.generic import TemplateView  # Import TemplateView for generic views
-from django.http import HttpResponse  # Import HttpResponse for sending HTTP responses
-from django.contrib.auth.models import User  # Import the User model
-from django.utils import timezone  # Import timezone to work with time-related data
+)
+from subscription.models import SubscriptionPlan
+from users.models import UserProfile
+import json
+from django.views.generic import TemplateView
+from django.http import HttpResponse
+from django.contrib.auth.models import User
+from django.utils import timezone
+import logging
 
 # Set the Stripe API key using the one defined in settings
 stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
@@ -35,8 +36,8 @@ def process_payment(request):
             plan = get_object_or_404(
                 SubscriptionPlan, pk=plan_id
             )  # Get the subscription plan or return 404
-            amount_in_cents = int(plan.price * 100)  # Convert plan price to cents
-
+            # Convert plan price to cents
+            amount_in_cents = int(plan.price * 100)
             # Create a charge using the Stripe API
             charge = stripe.Charge.create(
                 amount=amount_in_cents,
@@ -111,10 +112,8 @@ def order_overview(request, plan_id):
 
 # Define a view for the success page
 def success(request):
-    return render(request, "checkout/success.html")  # Render the success template
+    return render(request, "checkout/success.html")
 
-
-import logging  # Import logging for logging events
 
 logger = logging.getLogger(__name__)  # Get a logger instance
 
@@ -133,15 +132,15 @@ def stripe_webhook(request):
         event = stripe.Webhook.construct_event(
             payload, sig_header, endpoint_secret
         )  # Construct the event from the payload and signature
-        logger.info(f"Received event: {event['type']}")  # Log the received event type
+        logger.info(f"Received event: {event['type']}")
     except (ValueError, stripe.error.SignatureVerificationError) as e:
-        logger.error(f"Webhook error: {e}")  # Log any errors during event construction
+        logger.error(f"Webhook error: {e}")
         return HttpResponse(status=400)  # Return a 400 error response
 
     if (
         event["type"] == "checkout.session.completed"
     ):  # Check if the event is for a completed checkout session
-        session = event["data"]["object"]  # Get the session object from the event data
+        session = event["data"]["object"]
         handle_checkout_session(session)  # Handle the checkout session
 
     return HttpResponse(status=200)  # Return a 200 OK response
@@ -172,10 +171,6 @@ def handle_checkout_session(session):
         user_profile, created = UserProfile.objects.get_or_create(user=user)
         user_profile.subscription_plan = plan
         user_profile.save()
-
-        logger.info(
-            f"Successfully updated profile for {user.email} with plan {plan.name}"
-        )  # Log a success message
 
     except User.DoesNotExist:
         logger.error(

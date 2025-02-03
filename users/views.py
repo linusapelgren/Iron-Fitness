@@ -11,27 +11,31 @@ from django.conf import settings
 from django.utils import timezone
 from datetime import timedelta
 from classes.models import Booking
+import re
+
 
 class CustomSignupView(AllauthSignupView):
     form_class = CustomSignupForm
 
+
 @login_required
 def profile_view(request):
     """A view that shows the user's profile and booked classes."""
-    
+
     # Fetch the UserProfile for the current logged-in user
     user_profile = UserProfile.objects.filter(user=request.user).first()
-    
+
     if user_profile is None:
-        # In case no UserProfile exists for the logged-in user, handle it gracefully
-        return render(request, "users/profile.html", {"error": "User profile not found."})
+        return render(
+            request, "users/profile.html", {"error": "User profile not found."}
+        )
 
     # Fetch booked classes associated with the user profile
-    booked_classes = user_profile.booked_classes.all()  # Corrected line
-    
+    booked_classes = user_profile.booked_classes.all()
+
     context = {
         'user_profile': user_profile,
-        'booked_classes': booked_classes  # Now passing the correct booked classes
+        'booked_classes': booked_classes
     }
     return render(request, "users/profile.html", context)
 
@@ -39,10 +43,16 @@ def profile_view(request):
 @login_required
 def profile_edit(request):
     """A view to edit the user's profile."""
-    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+    user_profile, created = UserProfile.objects.get_or_create(
+        user=request.user
+    )
 
     if request.method == "POST":
-        form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
+        form = UserProfileForm(
+            request.POST,
+            request.FILES,
+            instance=user_profile
+        )
         if form.is_valid():
             form.save()
             return redirect("profile_view")
@@ -50,12 +60,13 @@ def profile_edit(request):
         form = UserProfileForm(instance=user_profile)
 
     return render(
-        request, "users/profile_edit.html", {"form": form, "user_profile": user_profile}
+        request, "users/profile_edit.html",
+        {"form": form, "user_profile": user_profile}
     )
 
 
 class CustomPasswordChangeView(PasswordChangeView):
-    success_url = reverse_lazy("profile_view")  # Update this to your profile view URL
+    success_url = reverse_lazy("profile_view")
 
     def form_valid(self, form):
         messages.success(self.request, "Password changed successfully.")
@@ -96,9 +107,6 @@ def manage_subscription(request):
     return render(request, "users/managesubscription.html", context)
 
 
-import re
-
-
 @login_required
 def cancel_subscription(request):
     """A view to handle subscription cancellation with binding period check."""
@@ -118,7 +126,7 @@ def cancel_subscription(request):
         binding_period_days = convert_binding_time_to_days(binding_time_str)
         if binding_period_days is None:
             messages.error(request, "Invalid binding period format.")
-            print(f"Invalid binding_time format: {binding_time_str}")  # Debug line
+            print(f"Invalid binding_time format: {binding_time_str}")
             return render(
                 request,
                 "users/managesubscription.html",
@@ -141,19 +149,23 @@ def cancel_subscription(request):
                 can_cancel = False
                 messages.warning(
                     request,
-                    "You cannot cancel your subscription during the binding period.",
+                    "You cannot cancel your subscription "
+                    "during the binding period.",
                 )
             elif request.method == "POST":
-                print("POST request received")  # Debug line
+                print("POST request received")
                 try:
                     user_profile.subscription_plan = None
                     user_profile.subscription_start_date = None
                     user_profile.save()
-                    messages.success(request, "Subscription cancelled successfully.")
+                    messages.success(
+                        request, "Subscription cancelled successfully."
+                    )
                     return redirect("manage_subscription")
                 except Exception as e:
                     messages.error(
-                        request, "An error occurred while canceling your subscription."
+                        request,
+                        "An error occurred while canceling your subscription."
                     )
                     print(f"Error canceling subscription: {e}")
         else:

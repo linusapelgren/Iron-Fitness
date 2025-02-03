@@ -28,8 +28,34 @@ Deployed Site - [Iron Fitness](https://ironfitness-62429d8e23c9.herokuapp.com/)
 - [Credits](#credits)
 
 ## User Stories
-- All my user stories
-User Stories - [User Stories](https://github.com/linusapelgren/Iron-Fitness/issues)
+
+#### EPIC | Viewing and Navigation
+- As a Site User, I can intuitively navigate around the site so that I can find content.
+- As a Site User, I can view a list of availible subscription plans and select a plan to view
+- As a Site User, I can find all the relevant information about the gym
+- As a Site User, I can sign up for a newsletter using my email
+
+#### EPIC | User Account and Profile
+- As a site user, I can register an account so that I can have a personal account.
+- As a site user, I can log in or log out of my account so that I can keep my account secure.
+- As a site user, I can see my login status so that I know if I'm logged in or out.
+- As a site user, I can save my personal details in my user profile
+- As a site user, I can view my current subscription plan
+- As a site user, I can recover my password in case I forget it so that I can recover access to my account.
+
+#### EPIC | Subscriping
+- As a subscriber, I can securely enter my payment information so that I can subscribe to my chosen plan quickly
+- As a subscriber, I can cancel my subscription plan easily on my profile page
+
+#### EPIC | Booking
+- As a subscriber, I can choose from a multitude of gym classes to attend
+- As a subscriber, I can book a gym class quick and easy
+- As a subscriber, I can see my booked classes on my profile page
+
+#### EPIC | Admin & Store Management
+- As a site admin, I can add or remove subsription plans easily through an easy to use page
+- As a site admin, I can add or remove class times through an easy to use page
+- As a site admin, I can send out bulk emails to all my newsletter subscribers through an easy to use page 
 
 ## Design
 
@@ -400,13 +426,15 @@ The following packages were installed throughout the development.
 ### Validator Testing 
 
 - HTML
-  - One error was returned when passing through the official [W3C validator](https://validator.w3.org/nu/)
-  - This error i didn't manage to find a solution for without it messing up my main navigation
+  - No error was returned when passing through the official [W3C validator](https://validator.w3.org/nu/)
   - <img src="static/images/testing/htmlvalidator.png">
 
 - CSS
-  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-running-2.0%252Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#css)
+  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
   - <img src="static/images/testing/cssvalidator.png">
+
+- Python
+  - No errors were found when passing through the official [CI Python Validator](https://pep8ci.herokuapp.com)
 
 ### Lighthouse tool
 

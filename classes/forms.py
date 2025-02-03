@@ -18,12 +18,13 @@ def generate_time_choices(start_hour=8, end_hour=16, interval_minutes=60):
             datetime.combine(datetime.today(), current_time)
             + timedelta(minutes=interval_minutes)
         ).time()
-        times.append(
-            (
-                f"{current_time.strftime('%H:%M')}-{end_time_option.strftime('%H:%M')}",
-                f"{current_time.strftime('%H:%M')}-{end_time_option.strftime('%H:%M')}",
-            )
-        )
+        times.append((
+            f"{current_time.strftime('%H:%M')}-"
+            f"{end_time_option.strftime('%H:%M')}",
+
+            f"{current_time.strftime('%H:%M')}-"
+            f"{end_time_option.strftime('%H:%M')}",
+        ))
         current_time = end_time_option
 
     return times
@@ -38,8 +39,8 @@ class BookingForm(forms.Form):
         required=True,
         widget=forms.TextInput(
             attrs={
-                "class": "form-control", 
-                "placeholder": "Your name", 
+                "class": "form-control",
+                "placeholder": "Your name",
                 "readonly": "readonly"  # This makes the field read-only
             }
         ),
@@ -48,8 +49,8 @@ class BookingForm(forms.Form):
         required=True,
         widget=forms.EmailInput(
             attrs={
-                "class": "form-control", 
-                "placeholder": "example.email@email.com", 
+                "class": "form-control",
+                "placeholder": "example.email@email.com",
                 "readonly": "readonly"
             }
         ),
@@ -59,14 +60,15 @@ class BookingForm(forms.Form):
         required=True,
         widget=forms.TextInput(
             attrs={
-                "class": "form-control", 
-                "placeholder": "070-000 0000", 
+                "class": "form-control",
+                "placeholder": "070-000 0000",
                 "readonly": "readonly"
             }
         ),
     )
     fitness_class = forms.ChoiceField(
-        choices=[], required=True, widget=forms.Select(attrs={"class": "form-select"})
+        choices=[], required=True,
+        widget=forms.Select(attrs={"class": "form-select"})
     )  # Fitness class field
     class_day = forms.ChoiceField(
         choices=[
@@ -82,7 +84,8 @@ class BookingForm(forms.Form):
         widget=forms.Select(attrs={"class": "form-select"}),
     )  # Class day field
     class_time = forms.ChoiceField(
-        choices=[], required=True, widget=forms.Select(attrs={"class": "form-select"})
+        choices=[], required=True,
+        widget=forms.Select(attrs={"class": "form-select"})
     )  # Class time field
 
     def __init__(self, *args, **kwargs):
@@ -104,8 +107,10 @@ class BookingForm(forms.Form):
 
         # Update class_time choices based on fitness_class and class_day
         if fitness_class and class_day:
-            self.fields["class_time"].choices = self.get_class_times_for_day_and_class(
-                fitness_class, class_day
+            self.fields["class_time"].choices = (
+                self.get_class_times_for_day_and_class(
+                    fitness_class, class_day
+                )
             )
         else:
             self.fields["class_time"].choices = []

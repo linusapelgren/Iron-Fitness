@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from contact.models import NewsletterSubscriber
 
+
 class Command(BaseCommand):
     help = 'Send bulk emails to all newsletter subscribers'
 
@@ -24,6 +25,8 @@ class Command(BaseCommand):
 
         try:
             send_mail(subject, message, from_email, recipient_list)
-            self.stdout.write(self.style.SUCCESS(f'Email sent to {len(recipient_list)} subscribers.'))
+            self.stdout.write(self.style.SUCCESS(
+                f'Email sent to {len(recipient_list)} subscribers.'
+                ))
         except Exception as e:
             self.stdout.write(self.style.ERROR(f'Error sending emails: {e}'))

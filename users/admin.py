@@ -3,7 +3,7 @@ from .models import UserProfile
 
 
 class UserProfileAdmin(admin.ModelAdmin):
-    # Define which fields should be displayed in the list view of the admin interface
+    # Define which fields should be displayed in the admin interface
     list_display = (
         "user",
         "phone_number",

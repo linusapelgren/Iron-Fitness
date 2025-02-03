@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.admin.views.decorators import staff_member_required
 
+
 def contact_us(request):
     """ A view to return the contact us page and handle newsletter signup """
     if request.method == 'POST':
@@ -16,7 +17,9 @@ def contact_us(request):
 
             # Check if the email is already in the database
             if NewsletterSubscriber.objects.filter(email=email).exists():
-                messages.error(request, "This email is already subscribed.", extra_tags='newsletter')
+                messages.error(
+                    request, "Already subscribed.", extra_tags='newsletter'
+                )
             else:
                 # Save the email to the database
                 subscriber = NewsletterSubscriber(email=email)
@@ -26,7 +29,8 @@ def contact_us(request):
                 subject = "Thank You for Signing Up!"
                 message = (
                     f"Hi there,\n\n"
-                    f"Thank you for signing up for our newsletter. We're excited to keep you updated "
+                    f"Thank you for signing up for our newsletter.\n\n"
+                    f"We're excited to keep you updated\n\n"
                     f"on the latest news and updates.\n\n"
                     f"Best regards,\nThe Iron Fitness Team"
                 )
@@ -35,36 +39,36 @@ def contact_us(request):
 
                 try:
                     send_mail(subject, message, from_email, recipient_list)
-                    messages.success(request, "Successfully signed up for the newsletter! A confirmation email has been sent.", extra_tags='newsletter')
+                    messages.success(
+                        request, "Signed up!", extra_tags="newsletter"
+                    )
                 except Exception as e:
-                    messages.error(request, "Sign up successful, but we couldn't send the confirmation email.", extra_tags='newsletter')
                     print(f"Email error: {e}")
 
             form = NewsletterSignupForm()  # Clear the form if no errors
         else:
-            messages.error(request, "There was an error with your submission.", extra_tags='newsletter')
-            print(form.errors)  # Debugging: print form errors to the console
+            messages.error(request, "Error.", extra_tags="newsletter")
     else:
         form = NewsletterSignupForm()
 
     return render(request, 'contact/contact.html', {'form': form})
 
-@staff_member_required  # Ensure that only admin users can access this view
+
+@staff_member_required
 def send_newsletter(request):
     if request.method == 'POST':
         subject = request.POST['subject']
         message = request.POST['message']
-        
+
         # Get all subscriber emails
         subscribers = NewsletterSubscriber.objects.all()
         recipient_list = [subscriber.email for subscriber in subscribers]
-        
         # Send the email
         if recipient_list:
             send_mail(
                 subject,
                 message,
-                settings.DEFAULT_FROM_EMAIL,  # Make sure this is defined in settings.py
+                settings.DEFAULT_FROM_EMAIL,
                 recipient_list,
                 fail_silently=False,
             )
@@ -72,5 +76,5 @@ def send_newsletter(request):
             return render(request, 'send_newsletter.html')
         else:
             messages.error(request, "No subscribers found.")
-    
+
     return render(request, 'contact/newsletter.html')
