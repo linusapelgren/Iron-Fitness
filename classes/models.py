@@ -38,10 +38,10 @@ class Booking(models.Model):
     """Model for booking a class."""
     visitor_name = models.CharField(max_length=100)
     visitor_email = models.EmailField()
-    visitor_phone = models.CharField(max_length=15)
-    fitness_class = models.CharField(max_length=20)
+    visitor_phone = models.CharField(max_length=50)
+    fitness_class = models.CharField(max_length=50)
     class_day = models.CharField(max_length=9)  # For example, 'Monday'
-    class_time = models.CharField(max_length=20)  # Format "HH:MM-HH:MM"
+    class_time = models.CharField(max_length=50)  # Format "HH:MM-HH:MM"
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="booked_classes"
     )
